@@ -16,7 +16,7 @@ module.exports = {
    port: 3000,
    watchContentBase: true
  },
-  // Rules of how webpack will take our files, complie & bundle them for the browser
+  // Rules of how webpack will take our files, compile & bundle them for the browser
  module: {
    rules: [
      {
@@ -32,6 +32,5 @@ module.exports = {
      }
    ]
  },
- plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })],
 }
 

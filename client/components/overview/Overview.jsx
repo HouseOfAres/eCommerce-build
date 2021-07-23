@@ -18,7 +18,7 @@ const Overview = () => {
 
   return (
     <div className="test">
-      <h1>HOUSE OF ARES - Chi's Section for the widget</h1>
+      <h1>HOUSE OF ARES - CHI'S AREA</h1>
     </div>
   )
 

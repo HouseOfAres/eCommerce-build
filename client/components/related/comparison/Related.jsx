@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import React { useState } from 'react;'
 
 // CHANGE NAME HERE
-const App = () => {
+const Related = () => {
 
 // Returns a stateful value, and a function to update it.
   const [state, setState] = useState(initialState);
@@ -18,11 +18,11 @@ const App = () => {
   const value = useContext(MyContext);
 
   return (
-    <div className="test">
+    <div className="test">This is Related
     </div>
   )
 
 }
 
 // CHANGE EXPORT HERE
-export default App;
+export default Related;

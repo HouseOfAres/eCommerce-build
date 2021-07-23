@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import React { useState } from 'react;'
 
 // CHANGE NAME HERE
-const App = () => {
+const QuestionsAndAnswers = () => {
 
 // Returns a stateful value, and a function to update it.
   const [state, setState] = useState(initialState);
@@ -25,4 +25,4 @@ const App = () => {
 }
 
 // CHANGE EXPORT HERE
-export default App;
+export default QuestionsAndAnswers;
