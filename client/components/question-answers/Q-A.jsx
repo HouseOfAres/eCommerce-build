@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <div className="test">
-      YO WE ARE ARES BRUH
+      YO WE ARE ARES BRUH!!!!!!!!!!!!!
     </div>
   )
 
