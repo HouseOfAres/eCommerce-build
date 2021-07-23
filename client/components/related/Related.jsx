@@ -18,6 +18,7 @@ const Related = () => {
 //   const value = useContext(MyContext);
 
 // I deleted two files and added this comment
+// THIS IS A NEW CHANGE
 
   return (
     <div className="test">This is Related
