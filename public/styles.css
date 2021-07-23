@@ -1,0 +1,11 @@
+body, html {
+  width: 100%;
+}
+
+body .test {
+  width: 90%;
+  margin: 0 auto;
+  height: 900px;
+  background-color: lightgray;
+  padding: 0px;
+}

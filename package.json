@@ -1,0 +1,49 @@
+{
+  "name": "frontend-capstone",
+  "version": "1.0.0",
+  "description": "Frontend capstone project for House of Ares",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --mode development --watch",
+    "production": "webpack --mode-production --node-env-production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HouseOfAres/frontend-capstone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HouseOfAres/frontend-capstone/issues"
+  },
+  "homepage": "https://github.com/HouseOfAres/frontend-capstone#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babel-loader": "^8.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "react": "^17.0.2",
+    "webpack": "^5.46.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "@expo/webpack-config": "^0.13.1",
+    "@webpack-cli/generators": "^2.2.0",
+    "css-loader": "^6.2.0",
+    "file-loader": "^6.2.0",
+    "react-dom": "^17.0.2",
+    "style-loader": "^3.2.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
