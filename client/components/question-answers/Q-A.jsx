@@ -17,6 +17,8 @@ const App = () => {
 // // Accepts a context object (the value returned from React.
 //   const value = useContext(MyContext);
 
+// this is a comment... bruh.
+
   return (
     <div className="test">
       YO WE ARE ARES BRUH!!!!!!!!!!!!!
