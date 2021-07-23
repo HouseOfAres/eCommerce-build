@@ -17,6 +17,8 @@ const Related = () => {
 // // Accepts a context object (the value returned from React.
 //   const value = useContext(MyContext);
 
+// I deleted two files and added this comment
+
   return (
     <div className="test">This is Related
 
