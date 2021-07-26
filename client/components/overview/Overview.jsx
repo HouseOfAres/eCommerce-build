@@ -9,7 +9,7 @@ const Overview = () => {
 
 
   return (
-    <div className="test">
+    <div className="component">
       <h1>HOUSE OF ARES - CHI'S AREA</h1>
       <img src={styles.productStyles.results[0].photos[0].thumbnail_url}></img>
       <img src={styles.productStyles.results[0].photos[1].thumbnail_url}></img>

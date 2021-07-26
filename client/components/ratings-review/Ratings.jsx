@@ -14,7 +14,7 @@ const Ratings = () => {
 //   const value = useContext(MyContext);
 
   return (
-    <div className="test">THIS IS THE RATINGS COMPONENT
+    <div className="component">THIS IS THE RATINGS COMPONENT
     </div>
   )
 

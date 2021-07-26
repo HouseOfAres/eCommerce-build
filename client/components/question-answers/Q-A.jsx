@@ -20,8 +20,9 @@ const App = () => {
 // this is a comment... bruh.
 
   return (
-    <div className="test">
-      YO WE ARE ARES BRUH!!!!!!!!!!!!!
+    <div className="component">
+      <h2>YO WE ARE ARES BRUH!!!!!!!!!!!!!</h2>
+      <h3>Hello there</h3>
     </div>
   )
 
