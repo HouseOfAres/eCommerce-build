@@ -24,7 +24,7 @@ const Related = () => {
   return (
     <div className="test">This is Related
 
-    </div>ls
+    </div>
 
   )
 
