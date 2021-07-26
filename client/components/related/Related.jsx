@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import answers from '../../../mock-data/answers-list-data.js'
-// /Users/jaircarbajal/HackReactor/rfp54/frontend-capstone/mock-data/answers-list-data.js
 // import React { useState } from 'react;'
 
 // CHANGE NAME HERE
