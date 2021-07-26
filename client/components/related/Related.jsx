@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import answers from '../../../mock-data/answers-list-data.js'
+import Carousel from './Carousel.jsx'
 // import React { useState } from 'react;'
 
 // CHANGE NAME HERE
@@ -22,7 +23,7 @@ const Related = () => {
 
   return (
     <div className="component">This is Related
-
+      <Carousel />
     </div>
 
   )

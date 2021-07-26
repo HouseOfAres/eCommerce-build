@@ -135,7 +135,7 @@ body div.component .SUBCOMPONENT {
 
 
 
-/* RELATED ITEMS *************************************************************/
+/* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
 
 body div.component .SUBCOMPONENT {
@@ -144,7 +144,11 @@ body div.component .SUBCOMPONENT {
   height: 100px;
 }
 
-
+.carousel {
+  width: 60%;
+  height: 300px;
+  background-color: antiquewhite;
+}
 
 
 
