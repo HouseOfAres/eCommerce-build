@@ -21,7 +21,7 @@ const Related = () => {
 // THIS IS A NEW CHANGE
 
   return (
-    <div className="test">This is Related
+    <div className="component">This is Related
 
     </div>
 

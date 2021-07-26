@@ -17,7 +17,7 @@ const Overview = () => {
 
 
   return (
-    <div className="test">
+    <div className="component">
       <h1>HOUSE OF ARES - CHI'S AREA</h1>
     </div>
   )

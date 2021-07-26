@@ -1,12 +1,173 @@
 body, html {
   width: 100%;
   background-color: #364352;
+  margin: 0;
 }
 
-body .test {
-  width: 90%;
+/* Main Nav Bar */
+
+  body div.nav {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    background-color: #677686;
+    height: 80px;
+    margin: 0px auto 20px auto;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+@media (min-width:1280px){
+  body div.nav {
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: #677686;
+    height: 80px;
+    margin: 0px auto 20px auto;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+  }
+}
+
+/* Nav Logo */
+
+body div.nav .logo {
+  height: 100%;
+}
+
+/* Component Div */
+body div.component {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
   margin: 20px auto;
-  height: 900px;
-  background-color: lightgray;
+  background-color: rgb(236, 236, 236);
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (min-width:1280px){
+  body div.component {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 20px auto;
+    background-color: rgb(236, 236, 236);
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+body div.component h1 {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body div.component h2 {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body div.component h3 {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Slogan Section */
+
+body div.slogan {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  background-color: #677686;
+  height: 80px;
+  margin: 0px auto 20px auto;
   padding: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media (min-width:1280px){
+body div.nav {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: #677686;
+  height: 80px;
+  margin: 0px auto 20px auto;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+}
+
+/* OVERVIEW ******************************************************************/
+
+
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
+}
+
+
+
+
+
+
+
+/* RELATED ITEMS *************************************************************/
+
+
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
+}
+
+
+
+
+
+
+/* QUESTIONS & ANSWERS *******************************************************/
+
+
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
+}
+
+
+
+
+
+
+/* RATINGS & REVIEWS *********************************************************/
+
+
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
 }
