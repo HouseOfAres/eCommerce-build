@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../../../mock-data/styles-data.js';
+import image from '../../../mock-data/styles-data.js';
+import Thumbnail from './Thumbnail.jsx'
 
 // import React { useState } from 'react;'
 
 // CHANGE NAME HERE
 const Overview = () => {
 // console.log(styles.productStyles.results[0].photos)
-
+  const [main, setMain] = useState(image.productStyles.results[0].photos[0].url)
 
   return (
     <div className="component">
-      <h1>HOUSE OF ARES - CHI'S AREA</h1>
-      <img src={styles.productStyles.results[0].photos[0].thumbnail_url}></img>
-      <img src={styles.productStyles.results[0].photos[1].thumbnail_url}></img>
-      <img src={styles.productStyles.results[0].photos[2].thumbnail_url}></img>
-      <img src={styles.productStyles.results[0].photos[3].thumbnail_url}></img>
-      <img src={styles.productStyles.results[0].photos[4].thumbnail_url}></img>
-      <img src={styles.productStyles.results[0].photos[5].thumbnail_url}></img>
+      <h1>Main Product</h1>
+      <img src={main}></img>
+      {image.productStyles.results[0].photos.map((e) => {
+        return <Thumbnail thumb={e}/>
+      })}
+
     </div>
   )
 
