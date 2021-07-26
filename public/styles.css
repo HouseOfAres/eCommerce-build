@@ -1,31 +1,30 @@
 body, html {
   width: 100%;
   background-color: #364352;
+  margin: 0;
 }
 
 /* Main Nav Bar */
-@media (min-width:1920px){
+
   body .nav {
     display: block;
     width: 100%;
-    max-width: 64%;
+    max-width: 1280px;
     background-color: red;
-    height: 100px;
+    height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
   }
-}
 
-@media (min-width:1278px){
+@media (min-width:1280px){
   body .nav {
     display: block;
     width: 100%;
     background-color: rgb(160, 56, 201);
-    height: 100px;
+    height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
     -webkit-box-sizing: border-box;
@@ -35,9 +34,17 @@ body, html {
   }
 }
 
+/* Nav Logo */
+
+body div.nav .logo {
+  height: 100%;
+}
+
 /* Component Div */
 body .test {
-  width: 64%;
+  display: block;
+  width: 100%;
+  max-width: 1280px;
   margin: 20px auto;
   height: 900px;
   background-color: rgb(233, 233, 233);
@@ -45,6 +52,21 @@ body .test {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+@media (min-width:1280px){
+  body .test {
+    display: block;
+    width: 100%;
+    max-width: 1280px;
+    margin: 20px auto;
+    height: 900px;
+    background-color: rgb(136, 122, 122);
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 }
 
 body h2 {
