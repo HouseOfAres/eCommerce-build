@@ -16,26 +16,28 @@ const Ratings = () => {
 
   return (
     <div className='test'>
+      <div className="component">THIS IS THE RATINGS COMPONENT
 
-      <div className='md-grid-push-pull'>
-        <div className='mbsc-row'>
+        <div className='md-grid-push-pull'>
+          <div className='mbsc-row'>
 
-            <h1>THIS IS THE RATINGS COMPONENT</h1>
-            <div className='mbsc-col-8 mbsc-pull-lg-4'>
-              <h2>This will be the ReviewList Component</h2>
-              <div className='reviewTiles'>
-                <h3>These will be the individual review tiles</h3>
+              <h1>THIS IS THE RATINGS COMPONENT</h1>
+              <div className='mbsc-col-8 mbsc-pull-lg-4'>
+                <h2>This will be the ReviewList Component</h2>
+                <div className='reviewTiles'>
+                  <h3>These will be the individual review tiles</h3>
+                </div>
               </div>
-            </div>
 
-            <div className='mbsc-col-4 mbsc-push-lg-8'>
-              <h2>This will be the Rating Component which needs to be left of the ratings component</h2>
-            </div>
+              <div className='mbsc-col-4 mbsc-push-lg-8'>
+                <h2>This will be the Rating Component which needs to be left of the ratings component</h2>
+              </div>
 
           </div>
         </div>
-
+      </div>
     </div>
+
   )
 
 }
