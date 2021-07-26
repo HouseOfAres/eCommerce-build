@@ -153,6 +153,7 @@ body div.nav {
 
 
 body div.component div.q_a_component {
+  display: block;
   background-color: rgb(241, 194, 255);
   width: 100%;
   height: 100%;
@@ -161,31 +162,51 @@ body div.component div.q_a_component {
   box-sizing: border-box;
 }
 
-body div.component div.q_a_component div.searchBar {
-  height: 80px;
+
+/* Searchbar */
+
+body div.component div.q_a_component div.searchBar_container {
+  background-color: rgb(228, 138, 255);
+  margin: 10px 0px;
+  padding: 0px;
+}
+
+body div.component div.q_a_component div.searchBar_container .searchbar {
+  height: 70px;
+  width: 100%;
+  border: none;
+  border: 3px solid black;
+  margin: 10px 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body div.component div.q_a_component div.q_a_subcomponent {
   background-color: rgb(228, 138, 255);
   margin: 10px 0px;
 }
 
-body div.component div.q_a_component div.q_a_subcomponent {
-  height: 80px;
-  background-color: rgb(228, 138, 255);
-  margin: 10px 0px;
+body div.component div.q_a_component div.q_a_subcomponent span#q_a_text {
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
 body div.component div.q_a_component div.q_a_subcomponent div.questions {
   height: 80px;
-  background-color: rgb(208, 56, 255);
+  background-color: rgb(121, 57, 141);
   margin: 10px 0px;
 }
 
 body div.component div.q_a_component div.q_a_subcomponent div.answers {
   height: 80px;
-  background-color: rgb(208, 56, 255);
+  background-color: rgb(121, 57, 141);
   margin: 10px 0px;
 }
 
 body div.component div.q_a_component div.q_a_buttons {
+  display: block;
   height: 80px;
   background-color: rgb(228, 138, 255);
   margin: 10px 0px;

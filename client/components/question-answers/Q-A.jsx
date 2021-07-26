@@ -23,10 +23,26 @@ const App = () => {
     <div className="component">
       <div className="q_a_component">
         <span>QUESTIONS & ANSWERS</span>
-        <div className="searchBar"></div>
+        <div className="searchBar_container">
+          <form>
+            <input className="searchbar" type="text" placeholder="Have a question? Search for answers…">
+            </input>
+            <input type="button" value="submit" />
+          </form>
+        </div>
         <div className="q_a_subcomponent">
-          <div className="questions"></div>
-          <div className="answers"></div>
+          <div className="questions">
+            <span id="q_a_text">
+              Q: This is a reeaaally important question?
+            </span>
+          </div>
+          <div className="answers">
+            <span id="q_a_text">
+              A: </span>
+            <span>
+              This is the super duper helpful answer
+            </span>
+          </div>
         </div>
         <div className="q_a_buttons"></div>
       </div>
