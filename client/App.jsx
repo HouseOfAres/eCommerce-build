@@ -11,6 +11,7 @@ const App = () => {
 
   return (
     <div>
+      <div className="nav"></div>
       <Overview />
       <Related />
       <QuestionsAndAnswers />
