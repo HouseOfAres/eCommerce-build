@@ -22,3 +22,7 @@ const productInformation = {
 
 // This data contains "features" key.
 // Isolated product
+
+module.exports = {
+    productInformation
+};

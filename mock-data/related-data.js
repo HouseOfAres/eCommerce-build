@@ -4,3 +4,6 @@ const related = [
   17074,
   17073
 ]
+module.exports = {
+  related
+}
