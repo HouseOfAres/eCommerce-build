@@ -24,7 +24,7 @@ body, html {
   body .nav {
     display: block;
     width: 100%;
-    background-color: red;
+    background-color: rgb(160, 56, 201);
     height: 100px;
     margin: 0px auto 20px auto;
     padding: 0px;
