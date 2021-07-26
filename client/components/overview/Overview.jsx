@@ -11,7 +11,7 @@ const Overview = () => {
 
   const imageHandler = (event) => {
     setMain(event)
-    console.log(event)
+    // console.log(event)
   }
 
   return (
