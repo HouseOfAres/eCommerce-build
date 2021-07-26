@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReviewList from './ReviewList.jsx';
 
 // import React { useState } from 'react;'
 
@@ -14,8 +15,26 @@ const Ratings = () => {
 //   const value = useContext(MyContext);
 
   return (
-    <div className="component">THIS IS THE RATINGS COMPONENT
+    <div className='test'>
+      <div className='component'>THIS IS THE RATINGS CONTAINER
+        <div className='reviewsRatingsContainer'>
+
+                <div className='reviewList'>
+                  <h2>This will be the ReviewList Component</h2>
+                  <div className='reviewTiles'>
+                    <h3>These will be the individual review tiles</h3>
+                    <ReviewList />
+                  </div>
+                </div>
+
+                <div className='ratingComponent'>
+                  <h2>This will be the Rating Component which needs to be left of the ratings component</h2>
+                </div>
+
+        </div>
+      </div>
     </div>
+
   )
 
 }
