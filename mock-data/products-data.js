@@ -55,3 +55,7 @@ const products = [
       "updated_at": "2021-02-23T04:22:44.728Z"
   }
 ]
+
+module.exports = {
+    products
+}

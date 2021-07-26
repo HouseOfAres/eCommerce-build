@@ -357,3 +357,7 @@ const productStyles = {
       }
   ]
 }
+
+module.exports = {
+    productStyles
+}
