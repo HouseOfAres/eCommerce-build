@@ -166,8 +166,25 @@ body div.component .SUBCOMPONENT {
 /* RATINGS & REVIEWS *********************************************************/
 
 
-body div.component .SUBCOMPONENT {
-  background-color: gray;
-  width: 300px;
-  height: 100px;
+body div.component .reviewsRatingsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  background-color: rgba(128, 138, 131, 0.397);
+  padding: 0px 120px;
+  width: auto;
+  height: auto;
 }
+
+body div.component div.reviewsRatingsContainer div.reviewList{
+  background-color: rgba(128, 138, 131, 0.397);
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+body div.component div.reviewsRatingsContainer .ratingComponent{
+  background-color: rgba(128, 138, 131, 0.397);
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
