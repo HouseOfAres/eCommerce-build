@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './ratings.css';
+import ReviewList from './ReviewList.jsx';
 
 // import React { useState } from 'react;'
 
@@ -23,6 +23,7 @@ const Ratings = () => {
                   <h2>This will be the ReviewList Component</h2>
                   <div className='reviewTiles'>
                     <h3>These will be the individual review tiles</h3>
+                    <ReviewList />
                   </div>
                 </div>
 
