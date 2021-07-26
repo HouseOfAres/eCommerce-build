@@ -11,10 +11,9 @@ const App = () => {
 
   return (
     <div>
-      <div className="nav">
-        <img className ="logo" src="https://mpng.subpng.com/20180511/lce/kisspng-pepsi-max-fizzy-drinks-logo-pepsico-5af62264799bc1.3385798615260801004981.jpg" />
-      </div>
+      <div className="nav">NAV BAR</div>
       <Overview />
+      <div className="slogan">SLOGAN</div>
       <Related />
       <QuestionsAndAnswers />
       <Ratings />

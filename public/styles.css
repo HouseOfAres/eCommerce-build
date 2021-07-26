@@ -6,11 +6,12 @@ body, html {
 
 /* Main Nav Bar */
 
-  body .nav {
+  body div.nav {
     display: block;
+    position: relative;
     width: 100%;
     max-width: 1280px;
-    background-color: red;
+    background-color: #677686;
     height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
@@ -20,10 +21,11 @@ body, html {
   }
 
 @media (min-width:1280px){
-  body .nav {
+  body div.nav {
     display: block;
+    position: relative;
     width: 100%;
-    background-color: rgb(160, 56, 201);
+    background-color: #677686;
     height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
@@ -41,45 +43,91 @@ body div.nav .logo {
 }
 
 /* Component Div */
-body .test {
+body div.component {
   display: block;
+  position: relative;
   width: 100%;
   max-width: 1280px;
   margin: 20px auto;
-  height: 900px;
-  background-color: rgb(233, 233, 233);
+  background-color: rgb(236, 236, 236);
   padding: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media (min-width:1280px){
+  body div.component {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 20px auto;
+    background-color: rgb(236, 236, 236);
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+body div.component h1 {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body div.component h2 {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body div.component h3 {
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Slogan Section */
+
+body div.slogan {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  background-color: #677686;
+  height: 80px;
+  margin: 0px auto 20px auto;
+  padding: 0px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 @media (min-width:1280px){
-  body .test {
-    display: block;
-    width: 100%;
-    max-width: 1280px;
-    margin: 20px auto;
-    height: 900px;
-    background-color: rgb(136, 122, 122);
-    padding: 30px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+body div.nav {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: #677686;
+  height: 80px;
+  margin: 0px auto 20px auto;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
 }
-
-body h2 {
-  margin: 0px;
 }
-
-
-
-
 
 /* OVERVIEW ******************************************************************/
 
 
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
+}
 
 
 
@@ -90,7 +138,11 @@ body h2 {
 /* RELATED ITEMS *************************************************************/
 
 
-
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
+}
 
 
 
@@ -100,7 +152,11 @@ body h2 {
 /* QUESTIONS & ANSWERS *******************************************************/
 
 
-
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
+}
 
 
 
@@ -108,3 +164,10 @@ body h2 {
 
 
 /* RATINGS & REVIEWS *********************************************************/
+
+
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
+}
