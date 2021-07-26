@@ -6,15 +6,6 @@ import React, { useState, useEffect } from 'react';
 const Overview = () => {
 
 
-  // https://reactjs.org/docs/hooks-reference.html#useeffect
-
-  // const [state, setState] = useState(initialState);
-  // setState(newState);
-
-  // const effect = useEffect(fn);
-
-  // const value = useContext(MyContext);
-
 
   return (
     <div className="test">
