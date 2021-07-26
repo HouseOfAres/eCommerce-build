@@ -172,10 +172,10 @@ body div.component div.q_a_component div.searchBar_container {
 }
 
 body div.component div.q_a_component div.searchBar_container .searchbar {
-  height: 70px;
+  height: 60px;
   width: 100%;
   border: none;
-  border: 3px solid black;
+  border: 1px solid black;
   margin: 10px 0px;
   padding: 0px;
   -webkit-box-sizing: border-box;
@@ -194,13 +194,11 @@ body div.component div.q_a_component div.q_a_subcomponent span#q_a_text {
 }
 
 body div.component div.q_a_component div.q_a_subcomponent div.questions {
-  height: 80px;
   background-color: rgb(121, 57, 141);
   margin: 10px 0px;
 }
 
 body div.component div.q_a_component div.q_a_subcomponent div.answers {
-  height: 80px;
   background-color: rgb(121, 57, 141);
   margin: 10px 0px;
 }
