@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import ReviewList from './ReviewList.jsx';
 import AddReview from './AddReview.jsx';
 import currentItemId from '../../../mock-data/reviews-data.js';
+import productData from '../../../mock-data/product-data.js';
 
 const Ratings = () => {
 
-  const [productID, setProductID] = useState(currentItemId.review.product);
+  const [product, setProductID] = useState(currentItemId.review);
 // // Returns a stateful value, and a function to update it.
 //   const [state, setState] = useState(initialState);
 //   setState(newState);
