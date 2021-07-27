@@ -16,6 +16,7 @@ const Carousel = () => {
   })
   const [currArr, setCurrArr] = useState(0)
   const [currImg, setCurrImg] = useState(0)
+  console.log(thumbnails)
   return (
     <div className="carousel">
       <div className ="carouselInner" style={{backgroundImage: `url(${thumbnails[currArr][currImg]})`}}>
