@@ -135,7 +135,7 @@ body div.component .SUBCOMPONENT {
 
 
 
-/* RELATED ITEMS *************************************************************/
+/* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
 
 body div.component .SUBCOMPONENT {
@@ -144,7 +144,21 @@ body div.component .SUBCOMPONENT {
   height: 100px;
 }
 
+body div.component div.related-products {
+  display: block;
+  background-color: rgb(241, 194, 255);
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
+body div.component div.related-products .carousel {
+  width: 100%;
+  height: 100%;
+  background-color: antiquewhite;
+}
 
 
 
