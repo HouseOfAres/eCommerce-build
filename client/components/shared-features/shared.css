@@ -1,0 +1,29 @@
+
+/* MAIN TEXT FOR COMPONENTS */
+
+shared main text {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+
+/* SMALL TEXT USER, HELPFUL, REPORT, CATEGORY, PRICE */
+
+user helpful report text {
+  font-size: .7rem;
+  color:rgb(87, 87, 87);
+}
+
+
+/* SHARED BUTTON */
+
+button {
+  height: 65px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border: 1px solid black;
+  padding: 0px 20px;
+  color: rgb(87, 87, 87);
+  cursor: pointer;
+}

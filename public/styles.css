@@ -100,6 +100,12 @@ body div.component h3 {
   margin: 0px;
 }
 
+/* COMPONENT SPECIFIC */
+
+body div.component div.q_a_component .component_title {
+  font-size: 1.1rem;
+}
+
 /* Slogan Section */
 
 body div.slogan {
@@ -177,6 +183,8 @@ body div.component div.related-products .carousel {
   background-color: antiquewhite;
 }
 
+
+/* SEARCHBAR */
 body div.component div.q_a_component div.searchBar_container {
   margin: 10px 0px;
   padding: 0px;
@@ -185,6 +193,7 @@ body div.component div.q_a_component div.searchBar_container {
 body div.component div.q_a_component div.searchBar_container .searchbar {
   height: 65px;
   width: 100%;
+  color:rgb(87, 87, 87);
   border: none;
   border: 1px solid black;
   margin: 10px 0px;
@@ -192,6 +201,8 @@ body div.component div.q_a_component div.searchBar_container .searchbar {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 ::placeholder {
@@ -201,38 +212,71 @@ body div.component div.q_a_component div.searchBar_container .searchbar {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Q&A CONTAINER */
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 
+
+/* Q&A CONTAINER */
 body div.component div.q_a_component div.q_a_container {
   margin: 10px 0px;
 }
 
 body div.component div.q_a_component div.q_a_container span#q_a_text {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 body div.component div.q_a_component div.q_a_container div.questions {
   margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+body div.component div.q_a_component div.q_a_container div.questions #q_a_helpful_add {
+  font-size: .7rem;
+  margin-left: 25px;
 }
 
 body div.component div.q_a_component div.q_a_container div.answers {
   margin: 10px 0px;
 }
 
-body div.component div.q_a_component div.q_a_container div.answers .q_a_footer {
-  font-size: .8rem;
+body div.component div.q_a_component div.q_a_container div.answers #q_a_answer_text {
+  font-size: .9rem;
 }
 
-/* Q&A BUTTONS */
 
+/* Q&A IMAGES */
+body div.component div.q_a_component div.q_a_container div.answers .q_a_thumbnail_img {
+  width: 100%;
+}
+
+body div.component div.q_a_component div.q_a_container div.answers img {
+  height: 100px;
+  margin: 10px 0px 10px 25px;
+  overflow: hidden;
+}
+
+
+/* Q&A SECTION FOOTER */
+body div.component div.q_a_component div.q_a_container div.answers .q_a_footer {
+  font-size: .7rem;
+  margin: 10px 25px;
+  color:rgb(87, 87, 87);
+}
+
+
+/* Q&A BUTTONS */
 body div.component div.q_a_component div.q_a_buttons {
   display: block;
   margin: 10px 0px;
 
 }
 
-body div.component div.q_a_component div.q_a_buttons button.more_answered_questions {
+body div.component div.q_a_component div.q_a_buttons button.buttons {
   display: inline-block;
   height: 65px;
   margin: 10px 0px;
@@ -242,19 +286,8 @@ body div.component div.q_a_component div.q_a_buttons button.more_answered_questi
   border: 1px solid black;
   padding: 0px 20px;
   color: rgb(87, 87, 87);
-}
-
-body div.component div.q_a_component div.q_a_buttons button.add_a_question {
-  display: inline-block;
-  height: 65px;
-  margin: 10px 0px;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  border: 1px solid black;
-  margin-left: 20px;
-  padding: 0px 20px;
-  color: rgb(87, 87, 87);
+  cursor: pointer;
+  margin-right: 20px;
 }
 
 
