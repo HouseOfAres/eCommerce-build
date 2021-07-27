@@ -3,6 +3,7 @@ body, html {
   background-color: #ffffff;
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  color: rgb(87, 87, 87);
 }
 
 /* Main Nav Bar */
@@ -50,8 +51,8 @@ body div.overviewComponent {
   width: 100%;
   max-width: 1280px;
   margin: 20px auto;
-  background-color: rgb(230, 230, 230);
-  padding: 30px;
+  background-color: white;
+  padding: 30px 0px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -64,7 +65,7 @@ body div.component {
   width: 100%;
   max-width: 1280px;
   margin: 20px auto;
-  background-color: rgb(230, 230, 230);
+  background-color: white;
   padding: 30px 120px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -79,7 +80,7 @@ body div.component {
     width: 100%;
     max-width: 1280px;
     margin: 20px auto;
-    background-color: rgb(230, 230, 230);
+    background-color: white;
     padding: 30px 130px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -88,32 +89,77 @@ body div.component {
   }
 }
 
-body div.component h1 {
+h1 {
   margin: 0px;
+  color: rgb(87, 87, 87);
 }
 
-body div.component h2 {
+h2 {
   margin: 0px;
+  color: rgb(87, 87, 87);
 }
 
-body div.component h3 {
+h3 {
   margin: 0px;
+  color: rgb(87, 87, 87);
+}
+
+p {
+  font-size: .9rem;
+  color: rgb(87, 87, 87);
+}
+
+/* COMPONENT SPECIFIC */
+
+body div.component div.q_a_component .component_title {
+  font-size: 1.1rem;
 }
 
 /* Slogan Section */
 
-body div.slogan {
-  display: block;
+body div.slogan_container {
+  display: grid;
+  grid-template-columns: 70% 30%;
   position: relative;
   width: 100%;
   max-width: 1280px;
-  background-color: #677686;
-  height: 80px;
   margin: 0px auto 20px auto;
-  padding: 0px;
+  padding: 0px 130px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+div.slogan_container .slogan_title {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+div.slogan_container .slogan_body {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 40px 20px 20px 0px;
+}
+
+div.slogan_container .slogan_list {
+  grid-column: 2;
+  grid-row: 1;
+  border-left: 1px solid rgb(87, 87, 87);
+  top: 70%;
+  bottom: 15%;
+  margin-left: 20px;
+  align-self: start;
+}
+
+.slogan_list ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+.slogan_list ul li:before {
+  content: '✔';
+  font-size: 1.2rem;
+  margin-right: 10px;
 }
 
 @media (min-width:1280px){
@@ -143,14 +189,54 @@ body div.nav {
 
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
+body div.component div.related-products .carousel {
+  width: 100%;
+  height: 100%;
+  background-color: antiquewhite;
+}
 
+.carouselInner {
+  width: 100%;
+  height: 600px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  background-color: rgba(199, 85, 85, 0.5);
+}
 
+.carouselInner button {
+  cursor: pointer;
+}
+
+.carouselInner .left {
+  flex: 5%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+}
+
+.carouselInner .center {
+  flex: 90%;
+  height: 100%;
+}
+
+.carouselInner .right {
+  flex: 5%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+}
 
 
 /* QUESTIONS & ANSWERS *******************************************************/
 
 
-body div.component div.q_a_component {
+div.component div.q_a_component {
   display: block;
   color: rgb(87, 87, 87);
   background-color: white;
@@ -161,37 +247,26 @@ body div.component div.q_a_component {
   box-sizing: border-box;
 }
 
-body div.component div.related-products {
-  display: block;
-  background-color: rgb(241, 194, 255);
-  width: 100%;
-  height: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
-body div.component div.related-products .carousel {
-  width: 100%;
-  height: 100%;
-  background-color: antiquewhite;
-}
-
-body div.component div.q_a_component div.searchBar_container {
+/* SEARCHBAR */
+div.q_a_component div.searchBar_container {
   margin: 10px 0px;
   padding: 0px;
 }
 
-body div.component div.q_a_component div.searchBar_container .searchbar {
+div.searchBar_container .searchbar {
   height: 65px;
   width: 100%;
+  color:rgb(87, 87, 87);
   border: none;
   border: 1px solid black;
   margin: 10px 0px;
-  padding: 0px 20px;
+  padding: 0px 15px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 ::placeholder {
@@ -201,38 +276,71 @@ body div.component div.q_a_component div.searchBar_container .searchbar {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
+
+
 /* Q&A CONTAINER */
-
-body div.component div.q_a_component div.q_a_container {
+div.q_a_container {
   margin: 10px 0px;
 }
 
-body div.component div.q_a_component div.q_a_container span#q_a_text {
+div.q_a_container span#q_a_text {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
-body div.component div.q_a_component div.q_a_container div.questions {
+div.q_a_container div.questions {
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+div.questions #q_a_helpful_add {
+  font-size: .7rem;
+  margin-left: 25px;
+}
+
+div.q_a_container div.answers {
   margin: 10px 0px;
 }
 
-body div.component div.q_a_component div.q_a_container div.answers {
-  margin: 10px 0px;
+div.answers #q_a_answer_text {
+  font-size: .9rem;
 }
 
-body div.component div.q_a_component div.q_a_container div.answers .q_a_footer {
-  font-size: .8rem;
+
+/* Q&A IMAGES */
+div.answers .q_a_thumbnail_img {
+  width: 100%;
 }
+
+div.answers img {
+  height: 70px;
+  margin: 10px 0px 10px 25px;
+  overflow: hidden;
+}
+
+
+/* Q&A SECTION FOOTER */
+div.answers .q_a_footer {
+  font-size: .7rem;
+  margin: 10px 25px;
+  color:rgb(87, 87, 87);
+}
+
 
 /* Q&A BUTTONS */
-
-body div.component div.q_a_component div.q_a_buttons {
+div.q_a_component div.q_a_buttons {
   display: block;
   margin: 10px 0px;
 
 }
 
-body div.component div.q_a_component div.q_a_buttons button.more_answered_questions {
+div.q_a_buttons button.buttons {
   display: inline-block;
   height: 65px;
   margin: 10px 0px;
@@ -242,19 +350,8 @@ body div.component div.q_a_component div.q_a_buttons button.more_answered_questi
   border: 1px solid black;
   padding: 0px 20px;
   color: rgb(87, 87, 87);
-}
-
-body div.component div.q_a_component div.q_a_buttons button.add_a_question {
-  display: inline-block;
-  height: 65px;
-  margin: 10px 0px;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  border: 1px solid black;
-  margin-left: 20px;
-  padding: 0px 20px;
-  color: rgb(87, 87, 87);
+  cursor: pointer;
+  margin-right: 20px;
 }
 
 
