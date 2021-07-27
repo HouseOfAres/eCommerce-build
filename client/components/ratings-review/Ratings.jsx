@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReviewList from './ReviewList.jsx';
 
-// import React { useState } from 'react;'
-
-// CHANGE NAME HERE
 const Ratings = () => {
 
 // // Returns a stateful value, and a function to update it.

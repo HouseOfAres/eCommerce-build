@@ -1,0 +1,36 @@
+.reviewRating {
+  color: antiquewhite;
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.reviewerNameDate {
+  color: antiquewhite;
+  grid-column-start: 4;
+  grid-row-start: 1;
+  white-space: nowrap;
+  /* justify-self: end; */
+}
+
+/* .reviewDate {
+  color: antiquewhite;
+  grid-column-start: 4;
+  grid-row-start: 1;
+} */
+
+.reviewSummary {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+}
+
+.reviewBody {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+}
+
+.reviewHelpfulness {
+  grid-column-start: 1;
+  grid-row-start: 4;
+}

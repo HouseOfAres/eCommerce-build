@@ -1,9 +1,5 @@
 node_modules
 package-lock.json
 config.js
-<<<<<<< HEAD
-/public/app.js
-=======
 public/app.js
->>>>>>> main
 node_modules
