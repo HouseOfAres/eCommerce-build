@@ -255,7 +255,7 @@ body div.component div.q_a_component div.q_a_container div.answers .q_a_thumbnai
 }
 
 body div.component div.q_a_component div.q_a_container div.answers img {
-  height: 100px;
+  height: 70px;
   margin: 10px 0px 10px 25px;
   overflow: hidden;
 }
