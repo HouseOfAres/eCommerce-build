@@ -247,16 +247,15 @@ div.q_a_container {
   margin: 10px 0px;
 }
 
-div.q_a_container span#q_a_text {
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
 div.q_a_container div.questions {
   margin: 10px 0px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+
+div.questions .q_a_question_text {
+  margin-left: 5px;
 }
 
 div.questions #q_a_helpful_add {
@@ -268,8 +267,22 @@ div.q_a_container div.answers {
   margin: 10px 0px;
 }
 
-div.answers #q_a_answer_text {
+div.answers .answerA {
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.answers .q_a_answer_first {
+  display: inline-block;
+  margin: 6px 0px 0px 10px;
   font-size: .9rem;
+  max-width: 990px;
+}
+
+div.answers .q_a_answer_text {
+  margin: 10px 0px 0px 30px;
+  font-size: .9rem;
+  max-width: 990px;
 }
 
 
@@ -280,7 +293,7 @@ div.answers .q_a_thumbnail_img {
 
 div.answers img {
   height: 70px;
-  margin: 10px 0px 10px 25px;
+  margin: 10px 0px 10px 30px;
   overflow: hidden;
 }
 
@@ -288,7 +301,7 @@ div.answers img {
 /* Q&A SECTION FOOTER */
 div.answers .q_a_footer {
   font-size: .7rem;
-  margin: 10px 25px;
+  margin: 10px 25px 20px 30px;
   color:rgb(87, 87, 87);
 }
 
@@ -297,7 +310,6 @@ div.answers .q_a_footer {
 div.q_a_component div.q_a_buttons {
   display: block;
   margin: 10px 0px;
-
 }
 
 div.q_a_buttons button.buttons {
