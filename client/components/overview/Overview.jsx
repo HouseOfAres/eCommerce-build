@@ -18,9 +18,13 @@ const Overview = () => {
     <div className="component">
       <div className="productOverView">
         <img className="Main-ImageOV" src={main}></img>
+        <div className="thumbnailList">
         {image.productStyles.results[0].photos.map((e) => {
           return <Thumbnail thumb={e} imageHandle={imageHandler} />
         })}
+        </div>
+
+
       </div>
 
 
