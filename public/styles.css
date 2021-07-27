@@ -177,39 +177,73 @@ body div.component div.q_a_component div.searchBar_container .searchbar {
   border: none;
   border: 1px solid black;
   margin: 10px 0px;
-  padding: 0px;
+  padding: 0px 20px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-body div.component div.q_a_component div.q_a_subcomponent {
+::placeholder {
+  color: rgb(78, 78, 78);
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Q&A CONTAINER */
+
+body div.component div.q_a_component div.q_a_container {
   background-color: rgb(228, 138, 255);
   margin: 10px 0px;
 }
 
-body div.component div.q_a_component div.q_a_subcomponent span#q_a_text {
+body div.component div.q_a_component div.q_a_container span#q_a_text {
   font-weight: bold;
   font-size: 1.3rem;
 }
 
-body div.component div.q_a_component div.q_a_subcomponent div.questions {
+body div.component div.q_a_component div.q_a_container div.questions {
   background-color: rgb(121, 57, 141);
   margin: 10px 0px;
 }
 
-body div.component div.q_a_component div.q_a_subcomponent div.answers {
+body div.component div.q_a_component div.q_a_container div.answers {
   background-color: rgb(121, 57, 141);
   margin: 10px 0px;
 }
+
+/* Q&A BUTTONS */
 
 body div.component div.q_a_component div.q_a_buttons {
   display: block;
-  height: 80px;
   background-color: rgb(228, 138, 255);
   margin: 10px 0px;
 }
 
+body div.component div.q_a_component div.q_a_buttons button.more_answered_questions {
+  display: inline-block;
+  height: 60px;
+  background-color: rgb(80, 64, 85);
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border: 1px solid black;
+  padding: 0px 20px;
+}
+
+body div.component div.q_a_component div.q_a_buttons button.add_a_question {
+  display: inline-block;
+  height: 60px;
+  background-color: rgb(80, 64, 85);
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border: 1px solid black;
+  margin-left: 20px;
+  padding: 0px 20px;
+}
 
 
 
@@ -217,8 +251,6 @@ body div.component div.q_a_component div.q_a_buttons {
 
 /* RATINGS & REVIEWS *********************************************************/
 
-<<<<<<< HEAD
-=======
 
 body div.component .reviewsRatingsContainer {
   display: grid;
@@ -253,4 +285,3 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   padding: 10px;
 }
 
->>>>>>> main
