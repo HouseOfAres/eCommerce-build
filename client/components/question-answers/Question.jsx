@@ -4,6 +4,10 @@ import Answers from './Answers.jsx';
 const Question = (props) => {
   const answers = Object.values(props.item.answers);
 
+  answers.sort(function (a, b) {
+    return b.helpfulness - a.helpfulness;
+  });
+
   return (
     <div className="q_a_container">
       <div className="questions">

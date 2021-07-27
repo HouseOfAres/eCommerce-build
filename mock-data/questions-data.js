@@ -36,7 +36,7 @@ const questions = {
           "question_body": "Who engineered the Questions and Answers component?",
           "question_date": "2021-05-13T00:00:00.000Z",
           "asker_name": "Recruiter #2 ",
-          "question_helpfulness": 8,
+          "question_helpfulness": 10,
           "reported": false,
           "answers": {
               "1720073": {
