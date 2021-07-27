@@ -143,7 +143,7 @@ body div.nav {
 
 
 
-/* RELATED ITEMS *************************************************************/
+/* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
 
 
@@ -162,8 +162,25 @@ body div.component div.q_a_component {
   box-sizing: border-box;
 }
 
+body div.component div.related-products {
+  display: block;
+  background-color: rgb(241, 194, 255);
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
+<<<<<<< HEAD
 /* Searchbar */
+=======
+body div.component div.related-products .carousel {
+  width: 100%;
+  height: 100%;
+  background-color: antiquewhite;
+}
+>>>>>>> main
 
 body div.component div.q_a_component div.searchBar_container {
   background-color: rgb(228, 138, 255);
