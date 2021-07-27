@@ -15,7 +15,7 @@ const Overview = () => {
   }
 
   return (
-    <div className="component">
+    <div className="overviewComponent">
       <h1>Main Product</h1>
       <img src={main}></img>
       {image.productStyles.results[0].photos.map((e) => {
