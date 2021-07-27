@@ -439,26 +439,24 @@ body div.component .reviewsRatingsContainer {
   column-gap: 10px;
   align-items: start;
 
-  background-color: rgba(128, 138, 131, 0.397);
-  padding: 0px 120px;
   width: auto;
   height: auto;
 }
 
 body div.component div.reviewsRatingsContainer div.reviewList{
-  background-color: rgba(128, 138, 131, 0.397);
   grid-column-start: 2;
   grid-column-end: 4;
 
-  height: 1000px;
+  max-height: 1000px;
+  min-height: auto;
   overflow: auto;
 }
 
 body div.component div.reviewsRatingsContainer div.reviewList div.reviewTileComponent{
-  background-color: rgba(128, 138, 131, 0.562);
+
   grid-column-start: 2;
   grid-column-end: 4;
-  padding: 10px;
+  padding: 25px;
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -467,10 +465,10 @@ body div.component div.reviewsRatingsContainer div.reviewList div.reviewTileComp
 }
 
 body div.component div.reviewsRatingsContainer .ratingComponent{
-  background-color: rgba(128, 138, 131, 0.397);
+  background-color: rgba(169, 170, 169, 0.322);
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
-  padding: 10px;
+  padding: 20px;
 }
 
