@@ -181,7 +181,44 @@ body div.nav {
 /* OVERVIEW ******************************************************************/
 
 
+body div.component .SUBCOMPONENT {
+  background-color: gray;
+  width: 300px;
+  height: 100px;
+}
 
+div.productOverView {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  margin-left: -30px;
+  width: 100%
+}
+
+.Main-ImageOV {
+  max-width: 700px;
+  height: 900px;
+  width: auto;
+  height: auto;
+  border-style: groove;
+  margin-left: -100px;
+}
+.ThumbnailOV {
+  width: 20%;
+  margin: 1%;
+  border-style: double;
+
+}
+
+.thumbnailList {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  margin-left: -90px;
+  margin-top: 10px;
+  opacity: 50%;
+
+}
 
 
 
