@@ -23,7 +23,7 @@ const App = () => {
   return (
     <div className="component">
       <div className="q_a_component">
-        <span>QUESTIONS & ANSWERS</span>
+        <div className="component_title">QUESTIONS & ANSWERS</div>
         <div className="searchBar_container">
           <form>
             <input className="searchbar" type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS...">
@@ -32,10 +32,10 @@ const App = () => {
         </div>
         <QuestionsList />
         <div className="q_a_buttons">
-          <button className="more_answered_questions">
+          <button className="buttons">
             MORE ANSWERED QUESTIONS
           </button>
-          <button className="add_a_question">
+          <button className="buttons">
             ADD A QUESTION +
           </button>
         </div>

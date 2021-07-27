@@ -22,7 +22,7 @@ const Related = () => {
   // THIS IS A NEW CHANGE
 
   return (
-    <div className="component">This is Related
+    <div className="component">
       <div className="related-products">
         <Carousel />
       </div>

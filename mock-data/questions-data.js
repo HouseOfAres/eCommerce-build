@@ -16,7 +16,9 @@ const questions = {
                   "answerer_name": "Tree",
                   "helpfulness": 0,
                   "photos": [
-                      "/images/Screen Shot 2021-05-13 at 2.54.40 PM.png55021139503477.png"
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4yDtkz1fi7qJJtCJ4x4keX36JxScNm7EyEQ&usqp=CAU",
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0hbwQA-WrOpyM8IYCh5tZxGBfcjou5MZtIA&usqp=CAU",
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4jO36Etjr0T_NYdjf8hzZ1kBQ9VEjDGo8rw&usqp=CAU"
                   ]
               },
               "1720080": {
@@ -25,9 +27,7 @@ const questions = {
                 "date": "2021-05-13T00:00:00.000Z",
                 "answerer_name": "iAmGroot",
                 "helpfulness": 50,
-                "photos": [
-                    ""
-                ]
+                "photos": []
             }
           }
       },
