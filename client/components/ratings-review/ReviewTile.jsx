@@ -8,9 +8,7 @@ const ReviewTile = (props) => {
   const convertedDate = moment(`${props.item.date}`).format("MMMM Do YYYY");
   const reviewPhotos = props.item.photos;
   const responseAvailable = (props.item.response !== null) && (props.item.response !== '');
-  // if (props.item.response !== null || props.item.response !== '') {
-  //   return <div className='reviewResponse' >{responseAvailable && props.item.response}</div>
-  // }
+
   const reviewResponseStyle = {
     backgroundColor: '#DDDDCB',
     padding: '15px 30px'
@@ -40,7 +38,7 @@ const ReviewTile = (props) => {
         }
       </div>
 
-      <div className='reviewHelpfulness'>Helpful? {props.item.helpfulness}</div>
+      <div className='reviewHelpfulness'>Helpful? <u>Yes</u> ({props.item.helpfulness})</div>
 
     </div>
   )
