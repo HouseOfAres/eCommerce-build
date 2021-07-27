@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import QuestionsList from './QuestionsList.jsx';
 
 // import React { useState } from 'react;'
 
@@ -29,20 +30,7 @@ const App = () => {
             </input>
           </form>
         </div>
-        <div className="q_a_container">
-          <div className="questions">
-            <span id="q_a_text">
-              Q: This is a reeaaally important question?
-            </span>
-          </div>
-          <div className="answers">
-            <span id="q_a_text">
-              A: </span>
-            <span>
-              This is the super duper helpful answer
-            </span>
-          </div>
-        </div>
+        <QuestionsList />
         <div className="q_a_buttons">
           <button className="more_answered_questions">
             MORE ANSWERED QUESTIONS
