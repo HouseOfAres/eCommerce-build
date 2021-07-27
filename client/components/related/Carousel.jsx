@@ -13,12 +13,14 @@ const Carousel = () => {
       return photo.thumbnail_url;
     })
   })
-  console.log(thumbnails)
-  // const [currImg, setCurrImg] = useState(photosArr[0][0])
+  const [currArr, setCurrArr] = useState(0)
+  const [currImg, setCurrImg] = useState(0)
   return (
-    <div className="carousel">This is Carousel
-      <div className ="carouselInner">
-
+    <div className="carousel">
+      <div className ="carouselInner" style={{backgroundImage: `url(${thumbnails[currArr][currImg]})`}}>
+        <div className="left"></div>
+        <div className ="center"></div>
+        <div className ="right"></div>
       </div>
     </div>
   )
