@@ -314,13 +314,21 @@ body div.component div.reviewsRatingsContainer div.reviewList{
   background-color: rgba(128, 138, 131, 0.397);
   grid-column-start: 2;
   grid-column-end: 4;
+
+  height: 1000px;
+  overflow: auto;
 }
 
 body div.component div.reviewsRatingsContainer div.reviewList div.reviewTileComponent{
   background-color: rgba(128, 138, 131, 0.562);
   grid-column-start: 2;
   grid-column-end: 4;
-  padding: 5px;
+  padding: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(5, minmax(25px, auto));
+  grid-auto-rows: auto;
 }
 
 body div.component div.reviewsRatingsContainer .ratingComponent{
