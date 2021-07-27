@@ -129,6 +129,24 @@ body div.component .SUBCOMPONENT {
   height: 100px;
 }
 
+div.productOverView {
+  display:inline-block
+}
+.Main-ImageOV {
+  max-width: 900px;
+  max-height: 900px;
+  /* width: auto;
+  height: auto; */
+}
+.ThumbnailOV {
+  /* display: flex;
+  flex-direction: row;
+  grid-area: ThumbnailOV; */
+  display: inline-block;
+  max-width: 100px;
+  max-height: 100px;
+
+}
 
 
 

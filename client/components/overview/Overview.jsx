@@ -6,7 +6,7 @@ import Thumbnail from './Thumbnail.jsx'
 
 // CHANGE NAME HERE
 const Overview = () => {
-// console.log(styles.productStyles.results[0].photos)
+  // console.log(styles.productStyles.results[0].photos)
   const [main, setMain] = useState(image.productStyles.results[0].photos[0].url);
 
   const imageHandler = (event) => {
@@ -16,11 +16,13 @@ const Overview = () => {
 
   return (
     <div className="component">
-      <h1>Main Product</h1>
-      <img src={main}></img>
-      {image.productStyles.results[0].photos.map((e) => {
-        return <Thumbnail thumb={e} imageHandle={imageHandler}/>
-      })}
+      <div className="productOverView">
+        <img className="Main-ImageOV" src={main}></img>
+        {image.productStyles.results[0].photos.map((e) => {
+          return <Thumbnail thumb={e} imageHandle={imageHandler} />
+        })}
+      </div>
+
 
     </div>
   )
