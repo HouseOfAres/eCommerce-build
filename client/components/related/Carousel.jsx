@@ -21,14 +21,12 @@ const Carousel = () => {
       <div className ="carouselInner" style={{backgroundImage: `url(${thumbnails[currArr][currImg]})`}}>
         <div className="left">
           <button onClick={() => {
-            currImg === 5 && setCurrArr(currArr - 1)
             currImg > 0 && setCurrImg(currImg - 1)
           }}>Back</button>
         </div>
         <div className ="center"></div>
         <div className ="right">
           <button onClick={() => {
-            currImg === 5 && setCurrArr(currArr + 1)
             currImg < 5 && setCurrImg(currImg + 1)
           }}>Next</button>
         </div>
