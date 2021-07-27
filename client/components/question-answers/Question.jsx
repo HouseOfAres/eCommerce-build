@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 import Answers from './Answers.jsx';
 
 const Question = (props) => {
-
   const answers = Object.values(props.item.answers);
 
   return (
     <div className="q_a_container">
       <div className="questions">
-        <span id="q_a_text">
+        <h3>
           Q: {props.item.question_body}
+        </h3>
+        <span id="q_a_helpful_add">
+          Helpful? <u>Yes</u> ({props.item.question_helpfulness}) | <u>Add Answer</u>
         </span>
       </div>
       {answers.map(item => {
-        return <Answers key={item.id} answer={item} />
+        return <Answers key={item.id} answer={item}/>
       })}
 
     </div>
