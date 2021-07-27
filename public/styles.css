@@ -1,7 +1,8 @@
 body, html {
   width: 100%;
-  background-color: #364352;
+  background-color: #ffffff;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Main Nav Bar */
@@ -43,18 +44,32 @@ body div.nav .logo {
 }
 
 /* Component Div */
+body div.overviewComponent {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 20px auto;
+  background-color: rgb(230, 230, 230);
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 body div.component {
   display: block;
   position: relative;
   width: 100%;
   max-width: 1280px;
   margin: 20px auto;
-  background-color: rgb(236, 236, 236);
-  padding: 30px;
+  background-color: rgb(230, 230, 230);
+  padding: 30px 120px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 @media (min-width:1280px){
@@ -64,28 +79,25 @@ body div.component {
     width: 100%;
     max-width: 1280px;
     margin: 20px auto;
-    background-color: rgb(236, 236, 236);
-    padding: 30px;
+    background-color: rgb(230, 230, 230);
+    padding: 30px 130px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 }
 
 body div.component h1 {
   margin: 0px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 body div.component h2 {
   margin: 0px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 body div.component h3 {
   margin: 0px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Slogan Section */
@@ -123,12 +135,6 @@ body div.nav {
 /* OVERVIEW ******************************************************************/
 
 
-body div.component .SUBCOMPONENT {
-  background-color: gray;
-  width: 300px;
-  height: 100px;
-}
-
 
 
 
@@ -138,10 +144,21 @@ body div.component .SUBCOMPONENT {
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
 
-body div.component .SUBCOMPONENT {
-  background-color: gray;
-  width: 300px;
-  height: 100px;
+
+
+
+/* QUESTIONS & ANSWERS *******************************************************/
+
+
+body div.component div.q_a_component {
+  display: block;
+  color: rgb(87, 87, 87);
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body div.component div.related-products {
@@ -160,18 +177,85 @@ body div.component div.related-products .carousel {
   background-color: antiquewhite;
 }
 
-
-
-
-/* QUESTIONS & ANSWERS *******************************************************/
-
-
-body div.component .SUBCOMPONENT {
-  background-color: gray;
-  width: 300px;
-  height: 100px;
+body div.component div.q_a_component div.searchBar_container {
+  margin: 10px 0px;
+  padding: 0px;
 }
 
+body div.component div.q_a_component div.searchBar_container .searchbar {
+  height: 65px;
+  width: 100%;
+  border: none;
+  border: 1px solid black;
+  margin: 10px 0px;
+  padding: 0px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: rgb(87, 87, 87);
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Q&A CONTAINER */
+
+body div.component div.q_a_component div.q_a_container {
+  margin: 10px 0px;
+}
+
+body div.component div.q_a_component div.q_a_container span#q_a_text {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+body div.component div.q_a_component div.q_a_container div.questions {
+  margin: 10px 0px;
+}
+
+body div.component div.q_a_component div.q_a_container div.answers {
+  margin: 10px 0px;
+}
+
+body div.component div.q_a_component div.q_a_container div.answers .q_a_footer {
+  font-size: .8rem;
+}
+
+/* Q&A BUTTONS */
+
+body div.component div.q_a_component div.q_a_buttons {
+  display: block;
+  margin: 10px 0px;
+
+}
+
+body div.component div.q_a_component div.q_a_buttons button.more_answered_questions {
+  display: inline-block;
+  height: 65px;
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border: 1px solid black;
+  padding: 0px 20px;
+  color: rgb(87, 87, 87);
+}
+
+body div.component div.q_a_component div.q_a_buttons button.add_a_question {
+  display: inline-block;
+  height: 65px;
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border: 1px solid black;
+  margin-left: 20px;
+  padding: 0px 20px;
+  color: rgb(87, 87, 87);
+}
 
 
 
