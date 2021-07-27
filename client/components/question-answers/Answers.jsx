@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import moment from 'moment';
 
 const Answers = (props) => {
-  console.log(props);
   return (
     <div className="answers">
       <span id="q_a_text">
