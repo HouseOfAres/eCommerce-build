@@ -7,14 +7,18 @@ const Carousel = () => {
 //   const [state, setState] = useState(initialState);
 //   setState(newState);
   const results = image.productStyles.results
+  // value passed into useState should be
+  const thumbnails = results.map(result => {
+    return result.photos.map(photo => {
+      return photo.thumbnail_url;
+    })
+  })
+  console.log(thumbnails)
+  // const [currImg, setCurrImg] = useState(photosArr[0][0])
   return (
     <div className="carousel">This is Carousel
       <div className ="carouselInner">
-        {results.map(result => {
-          return result.photos.map(photo => {
-            return <img src={photo.thumbnail_url} />;
-          })
-        })}
+
       </div>
     </div>
   )
