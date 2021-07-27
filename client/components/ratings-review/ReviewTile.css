@@ -1,0 +1,56 @@
+.reviewRating {
+  color: antiquewhite;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  max-height: min-content;
+}
+
+.reviewerNameDate {
+  color: antiquewhite;
+  grid-column-start: 4;
+  grid-row-start: 1;
+  white-space: nowrap;
+  max-height: min-content;
+}
+
+.reviewSummary {
+  font-size: 26px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  max-height: fit-content;
+}
+
+.reviewBody {
+  font-size: 18px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+
+  max-height: 100px;
+  overflow: auto;
+}
+
+.responseDiv {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  max-height: min-content;
+}
+
+.reviewPhotos {
+  color: antiquewhite;
+  grid-column-start: 1;
+  grid-row-start: 5;
+  grid-gap: 3px;
+  display: flex;
+  flex-direction: row;
+  max-height: fit-content;
+}
+
+.reviewHelpfulness {
+  grid-column-start: 4;
+  grid-row-start: 4;
+  justify-self: end;
+  max-height: fit-content;
+}
