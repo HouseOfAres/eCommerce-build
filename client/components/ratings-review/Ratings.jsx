@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ReviewList from './ReviewList.jsx';
+import AddReview from './AddReview.jsx';
+import currentItemId from '../../../mock-data/reviews-data.js';
 
 const Ratings = () => {
 
+  const [productID, setProductID] = useState(currentItemId.review.product);
 // // Returns a stateful value, and a function to update it.
 //   const [state, setState] = useState(initialState);
 //   setState(newState);
@@ -26,6 +29,10 @@ const Ratings = () => {
 
                 <div className='ratingComponent'>
                   <h2>This will be the Rating Component which needs to be left of the ratings component</h2>
+                </div>
+
+                <div className='addingReviewComponent'>
+                  <AddReview />
                 </div>
 
         </div>

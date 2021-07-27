@@ -197,7 +197,7 @@ body div.component div.reviewsRatingsContainer div.reviewList{
   grid-column-start: 2;
   grid-column-end: 4;
 
-  height: 400px;
+  height: 1000px;
   overflow: auto;
 }
 
@@ -209,7 +209,8 @@ body div.component div.reviewsRatingsContainer div.reviewList div.reviewTileComp
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(5, minmax(25px, auto));
+  grid-auto-rows: auto;
 }
 
 body div.component div.reviewsRatingsContainer .ratingComponent{
