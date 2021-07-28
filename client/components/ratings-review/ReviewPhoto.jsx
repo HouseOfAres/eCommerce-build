@@ -6,21 +6,21 @@ const ReviewPhoto = (props) => {
 
   const imageClickHandler = () => {
     setIsOpen(!isOpen);
-    console.log('clicked image dammit');
   };
 
   return (
     <div>
-      <img src={props.photo.url} height="75" width="auto" onClick={imageClickHandler.bind(this)}/>
+      <img src={props.photo.url} height='75' width='auto' onClick={imageClickHandler.bind(this)}/>
       {isOpen &&
-          <div className="popup-box">
-          <div className="box">
-            <span className="close-icon" onClick={imageClickHandler}>x</span>
+          <div className='popup-box'>
+          <div className='box'>
+            <span className='close-icon' onClick={imageClickHandler}>x</span>
               <img
-                className="image"
+                className='image'
                 src={props.photo.url}
-                height="500px"
-                width="auto"
+                height='500px'
+                width='auto'
+                class='center'
               ></img>
           </div>
         </div>

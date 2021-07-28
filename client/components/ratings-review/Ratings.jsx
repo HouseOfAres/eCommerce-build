@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ReviewList from './ReviewList.jsx';
 import AddReview from './AddReview.jsx';
@@ -6,9 +7,14 @@ import productReviews from '../../../mock-data/reviews-data.js';
 import productData from '../../../mock-data/products-data.js';
 import './Ratings.css';
 
-const Ratings = () => {
-  const reviewData = productReviews.review.results;
+import { ProductContext } from '../../ProductContext.jsx';
 
+const Ratings = () => {
+  // UseContext Example to get product ID
+  const productId = useContext(ProductContext);
+  console.log(productId);
+
+  const reviewData = productReviews.review.results;
   const [toggleMoreReviewButton, setToggleMoreReviewButton] = useState(true);
   const [reviewList, setReviewList] = useState([reviewData[0], reviewData[1]]);
   const [reviewIndex, setReviewIndex] = useState(2);
@@ -19,7 +25,6 @@ const Ratings = () => {
   if (reviewData.length === 0) {
     setToggleMoreReviewButton(false);
   }
-
 
   // More Reviews Button
   const moreReviewsHandler = (e) => {
