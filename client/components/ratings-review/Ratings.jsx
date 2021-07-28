@@ -13,7 +13,9 @@ const Ratings = () => {
   const [reviewList, setReviewList] = useState([reviewData[0], reviewData[1]]);
   const [reviewIndex, setReviewIndex] = useState(2);
   const [product, setProductID] = useState(productReviews.review);
+  const [showModal, setShowModal] = useState(false);
 
+  // Deal with varying review quantities
   if (reviewData.length === 0) {
     setToggleMoreReviewButton(false);
   }
@@ -32,6 +34,12 @@ const Ratings = () => {
     if (reviewData.length === reviewIndex) {
       setToggleMoreReviewButton(false);
     }
+  }
+
+  // Add a Review Modal
+  const showModalHandler = (e) => {
+    console.log('this is a modal??')
+    setShowModal(!showModal);
   }
 
   return (
@@ -57,14 +65,17 @@ const Ratings = () => {
                 </div>
 
                 <div className='addingReviewComponent'>
-                  <AddReview />
+                  {showModal &&
+                    <AddReview handleClose={showModalHandler}/>
+                  }
                 </div>
 
                 <input
                   className='addButton'
-                  type='submit'
+                  type='button'
                   value='ADD A REVIEW +'
-                  />
+                  onClick={showModalHandler}
+                 />
 
         </div>
       </div>

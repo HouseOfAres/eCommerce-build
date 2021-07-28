@@ -5,7 +5,7 @@ const review = {
   "results": [
       {
           "review_id": 188762,
-          "rating": 5,
+          "rating": 4.75,
           "summary": "These pants are great!",
           "recommend": true,
           "response": "Thanks glad to hear you like them! We are releasing a new line this fall.",
@@ -44,7 +44,7 @@ const review = {
           "review_id": 289039,
           "rating": 4,
           "summary": "asdfasdfas",
-          "recommend": true,
+          "recommend": false,
           "response": null,
           "body": "fasdfasdf;k;'sdlafk;'lask;dl'fksl;'dkf;'asddkf;'sakf;asdkf;l'ask;dlfk;l'asdkf;'aslkdf;lsdkf;'lsadkf'",
           "date": "2021-03-13T00:00:00.000Z",

@@ -1,0 +1,18 @@
+
+.single-star-outline {
+  height: 22px;
+  width: 22px;
+}
+
+.single-star-fill {
+  position: relative;
+  display: inline-block;
+  height: 19px;
+  background-color: #333333;
+}
+
+.single-star-container {
+  height: 22px;
+  width: 22px;
+  display: inline-block;
+}

@@ -1,32 +1,11 @@
-.addButton {
-  height: 65px;
-  width: 200px;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  border: 1px solid black;
-  padding: 0px 20px;
-  color: rgb(87, 87, 87);
-  cursor: pointer;
-  grid-column: 3;
-
-  grid-row-start: 2;
+.reviewForm {
+  box-sizing: content-box;
+  background-color: rgba(206, 206, 171, 0.856);
+  height: 500px;
+  width: 500px;
 }
 
-.moreButton {
-  height: 65px;
-  width: 200px;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  border: 1px solid black;
-  padding: 0px 20px;
-  color: rgb(87, 87, 87);
-  cursor: pointer;
-  grid-column-start: 2;
-  grid-row-start: 2;
-}
-
+/* Popup style */
 .popup-box {
   position: fixed;
   background: #00000050;
