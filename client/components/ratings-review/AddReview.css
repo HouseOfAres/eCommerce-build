@@ -1,31 +1,11 @@
-.addButton {
-  height: 65px;
-  width: 200px;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  border: 1px solid black;
-  padding: 0px 20px;
-  color: rgb(87, 87, 87);
-  cursor: pointer;
-  grid-column: 3;
-  grid-row-start: 2;
+.reviewForm {
+  box-sizing: content-box;
+  background-color: rgba(206, 206, 171, 0.856);
+  height: 500px;
+  width: 500px;
 }
 
-.moreButton {
-  height: 65px;
-  width: 200px;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  border: 1px solid black;
-  padding: 0px 20px;
-  color: rgb(87, 87, 87);
-  cursor: pointer;
-  grid-column-start: 2;
-  grid-row-start: 2;
-}
-
+/* Popup style */
 .popup-box {
   position: fixed;
   background: #00000050;
@@ -33,7 +13,6 @@
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 10;
 }
 
 .box {
@@ -48,12 +27,10 @@
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
-  z-index: 10;
 }
 
 .close-icon {
   content: 'x';
-  color: black;
   cursor: pointer;
   position: fixed;
   right: calc(15% - 30px);
@@ -64,6 +41,6 @@
   border-radius: 50%;
   line-height: 20px;
   text-align: center;
-  border: 1px solid #999;
+  border: 2px solid #999;
   font-size: 20px;
 }
