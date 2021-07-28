@@ -1,9 +1,7 @@
 import React from 'react';
 import './Stars.css';
 const starImg = require('../../../library/img/star.png');
-// public/7c36fe565968dbb39182e87fe6c59091.png
-// library/img/star.png
-// Need to pass in the average rating
+
 const Stars = (props) => {
   let rating = props.rating || 0;
     let stars = [];

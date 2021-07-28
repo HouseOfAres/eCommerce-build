@@ -20,8 +20,9 @@ const RatingBreakdown = (props) => {
         <Stars rating={calcAvgRating(props.reviewData)}/>
         <h3>100% of reviews recommend this product</h3>
 
-        <div className='starBar'>
+        <div className='starBar5'>
           <h4>5 Stars</h4>
+          <div className='ratingBar5'></div>
         </div>
         <div className='starBar'>
           <h4>4 Stars</h4>
