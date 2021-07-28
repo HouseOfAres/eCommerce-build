@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import RatingBreakdown from './RatingBreakdown.jsx';
 import ReviewList from './ReviewList.jsx';
 import AddReview from './AddReview.jsx';
 import productReviews from '../../../mock-data/reviews-data.js';
 import productData from '../../../mock-data/products-data.js';
-
 import './Ratings.css';
 
 const Ratings = () => {
@@ -23,7 +23,6 @@ const Ratings = () => {
 
   // More Reviews Button
   const moreReviewsHandler = (e) => {
-
     e.preventDefault();
     const updateIndex = reviewIndex + 2;
     setReviewIndex(updateIndex)
@@ -60,7 +59,7 @@ const Ratings = () => {
                 }
 
                 <div className='ratingComponent'>
-                  <h2>This will be the Rating Component which needs to be left of the ratings component</h2>
+                  <RatingBreakdown reviewData={reviewData} />
                 </div>
 
                 <div className='addingReviewComponent'>
