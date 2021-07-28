@@ -7,17 +7,23 @@ import Related from './components/related/Related.jsx';
 import Slogan from './nav-slogan/Slogan.jsx';
 import '../public/styles.css';
 
+import { ProductContext } from './ProductContext.jsx';
+
 
 const App = () => {
 
   return (
     <div>
-      <div className="nav">NAV BAR</div>
-      <Overview />
-      <Slogan />
-      <Related />
-      <QuestionsAndAnswers />
-      <Ratings />
+      <ProductContext.Provider value={17070}>
+
+        <div className="nav">NAV BAR</div>
+        <Overview />
+        <Slogan />
+        <Related />
+        <QuestionsAndAnswers />
+        <Ratings />
+
+      </ProductContext.Provider>
     </div>
   )
 
