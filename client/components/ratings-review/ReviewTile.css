@@ -1,56 +1,85 @@
 .reviewRating {
-  color: antiquewhite;
+  font-size: .7rem;
+  color: rgb(0, 0, 0);
   grid-column-start: 1;
+  grid-column-end: 3;
   grid-row-start: 1;
   max-height: min-content;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+
 }
 
 .reviewerNameDate {
-  color: antiquewhite;
+  font-size: .7rem;
+  color: rgb(0, 0, 0);
   grid-column-start: 4;
   grid-row-start: 1;
   white-space: nowrap;
   max-height: min-content;
+  color:rgb(87, 87, 87);
+  justify-self: end;
+  padding: 5px;
 }
 
 .reviewSummary {
-  font-size: 26px;
+  font-size: 1.17em;
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 2;
   max-height: fit-content;
+  padding: 5px;
 }
 
 .reviewBody {
-  font-size: 18px;
+  font-size: .9rem;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 3;
+  padding: 5px;
 
   max-height: 100px;
   overflow: auto;
 }
 
 .responseDiv {
+  font-size: .9rem;
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 4;
   max-height: min-content;
+  padding: 5px;
+}
+
+.recommendCheck {
+  font-size: .9rem;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  max-height: min-content;
+  padding: 5px;
 }
 
 .reviewPhotos {
   color: antiquewhite;
   grid-column-start: 1;
   grid-row-start: 5;
-  grid-gap: 3px;
+  grid-gap: 8px;
   display: flex;
   flex-direction: row;
   max-height: fit-content;
+  justify-content: flex-start;
 }
 
 .reviewHelpfulness {
   grid-column-start: 4;
-  grid-row-start: 4;
+  grid-row-start: 5;
   justify-self: end;
   max-height: fit-content;
+  font-size: .7rem;
+  color:rgb(87, 87, 87);
+  align-self: end;
+  padding: 5px;
 }
+

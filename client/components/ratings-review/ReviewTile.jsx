@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReviewPhoto from './ReviewPhoto.jsx';
+import Stars from './Stars.jsx';
 import './ReviewTile.css';
 const moment = require('moment');
 
@@ -8,9 +9,8 @@ const ReviewTile = (props) => {
   const convertedDate = moment(`${props.item.date}`).format("MMMM Do YYYY");
   const reviewPhotos = props.item.photos;
   const responseAvailable = (props.item.response !== null) && (props.item.response !== '');
-  // if (props.item.response !== null || props.item.response !== '') {
-  //   return <div className='reviewResponse' >{responseAvailable && props.item.response}</div>
-  // }
+  const [recommended, setRecommend] = useState(false);
+
   const reviewResponseStyle = {
     backgroundColor: '#DDDDCB',
     padding: '15px 30px'
@@ -19,13 +19,18 @@ const ReviewTile = (props) => {
   return (
     <div className='reviewTileComponent'>
 
-      <div className='reviewRating'>Rating Stars: {props.item.rating}</div>
+      <div className='reviewRating'>
+        <Stars rating={props.item.rating} />
+        </div>
 
       <div className='reviewSummary' style={{ fontWeight: 'bold' }}>{props.item.summary}</div>
 
       <div className='reviewBody'>{props.item.body}</div>
 
-      <div className='reviewerNameDate'>{props.item.reviewer_name}, {convertedDate}</div>
+      <div className='reviewerNameDate'>
+      <i className="fas fa-check-circle"></i> {props.item.reviewer_name}, {convertedDate}</div>
+
+      {props.item.recommend && <div className='recommendCheck'>✔ I recommend this product</div>}
 
       <div className='responseDiv'>{responseAvailable &&
         <div className='reviewResponse' style={reviewResponseStyle}>Response: {props.item.response}</div>
@@ -35,12 +40,12 @@ const ReviewTile = (props) => {
       <div className='reviewPhotos'>
         {reviewPhotos.length > 0 &&
           (reviewPhotos.map(photo => {
-            return <ReviewPhoto photo={photo} key={photo.id} onClick={() => props.largeImageHandler(photo.url)} />
+            return <ReviewPhoto photo={photo} key={photo.id} handleClose={props.showModalHandler}/>
           }))
         }
       </div>
 
-      <div className='reviewHelpfulness'>Helpful? {props.item.helpfulness}</div>
+      <div className='reviewHelpfulness'>Helpful? <u>Yes</u> ({props.item.helpfulness})</div>
 
     </div>
   )
