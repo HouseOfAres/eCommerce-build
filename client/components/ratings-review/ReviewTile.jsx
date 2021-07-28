@@ -40,7 +40,7 @@ const ReviewTile = (props) => {
       <div className='reviewPhotos'>
         {reviewPhotos.length > 0 &&
           (reviewPhotos.map(photo => {
-            return <ReviewPhoto photo={photo} key={photo.id} />
+            return <ReviewPhoto photo={photo} key={photo.id} handleClose={props.showModalHandler}/>
           }))
         }
       </div>

@@ -38,7 +38,6 @@ const Ratings = () => {
 
   // Add a Review Modal
   const showModalHandler = (e) => {
-    console.log('this is a modal??')
     setShowModal(!showModal);
   }
 
@@ -49,7 +48,7 @@ const Ratings = () => {
 
                 <div className='reviewList'>
                   <div className='reviewTiles'>
-                    <ReviewList reviewList={reviewList} />
+                    <ReviewList reviewList={reviewList} handleClose={showModalHandler} />
                   </div>
                 </div>
                 {toggleMoreReviewButton &&

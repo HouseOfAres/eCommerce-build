@@ -52,6 +52,7 @@
 
 .close-icon {
   content: 'x';
+  color: black;
   cursor: pointer;
   position: fixed;
   right: calc(15% - 30px);

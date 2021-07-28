@@ -8,7 +8,7 @@ const ReviewList = (props) => {
     <div>
       <div>
         {props.reviewList.map((item) =>
-          <ReviewTile item={item} key={item.review_id}/>
+          <ReviewTile item={item} key={item.review_id} handleClose={props.showModalHandler}/>
           )}
       </div>
     </div>
