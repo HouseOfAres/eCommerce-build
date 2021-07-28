@@ -12,7 +12,7 @@ const Question = (props) => {
     <div className="q_a_container">
       <div className="questions">
         <h3>
-          Q: <span class="q_a_question_text">{props.item.question_body}</span>
+          Q: <span className="q_a_question_text">{props.item.question_body}</span>
         </h3>
         <span id="q_a_helpful_add">
           Helpful? <u>Yes</u> ({props.item.question_helpfulness}) | <u>Add Answer</u>

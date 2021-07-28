@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import questions from '../../../mock-data/questions-data.js';
 import QuestionsList from './QuestionsList.jsx';
 
 // import React { useState } from 'react;'
@@ -6,19 +7,34 @@ import QuestionsList from './QuestionsList.jsx';
 // CHANGE NAME HERE
 const App = () => {
 
-  // Returns a stateful value, and a function to update it.
-  //   const [state, setState] = useState(initialState);
-  //   setState(newState);
+  const questionData = questions.questions.results;
 
+  const [toggleMoreQuestionsButton, setToggleMoreQuestionsButton] = useState(true);
+  const [questionList, setQuestionList] = useState(questionData.slice(0, 4));
+  const [questionIndex, setQuestionIndex] = useState(4);
+  const [question, setProductID] = useState(questions.questions);
 
-  // // Accepts a function that contains imperative, possibly effectful code.
-  //   useEffect(fn);
+  if (questionData.length === 0) {
+    setToggleMoreQuestionButton(false);
+  }
 
+  // More Questions Button
+  const moreQuestionsHandler = (e) => {
 
-  // // Accepts a context object (the value returned from React.
-  //   const value = useContext(MyContext);
+    e.preventDefault();
+    const updateIndex = questionIndex + 2;
+    setQuestionIndex(updateIndex)
 
-  // this is a comment... bruh.
+    console.log(updateIndex);
+
+    const updateQuestionList = questionData.slice(0, questionIndex);
+    setQuestionList(updateQuestionList);
+
+    if (questionIndex >= questionData.length) {
+      setToggleMoreQuestionsButton(false);
+    }
+  }
+
 
   return (
     <div className="component">
@@ -30,13 +46,20 @@ const App = () => {
             </input>
           </form>
         </div>
-        <QuestionsList />
+        <QuestionsList questionList={questionList}/>
         <div className="q_a_buttons">
-          <button className="buttons">
-            MORE ANSWERED QUESTIONS
+        {toggleMoreQuestionsButton &&
+          <button
+            className="buttons"
+            type="submit"
+            value="MORE ANSWERED QUESTIONS"
+            onClick={moreQuestionsHandler}>
           </button>
-          <button className="buttons">
-            ADD A QUESTION +
+        }
+          <button
+            className="buttons"
+            type="submit"
+            value="ADD A QUESTION +">
           </button>
         </div>
       </div>
