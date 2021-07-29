@@ -483,7 +483,7 @@ body div.component div.reviewsRatingsContainer div.reviewList div.reviewTileComp
 }
 
 body div.component div.reviewsRatingsContainer .ratingComponent{
-  background-color: rgba(169, 170, 169, 0.11);
+  background-color: rgba(255, 255, 255, 0);
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;

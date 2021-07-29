@@ -6,8 +6,10 @@ app.use(express.static(__dirname + '/../public'));
 app.use(express.json()); //body parser
 app.use(cors());
 
-app.get('/products', function (req, res) {
+app.get('/products/:product_id', function (req, res) {
   //change endpoint
+
+  console.log(res.body);
   res.send('Success!');
 });
 
