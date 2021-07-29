@@ -194,14 +194,20 @@ div.productOverView {
 
 .Main-ImageOV {
   max-width: 700px;
-  height: 900px;
+  max-height: 770px;
+  min-height: 770px;
+  object-fit: cover;
   width: auto;
   height: auto;
   border-style: groove;
   margin-left: -100px;
 }
 .ThumbnailOV {
-  width: 20%;
+  max-width: 50px;
+  max-height: 50px;
+  min-height: 50px;
+  object-fit: cover;
+  width: 100%;
   margin: 1%;
   border-style: double;
 
@@ -217,9 +223,56 @@ div.productOverView {
 
 }
 
+.category {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  margin-left: 630px;
+  margin-top: 80px;
+  margin-bottom: 1;
+  font-size: 18px;
+  line-height: 18px;
+}
 
+.category-item {
+  font-size: 50px;
+}
 
+.product-priceOV {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  margin-left: 630px;
+  margin-top: 235px;
+  font-size: 18px;
+}
+.stylescontainerOV{
+  display: flex;
+  flex-flow: row;
+  position: absolute;
+  margin-left: 625px;
+  margin-top: 330px;
 
+}
+
+.styleOV {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 3px;
+}
+
+.styleName {
+  display: flex;
+  flex-flow: column;
+  position: absolute;
+  margin-left: 630px;
+  margin-top: 295px;
+  margin-bottom: 1;
+  font-size: 18px;
+  line-height: 18px;
+}
 
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
