@@ -16,3 +16,30 @@
   width: 22px;
   display: inline-block;
 }
+
+.outer-star {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.outer-star::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+  color:rgba(167, 161, 161, 0.418)
+}
+
+.inner-star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  color: rgba(164, 165, 137, 0.753);
+}
+
+.inner-star::before {
+  /* content: "\f005 \f005 \f005 \f005 \f005"; */
+  color: #d4a516;
+
+}

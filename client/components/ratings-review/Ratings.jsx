@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+// import { useContext } from 'react';
 import RatingBreakdown from './RatingBreakdown.jsx';
 import ReviewList from './ReviewList.jsx';
 import AddReview from './AddReview.jsx';
@@ -10,16 +10,19 @@ import './Ratings.css';
 import { ProductContext } from '../../ProductContext.jsx';
 
 const Ratings = () => {
-  // UseContext Example to get product ID
-  const productId = useContext(ProductContext);
-  console.log(productId);
+  // UseContext to get product ID
+  const currentProduct = useContext(ProductContext);
+  const productId = currentProduct.id;
+
+
+  const [product, setProductID] = useState(productReviews.review);
 
   const reviewData = productReviews.review.results;
   const [toggleMoreReviewButton, setToggleMoreReviewButton] = useState(true);
   const [reviewList, setReviewList] = useState([reviewData[0], reviewData[1]]);
   const [reviewIndex, setReviewIndex] = useState(2);
-  const [product, setProductID] = useState(productReviews.review);
   const [showModal, setShowModal] = useState(false);
+  //Create API call for the product reviews
 
   // Deal with varying review quantities
   if (reviewData.length === 0) {
@@ -27,12 +30,12 @@ const Ratings = () => {
   }
 
   // More Reviews Button
-  const moreReviewsHandler = (e) => {
-    e.preventDefault();
+  const moreReviewsHandler = () => {
+
     const updateIndex = reviewIndex + 2;
     setReviewIndex(updateIndex)
 
-    const updateReviewList = reviewData.slice(0, reviewIndex);
+    const updateReviewList = reviewData.slice(0, updateIndex);
     setReviewList(updateReviewList);
 
     if (reviewData.length === reviewIndex) {
@@ -60,7 +63,7 @@ const Ratings = () => {
                     className='moreButton'
                     type='submit'
                     value='MORE REVIEWS'
-                    onClick={moreReviewsHandler} />
+                    onClick={() => {moreReviewsHandler()}} />
                 }
 
                 <div className='ratingComponent'>
@@ -90,14 +93,3 @@ const Ratings = () => {
 
 export default Ratings;
 
-
-
-
-
-  // // Returns a stateful value, and a function to update it.
-  //   const [state, setState] = useState(initialState);
-  //   setState(newState);
-  // // Accepts a function that contains imperative, possibly effectful code.
-  //   useEffect(fn);
-  // // Accepts a context object (the value returned from React.
-  //   const value = useContext(MyContext);
