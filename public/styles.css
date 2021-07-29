@@ -9,33 +9,46 @@ body, html {
 /* Main Nav Bar */
 
   body div.nav {
-    display: block;
+    display: flex;
     position: relative;
     width: 100%;
     max-width: 1280px;
-    background-color: #677686;
+    background-color: rgb(49, 49, 49);
     height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    color: white;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: center;
   }
 
 @media (min-width:1280px){
   body div.nav {
-    display: block;
+    display: flex;
     position: relative;
     width: 100%;
-    background-color: #677686;
+    background-color: rgb(49, 49, 49);
     height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: center;
   }
+}
+
+body .site_wide_announce {
+  text-align: center;
+  margin: 0px;
 }
 
 /* Nav Logo */
@@ -160,22 +173,6 @@ div.slogan_container .slogan_list {
   content: '✔';
   font-size: 1.2rem;
   margin-right: 10px;
-}
-
-@media (min-width:1280px){
-body div.nav {
-  display: block;
-  position: relative;
-  width: 100%;
-  background-color: #677686;
-  height: 80px;
-  margin: 0px auto 20px auto;
-  padding: 0px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-}
 }
 
 /* OVERVIEW ******************************************************************/
@@ -377,16 +374,15 @@ div.q_a_container {
   margin: 10px 0px;
 }
 
-div.q_a_container span#q_a_text {
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
 div.q_a_container div.questions {
   margin: 10px 0px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
+
+div.questions .q_a_question_text {
+  margin-left: 5px;
 }
 
 div.questions #q_a_helpful_add {
@@ -398,8 +394,22 @@ div.q_a_container div.answers {
   margin: 10px 0px;
 }
 
-div.answers #q_a_answer_text {
+div.answers .answerA {
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.answers .q_a_answer_first {
+  display: inline-block;
+  margin: 6px 0px 0px 10px;
   font-size: .9rem;
+  max-width: 990px;
+}
+
+div.answers .q_a_answer_text {
+  margin: 10px 0px 0px 30px;
+  font-size: .9rem;
+  max-width: 990px;
 }
 
 
@@ -410,7 +420,7 @@ div.answers .q_a_thumbnail_img {
 
 div.answers img {
   height: 70px;
-  margin: 10px 0px 10px 25px;
+  margin: 10px 0px 10px 30px;
   overflow: hidden;
 }
 
@@ -418,7 +428,7 @@ div.answers img {
 /* Q&A SECTION FOOTER */
 div.answers .q_a_footer {
   font-size: .7rem;
-  margin: 10px 25px;
+  margin: 10px 25px 20px 30px;
   color:rgb(87, 87, 87);
 }
 
@@ -427,10 +437,9 @@ div.answers .q_a_footer {
 div.q_a_component div.q_a_buttons {
   display: block;
   margin: 10px 0px;
-
 }
 
-div.q_a_buttons button.buttons {
+div.q_a_buttons .buttons {
   display: inline-block;
   height: 65px;
   margin: 10px 0px;
