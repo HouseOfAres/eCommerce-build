@@ -14,9 +14,8 @@ const Ratings = () => {
   // UseContext to get product ID
   const currentProduct = useContext(ProductContext);
   const productId = currentProduct.id;
-
-
   const [incomingReviews, setProductReviews] = useState({});
+
   const reviewData = productReviews.review.results;
   const [toggleMoreReviewButton, setToggleMoreReviewButton] = useState(true);
   const [reviewList, setReviewList] = useState([reviewData[0], reviewData[1]]);
@@ -33,8 +32,7 @@ const Ratings = () => {
           .catch((err) => {
             console.log(err);
           });
-  },{});
-  console.log(incomingReviews)
+  },[]);
 
   // Deal with varying review quantities
   if (reviewData.length === 0) {
