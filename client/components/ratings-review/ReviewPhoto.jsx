@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './Ratings.css';
 
 const ReviewPhoto = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
 
+  const [isOpen, setIsOpen] = useState(false);
   const imageClickHandler = () => {
     setIsOpen(!isOpen);
   };

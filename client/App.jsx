@@ -6,15 +6,29 @@ import Ratings from './components/ratings-review/Ratings.jsx';
 import Related from './components/related/Related.jsx';
 import Slogan from './nav-slogan/Slogan.jsx';
 import '../public/styles.css';
+import access from '../config.js';
 
 import { ProductContext } from './ProductContext.jsx';
-
+import axios from 'axios'
 
 const App = () => {
 
+  const [ productData, setProductData ] = useState({});
+
+    useEffect(()=> {
+      axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/17067', {headers: {'Authorization': `${access.TOKEN}`}
+            })
+            .then((response) => {
+              setProductData(response.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+    },[])
+
   return (
     <div>
-      <ProductContext.Provider value={17070}>
+      <ProductContext.Provider value={productData}>
 
         <div className="nav">NAV BAR</div>
         <Overview />

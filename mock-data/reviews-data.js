@@ -5,7 +5,7 @@ const review = {
   "results": [
       {
           "review_id": 188762,
-          "rating": 4.75,
+          "rating": 4.70,
           "summary": "These pants are great!",
           "recommend": true,
           "response": "Thanks glad to hear you like them! We are releasing a new line this fall.",
@@ -30,7 +30,7 @@ const review = {
       },
       {
           "review_id": 188761,
-          "rating": 4,
+          "rating": 4.30,
           "summary": "These pants are fine",
           "recommend": true,
           "response": "",
