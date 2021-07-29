@@ -46,7 +46,6 @@ const ReviewTile = (props) => {
       </div>
 
       <div className='reviewHelpfulness'>Helpful? <u>Yes</u> ({props.item.helpfulness})</div>
-
     </div>
   )
 };
