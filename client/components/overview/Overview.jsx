@@ -7,11 +7,12 @@ import Styles from './Styles.jsx';
 import axios from 'axios';
 import access from '../../../config.js';
 import { ProductContext } from '../../ProductContext.jsx';
+import Sale from './Sale.jsx';
 
 // CHANGE NAME HERE
 const Overview = () => {
   let id = (useContext(ProductContext))
-  console.log(id)
+  // console.log(id.description)
   // console.log(image.productStyles.results[0].photos[0].thumbnail_url)
   const [main, setMain] = useState(image.productStyles.results[0].photos[0].url);
   const [nail, setNail] = useState(image.productStyles.results[0].photos);
@@ -31,21 +32,26 @@ const Overview = () => {
     setStyname(evt.name.toUpperCase())
   }
 
+  // const saleHandler = (evt) => {
+  //   setSalePrice(evt)
+  // }
 
-  useEffect(()=> {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${id.id}/styles`, {headers: {'Authorization': `${access.TOKEN}`}
-          })
-          .then((response) => {
-            setMain(response.data.results[0].photos[0].url);
-            setNail(response.data.results[0].photos)
-            setSty(response.data.results)
-            setStyname(response.data.results[0].name.toUpperCase())
+  useEffect(() => {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${id.id}/styles`, {
+      headers: { 'Authorization': `${access.TOKEN}` }
+    })
+      .then((response) => {
+        setMain(response.data.results[0].photos[0].url);
+        setNail(response.data.results[0].photos)
+        setSty(response.data.results)
+        setStyname(response.data.results[0].name.toUpperCase())
+        setSalePrice(response.data.results[0].sale_price)
 
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-  },[id])
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id])
 
 
   return (
@@ -53,27 +59,29 @@ const Overview = () => {
       <div className="productOverView">
         <img className="Main-ImageOV" src={main}></img>
         <div className="thumbnailList">
-        {nail.map((e) => {
-          return <Thumbnail thumb={e} imageHandle={imageHandler} />
-        })}
+          {nail.map((e) => {
+            return <Thumbnail thumb={e} imageHandle={imageHandler} />
+          })}
         </div>
         <div className="category">
           <p>STARS</p>
           <p className="itemNameOV"><h1>{id.name}</h1></p>
           <p className="cate">CATEGORY</p>
           <div className="category-item"><h3><strong>{id.category}</strong></h3></div>
-          </div>
-          <div className="product-priceOV">
-          <p>${id.default_price}</p>
-          </div>
-          <div className="styleName"><h3>STYLE > {styname}</h3></div>
-          <div className="stylescontainerOV">
+        </div>
+        <div className="product-priceOV">
+          <p>${id.default_price} </p>
+          <Sale sale={salePrice}/>
 
-            {sty.map((e) => {
-              return <Styles style={e} styleHandle={styleHandler}/>
-            })}
+        </div>
+        <div className="styleName"><h3>STYLE > {styname}</h3></div>
+        <div className="stylescontainerOV">
 
-          </div>
+          {sty.map((e) => {
+            return <Styles style={e} styleHandle={styleHandler} />
+          })}
+
+        </div>
 
 
       </div>

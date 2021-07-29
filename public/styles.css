@@ -210,6 +210,7 @@ div.productOverView {
   width: 100%;
   margin: 1%;
   border-style: double;
+  cursor: pointer;
 
 }
 
@@ -250,6 +251,7 @@ div.productOverView {
   margin-left: 630px;
   margin-top: 235px;
   font-size: 18px;
+  line-height: 0;
 }
 .stylescontainerOV{
   display: flex;
@@ -266,7 +268,9 @@ div.productOverView {
   object-fit: cover;
   border-radius: 50%;
   margin: 3px;
+  cursor: pointer;
 }
+
 
 .styleName {
   display: flex;
