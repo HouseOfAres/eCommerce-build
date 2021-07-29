@@ -9,33 +9,46 @@ body, html {
 /* Main Nav Bar */
 
   body div.nav {
-    display: block;
+    display: flex;
     position: relative;
     width: 100%;
     max-width: 1280px;
-    background-color: #677686;
+    background-color: rgb(49, 49, 49);
     height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    color: white;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: center;
   }
 
 @media (min-width:1280px){
   body div.nav {
-    display: block;
+    display: flex;
     position: relative;
     width: 100%;
-    background-color: #677686;
+    background-color: rgb(49, 49, 49);
     height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: center;
   }
+}
+
+body .site_wide_announce {
+  text-align: center;
+  margin: 0px;
 }
 
 /* Nav Logo */
@@ -160,22 +173,6 @@ div.slogan_container .slogan_list {
   content: '✔';
   font-size: 1.2rem;
   margin-right: 10px;
-}
-
-@media (min-width:1280px){
-body div.nav {
-  display: block;
-  position: relative;
-  width: 100%;
-  background-color: #677686;
-  height: 80px;
-  margin: 0px auto 20px auto;
-  padding: 0px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-}
 }
 
 /* OVERVIEW ******************************************************************/
@@ -389,7 +386,7 @@ div.q_a_component div.q_a_buttons {
   margin: 10px 0px;
 }
 
-div.q_a_buttons button.buttons {
+div.q_a_buttons .buttons {
   display: inline-block;
   height: 65px;
   margin: 10px 0px;

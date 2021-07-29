@@ -46,24 +46,23 @@ const App = () => {
             </input>
           </form>
         </div>
-        <QuestionsList questionList={questionList}/>
+        <QuestionsList questionList={questionList} />
         <div className="q_a_buttons">
-        {toggleMoreQuestionsButton &&
+          {toggleMoreQuestionsButton &&
+            <button
+              className="buttons"
+              type="submit"
+              onClick={moreQuestionsHandler}>
+              MORE ANSWERED QUESTIONS
+            </button>
+          }
           <button
             className="buttons"
-            type="submit"
-            value="MORE ANSWERED QUESTIONS"
-            onClick={moreQuestionsHandler}>
-          </button>
-        }
-          <button
-            className="buttons"
-            type="submit"
-            value="ADD A QUESTION +">
+            type="submit">
+            ADD A QUESTION +
           </button>
         </div>
       </div>
-
     </div>
   )
 
