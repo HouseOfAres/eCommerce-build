@@ -52,7 +52,7 @@ const App = () => {
             <button
               className="buttons"
               type="submit"
-              onClick={moreQuestionsHandler}>
+              onClick={() => moreQuestionsHandler}>
               MORE ANSWERED QUESTIONS
             </button>
           }
