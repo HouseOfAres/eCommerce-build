@@ -8,7 +8,7 @@ import { ProductContext } from '../../ProductContext.jsx';
 
 // CHANGE NAME HERE
 const Overview = () => {
-  console.log(useContext(ProductContext))
+  //console.log(useContext(ProductContext))
   // console.log(image.productStyles.results[0].photos[0].thumbnail_url)
   const [main, setMain] = useState(image.productStyles.results[0].photos[0].url);
   const [nail, setNail] = useState(image.productStyles.results[0]);

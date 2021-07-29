@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import StarsTwo from './Stars.jsx';
+import Stars from '../shared-features/Stars.jsx';
 import './Ratings.css';
 
 
@@ -17,7 +17,7 @@ const RatingBreakdown = (props) => {
       <div className='mainRating'>
         <h3>RATINGS &amp; REVIEWS</h3>
         <h1>{calcAvgRating(props.reviewData)}</h1>
-        <StarsTwo rating={calcAvgRating(props.reviewData)}/>
+        <Stars rating={calcAvgRating(props.reviewData)}/>
         <h3>86% of reviews recommend this product</h3>
 
         <div className='starBar'>

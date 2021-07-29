@@ -1,6 +1,6 @@
+import Stars from '../../shared-features/Stars.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
 import React, { useState } from 'react';
-import StarsTwo from './Stars.jsx';
 import './ReviewTile.css';
 
 
@@ -20,7 +20,7 @@ const ReviewTile = (props) => {
     <div className='reviewTileComponent'>
 
       <div className='reviewRating'>
-        <StarsTwo rating={props.item.rating} />
+        <Stars rating={props.item.rating} />
         </div>
 
       <div className='reviewSummary' style={{ fontWeight: 'bold' }}>{props.item.summary}</div>
