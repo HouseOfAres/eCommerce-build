@@ -8,6 +8,7 @@ app.use(cors());
 
 app.get('/products/:product_id', function (req, res) {
   //change endpoint
+
   console.log(res.body);
   res.send('Success!');
 });
