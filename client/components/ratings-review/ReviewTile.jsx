@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
 import ReviewPhoto from './ReviewPhoto.jsx';
-import Stars from './Stars.jsx';
+import React, { useState } from 'react';
+import StarsTwo from './Stars.jsx';
 import './ReviewTile.css';
+
+
+
 const moment = require('moment');
-
-
 const ReviewTile = (props) => {
   const convertedDate = moment(`${props.item.date}`).format("MMMM Do YYYY");
   const reviewPhotos = props.item.photos;
   const responseAvailable = (props.item.response !== null) && (props.item.response !== '');
   const [recommended, setRecommend] = useState(false);
-
   const reviewResponseStyle = {
     backgroundColor: '#DDDDCB',
     padding: '15px 30px'
@@ -20,7 +20,7 @@ const ReviewTile = (props) => {
     <div className='reviewTileComponent'>
 
       <div className='reviewRating'>
-        <Stars rating={props.item.rating} />
+        <StarsTwo rating={props.item.rating} />
         </div>
 
       <div className='reviewSummary' style={{ fontWeight: 'bold' }}>{props.item.summary}</div>
