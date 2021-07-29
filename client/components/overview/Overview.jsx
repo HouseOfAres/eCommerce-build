@@ -7,8 +7,9 @@ import Styles from './Styles.jsx';
 
 // CHANGE NAME HERE
 const Overview = () => {
-  console.log(image.productStyles.results[0].photos[0].thumbnail_url)
+  // console.log(image.productStyles.results[0].photos[0].thumbnail_url)
   const [main, setMain] = useState(image.productStyles.results[0].photos[0].url);
+  const [nail, setNail] = useState(image.productStyles.results[0]);
 
   const imageHandler = (event) => {
     setMain(event)
@@ -20,7 +21,7 @@ const Overview = () => {
       <div className="productOverView">
         <img className="Main-ImageOV" src={main}></img>
         <div className="thumbnailList">
-        {image.productStyles.results[0].photos.map((e) => {
+        {nail.photos.map((e) => {
           return <Thumbnail thumb={e} imageHandle={imageHandler} />
         })}
         </div>
@@ -32,9 +33,11 @@ const Overview = () => {
           <div className="product-priceOV">
           ${productInfo.productInformation.default_price}
           </div>
+          <div className="styleName"><h3>STYLE > FOREST GREEN & BLACK</h3></div>
           <div className="stylescontainerOV">
+
             {image.productStyles.results.map((e) => {
-              return <Styles style={e}/>
+              return <Styles style={e} imageHandle={imageHandler}/>
             })}
 
           </div>
