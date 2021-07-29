@@ -67,3 +67,34 @@
   border: 1px solid #999;
   font-size: 20px;
 }
+
+.starBar{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.numberRating{
+  grid-column-start: 1;
+  white-space: nowrap;
+}
+
+.ratingBar {
+  grid-column-start: 2;
+  align-self: center;
+  position: relative;
+  width: 150px;
+
+  margin: 0 auto;
+  background: #e5e6e279;
+  height: 10px;
+  border-radius: 2px;
+  padding: 1px 5px;
+}
+
+.rbars {
+  position: absolute;
+  height: 10px;
+  width: 50%;
+  max-width: 100%;
+  background: rgba(114, 170, 114, 0.726);
+}
