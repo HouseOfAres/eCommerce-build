@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import NavigationBar from './nav-slogan/NavBar.jsx';
 import QuestionsAndAnswers from './components/question-answers/Q-A.jsx';
 import Overview from './components/overview/Overview.jsx';
 import Ratings from './components/ratings-review/Ratings.jsx';
@@ -30,7 +31,7 @@ const App = () => {
     <div>
       <ProductContext.Provider value={productData}>
 
-        <div className="nav">NAV BAR</div>
+        <NavigationBar />
         <Overview />
         <Slogan />
         <Related />
