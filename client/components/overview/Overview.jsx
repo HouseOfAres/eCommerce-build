@@ -19,7 +19,7 @@ const Overview = () => {
   }
 
   return (
-    <div className="component">
+    <div className="overviewComponent">
       <div className="productOverView">
         <img className="Main-ImageOV" src={main}></img>
         <div className="thumbnailList">

@@ -178,11 +178,37 @@ div.slogan_container .slogan_list {
 /* OVERVIEW ******************************************************************/
 
 
-body div.component .SUBCOMPONENT {
-  background-color: gray;
-  width: 300px;
-  height: 100px;
+body div.overviewComponent {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0px auto 20px auto;
+  background-color: white;
+  padding: 30px 120px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
+
+@media (min-width:1280px){
+  body div.overviewComponent {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0px auto 20px auto;
+    background-color: white;
+    padding: 30px 130px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+
 
 div.productOverView {
   display: flex;

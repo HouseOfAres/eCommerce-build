@@ -18,8 +18,8 @@ const Answers = (props) => {
           {props.answer.body}
         </div>}
       {props.answer.photos.length > 0 &&
-        <div className="q_a_thumbnail_img">{props.answer.photos.map(img => {
-          return <img src={img}></img>
+        <div className="q_a_thumbnail_img">{props.answer.photos.map((img, i) => {
+          return <img key={i} src={img}></img>
         })}</div>
       }
 
