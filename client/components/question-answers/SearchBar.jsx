@@ -3,7 +3,7 @@ import questions from '../../../mock-data/questions-data.js';
 
 const SearchBar = (props) => {
 
-  const questionData = questions.questions.results;
+  const questionData = props.questionData;
 
   const [searchQuery, setSearchQuery] = useState('');
   const [queryInit, setQueryInit] = useState(questionData);
@@ -12,23 +12,26 @@ const SearchBar = (props) => {
 
   useEffect(() => {
     setNoMatches(false);
+
     if (searchQuery === '') {
-      props.setQuestionList(questionData.slice(0, 4));
+      console.log(queryInit)
+      props.setQuestionList(questionData);
+      setQueryInit([])
     } else {
       const currentQueryResults = [];
       questionData.forEach(question => {
         const lowercase = question.question_body.toLowerCase();
+
         if (lowercase.includes(searchQuery.toLowerCase())) {
           currentQueryResults.push(question);
-        }
-        if (currentQueryResults.length) {
           setQueryInit(currentQueryResults);
-
+        }
+        if (queryInit.length) {
           props.setQuestionList(queryInit);
           setNoMatches(false);
         } else {
+          console.log('hello');
           props.setQuestionList([])
-
           setNoMatches(true);
 
         }

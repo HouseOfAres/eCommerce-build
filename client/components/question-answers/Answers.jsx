@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AnswerImg from './AnswerImg.jsx';
 import moment from 'moment';
 
 const Answers = (props) => {
@@ -19,7 +20,7 @@ const Answers = (props) => {
         </div>}
       {props.answer.photos.length > 0 &&
         <div className="q_a_thumbnail_img">{props.answer.photos.map((img, i) => {
-          return <img key={i} src={img}></img>
+          return <AnswerImg img={img} key={i}/>
         })}</div>
       }
 

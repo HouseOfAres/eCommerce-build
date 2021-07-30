@@ -1,29 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import questions from '../../../mock-data/questions-data.js';
+import { ProductContext } from '../../ProductContext.jsx';
 import QuestionsList from './QuestionsList.jsx';
 import SearchBar from './SearchBar.jsx';
 import QaButtons from './Q-A-Buttons.jsx';
 import access from '../../../config.js';
 import axios from 'axios';
 
-// import React { useState } from 'react;'
 
 // CHANGE NAME HERE
-const App = () => {
+const QuestionsAndAnswers = () => {
 
-  const questionData = questions.questions.results;
-  const [questionList, setQuestionList] = useState(questionData.slice(0, 4));
+  let currentProduct = useContext(ProductContext);
+  let currentProductId = currentProduct.id;
 
-  useEffect(()=> {
-    axios.get('...', {headers: {'Authorization': `${access.TOKEN}`}
-          })
-          .then((response) => {
-            setProductReviews(response.data.results);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-  },[]);
+  const [questionData, setQuestionData] = useState([]);
+  const [questionList, setQuestionList] = useState([]);
+
+
+  useEffect(() => {
+    // axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17074&count=20`,
+    {
+        headers: { 'Authorization': `${access.TOKEN}` }
+      })
+      .then((response) => {
+        setQuestionData(response.data.results);
+        setQuestionList(response.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [currentProductId]);
+
 
   return (
     <div className="component">
@@ -31,7 +40,6 @@ const App = () => {
         <div className="component_title">QUESTIONS & ANSWERS</div>
         <SearchBar questionData={questionData} setQuestionList={setQuestionList}/>
         <QuestionsList questionList={questionList} />
-        <QaButtons questionData={questionData} questionList={questionList} setQuestionList={setQuestionList}/>
       </div>
     </div>
   )
@@ -39,4 +47,4 @@ const App = () => {
 }
 
 // CHANGE EXPORT HERE
-export default App;
+export default QuestionsAndAnswers;
