@@ -27,9 +27,9 @@ const ProductBreakdown = (props) => {
             });
   },[productId]);
 
-  console.log(metaData.characteristics)
+  //console.log(metaData.characteristics)
 
-  // Map through the object and display each characteristic on a 5point scale.
+  // Map through the object and display each characteristic on a 5point scale.t
 
   return (
     <div className='productBreakdown'>
