@@ -39,8 +39,11 @@
 }
 
 .sort {
-  justify-content: right;
+  text-align: right;
+
   padding: 5px;
+  width: 100%;
+  height: 35px;
 }
 
 .popup-box {
