@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Question from './Question.jsx';
 
 const QuestionsList = (props) => {
 
   const [toggleMoreQuestionsButton, setToggleMoreQuestionsButton] = useState(true);
-  const questionData = props.questionList
-    .sort(function (a, b) {
-      return b.question_helpfulness - a.question_helpfulness;
-    });
-  // const [questionList, setQuestionList] = useState(questionData.slice(0, 4));
-  const questionList = questionData.slice(0, 4);
+  const [questionData, setQuestionData] = useState(props.questionList);
+  questionData.sort(function (a, b) {
+    return b.question_helpfulness - a.question_helpfulness;
+  });
+  const [questionList, setQuestionList] = useState(questionData.slice(0, 4));
+  const [questionIndex, setQuestionIndex] = useState(4);
+
 
   // More Questions Button
   const moreQuestionsHandler = () => {
 
-    const [questionIndex, setQuestionIndex] = useState(4);
     const updateIndex = questionIndex + 2;
     setQuestionIndex(updateIndex)
 
-    const updateQuestionList = questionList.slice(0, updateIndex);
+    const updateQuestionList = questionData.slice(0, updateIndex);
     setQuestionList(updateQuestionList);
 
     if (updateIndex >= questionData.length) {

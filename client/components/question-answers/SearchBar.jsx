@@ -14,7 +14,6 @@ const SearchBar = (props) => {
     setNoMatches(false);
 
     if (searchQuery === '') {
-      console.log(queryInit)
       props.setQuestionList(questionData);
       setQueryInit([])
     } else {
@@ -30,7 +29,6 @@ const SearchBar = (props) => {
           props.setQuestionList(queryInit);
           setNoMatches(false);
         } else {
-          console.log('hello');
           props.setQuestionList([])
           setNoMatches(true);
 

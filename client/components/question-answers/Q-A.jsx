@@ -16,20 +16,23 @@ const QuestionsAndAnswers = () => {
 
   const [questionData, setQuestionData] = useState([]);
   const [questionList, setQuestionList] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
 
   useEffect(() => {
-    // axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17074&count=20`,
-    {
+    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
+      // axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17074&count=20`,
+      {
         headers: { 'Authorization': `${access.TOKEN}` }
       })
-      .then((response) => {
-        setQuestionData(response.data.results);
-        setQuestionList(response.data.results);
+      .then(response => response.json())
+      .then((data) => {
+        setQuestionData(data.results);
+        setQuestionList(data.results);
+        setIsLoaded(true);
       })
       .catch((err) => {
-        console.log(err);
+        console.log('Error: ', err);
       });
   }, [currentProductId]);
 
@@ -38,8 +41,12 @@ const QuestionsAndAnswers = () => {
     <div className="component">
       <div className="q_a_component">
         <div className="component_title">QUESTIONS & ANSWERS</div>
-        <SearchBar questionData={questionData} setQuestionList={setQuestionList}/>
-        <QuestionsList questionList={questionList} />
+        {isLoaded &&
+          <SearchBar questionData={questionData} setQuestionList={setQuestionList} />
+        }
+        {isLoaded &&
+          <QuestionsList questionList={questionList} test={setQuestionList}/>
+        }
       </div>
     </div>
   )
