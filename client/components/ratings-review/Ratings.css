@@ -1,3 +1,8 @@
+.ratingComponent {
+  justify-items: center;
+}
+
+
 .addButton {
   height: 65px;
   width: 200px;
@@ -117,4 +122,48 @@
   width: 50%;
   max-width: 100%;
   background: rgba(114, 170, 114, 0.726);
+}
+
+.productBreakdown{
+  padding-top: 50px;
+  justify-content: center;
+}
+
+.characterBar {
+  position:absolute;
+  width: 200px;
+  background: #e5e6e279;
+  height: 5px;
+  border-radius: 2px;
+  padding: 1px 5px;
+}
+
+.triangle {
+  align-self: top;
+  position: absolute;
+  height: 10px;
+  width: 50%;
+  max-width: 100%;
+  background: rgba(114, 170, 114, 0);
+}
+
+.descriptions {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.descriptionText {
+  grid-column-start: 1;
+  text-align: left;
+  justify-content: end;
+}
+
+.rightText {
+  grid-column-start: 2;
+  text-align: right;
+}
+
+.leftText {
+  grid-column-start: 1;
+  text-align: left;
 }

@@ -13,17 +13,17 @@ const RatingBreakdown = (props) => {
   const [ ratingBarFill, setRatingBar ] = useState({});
   let productId = currentProduct.id;
 
-
   useEffect(()=> {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`}
+    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`}
             })
-            .then((response) => {
-              setMetaData(response.data)
-              calcRatingBar(response.data.ratings)
+            .then(response => response.json())
+            .then((data) => {
+              setMetaData(data)
+              calcRatingBar(data.ratings)
               setLoading(true)
             })
-            .catch((err) => {
-              console.log(err);
+            .catch((error) => {
+              console.log(error);
             });
   },[productId]);
 
@@ -62,13 +62,12 @@ const RatingBreakdown = (props) => {
         <h3>RATINGS &amp; REVIEWS</h3>
         <h1>{calcAvgRating(props.incomingReviews)}</h1>
         <Stars rating={calcAvgRating(props.incomingReviews)}/>
-        {isLoading &&
-        <h3>{calcRecommended(metaData.recommended)}% of reviews recommend this product</h3>}
 
         <div className='starBar'>
           <p className='numberRating'>5 Stars</p>
             <div className='ratingBar'>
-              <span className='rbars' style={{ "width": `${ratingBarFill['5']}%`}}></span>
+              <span className='rbars' style={{ "width": `${ratingBarFill['5']}%`}}>
+              </span>
             </div>
         </div>
 
@@ -99,6 +98,9 @@ const RatingBreakdown = (props) => {
             <span className='rbars' style={{ "width": `${ratingBarFill['1']}%`}}></span>
           </div>
         </div>
+
+        {isLoading &&
+        <h5>{calcRecommended(metaData.recommended)}% of reviews recommend this product</h5>}
 
       </div>
     </div>

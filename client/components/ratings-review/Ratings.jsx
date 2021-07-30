@@ -26,27 +26,33 @@ const Ratings = () => {
 
 
   useEffect(()=> {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
 
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`,
-     'signal': signal }
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`
+     }
           })
-          .then((response) => {
-            if (response.data.results.length === 0) {
-              setToggleMoreReviewButton(false);
-            } else {
-              setProductReviews(response.data.results);
-              setReviewList([response.data.results[0], response.data.results[1]])
+          .then(async (response) => {
+            try{
+              const data = await response.data;
+
+              setProductReviews(data.results);
+              setReviewList([data.results[0], data.results[1]])
+            } catch(error) {
+              console.log(error)
             }
           })
-          .catch((err) => {
-            console.log(err);
-          });
 
-          return function cleanup() {
-            abortController.abort();
-          }
+          // .then((data) => {
+          //   if (data.results.length === 0) {
+          //     setToggleMoreReviewButton(false);
+          //   } else {
+          //     setProductReviews(data.results);
+          //     setReviewList([data.results[0], data.results[1]])
+          //   }
+          // })
+          // .catch((err) => {
+          //   console.log(err);
+          // });
+
   },[productId]);
 
 
