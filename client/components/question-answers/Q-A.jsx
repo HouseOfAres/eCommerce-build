@@ -12,24 +12,24 @@ const QuestionsAndAnswers = () => {
 
   let currentProduct = useContext(ProductContext);
   let currentProductId = currentProduct.id;
-
+  console.log(currentProductId)
   const [questionData, setQuestionData] = useState([]);
   const [questionList, setQuestionList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
 
   useEffect(() => {
-    // fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
-      fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=20',
+    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
+      // fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=20',
       {
         headers: { 'Authorization': `${access.TOKEN}` }
       })
       .then(response => response.json())
       .then((data) => {
         setQuestionData(data.results);
+        console.log(data);
         setQuestionList(data.results);
         setIsLoaded(true);
-        console.log(isLoaded)
       })
       .catch((err) => {
         console.log('Error: ', err);
@@ -45,7 +45,7 @@ const QuestionsAndAnswers = () => {
           <SearchBar questionData={questionData} setQuestionList={setQuestionList} />
         }
         {isLoaded &&
-          <QuestionsList questionList={questionList} test={setQuestionList}/>
+          <QuestionsList questionList={questionList} test={setQuestionList} id={currentProductId}/>
         }
       </div>
     </div>

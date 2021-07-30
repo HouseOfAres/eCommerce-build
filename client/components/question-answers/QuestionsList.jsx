@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AddQuestion from './AddQuestion.jsx';
 import Question from './Question.jsx';
 
 const QuestionsList = (props) => {
@@ -10,6 +11,7 @@ const QuestionsList = (props) => {
   });
   const [questionList, setQuestionList] = useState(questionData.slice(0, 4));
   const [questionIndex, setQuestionIndex] = useState(4);
+  const [showModal, setShowModal] = useState(false);
 
 
   // More Questions Button
@@ -25,6 +27,14 @@ const QuestionsList = (props) => {
       setToggleMoreQuestionsButton(false);
     }
   }
+
+  const showModalHandler = e => {
+    setShowModal(!showModal);
+  }
+
+  const handleOutsideClick = e => {
+    if (!node.contains(e.target)) showModalHandler();
+  };
 
   // const filterQuestions = () => {
   //   let result = []
@@ -44,7 +54,11 @@ const QuestionsList = (props) => {
 
 
   return (
-    <div>
+    <div
+      ref={node => {
+        node = node;
+      }}
+    >
       {questionList.map((item) =>
         <Question item={item} key={item.question_id} />
       )}
@@ -57,10 +71,14 @@ const QuestionsList = (props) => {
             onClick={() => { moreQuestionsHandler() }}
           />
         }
+        {showModal &&
+          <AddQuestion id={props.id} handleClose={showModalHandler} />
+        }
         <input
           className="buttons"
           type='button'
           value="ADD A QUESTION +"
+          onClick={showModalHandler}
         />
       </div>
     </div>
