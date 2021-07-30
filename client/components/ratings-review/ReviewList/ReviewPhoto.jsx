@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Ratings.css';
+import '../Ratings.css';
 
 const ReviewPhoto = (props) => {
 
