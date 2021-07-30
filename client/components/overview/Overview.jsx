@@ -12,7 +12,7 @@ import Sale from './Sale.jsx';
 // CHANGE NAME HERE
 const Overview = () => {
   let id = (useContext(ProductContext))
-  // console.log(id.description)
+  // console.log(id)
   // console.log(image.productStyles.results[0].photos[0].thumbnail_url)
   const [main, setMain] = useState(image.productStyles.results[0].photos[0].url);
   const [nail, setNail] = useState(image.productStyles.results[0].photos);
@@ -30,6 +30,8 @@ const Overview = () => {
     setMain(evt.photos[0].url)
     setNail(evt.photos)
     setStyname(evt.name.toUpperCase())
+    setSalePrice(evt.sale_price)
+    // console.log(evt)
   }
 
   // const saleHandler = (evt) => {
@@ -46,7 +48,7 @@ const Overview = () => {
         setSty(response.data.results)
         setStyname(response.data.results[0].name.toUpperCase())
         setSalePrice(response.data.results[0].sale_price)
-
+        // console.log(response.data.results[0].sale_price)
       })
       .catch((err) => {
         console.log(err);
@@ -65,7 +67,7 @@ const Overview = () => {
         </div>
         <div className="category">
           <p>STARS</p>
-          <p className="itemNameOV"><h1>{id.name}</h1></p>
+          <h2 className="itemNameOV">{id.name}</h2>
           <p className="cate">CATEGORY</p>
           <div className="category-item"><h3><strong>{id.category}</strong></h3></div>
         </div>
@@ -82,11 +84,7 @@ const Overview = () => {
           })}
 
         </div>
-
-
       </div>
-
-
     </div>
   )
 

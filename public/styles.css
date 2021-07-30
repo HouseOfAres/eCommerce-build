@@ -225,40 +225,46 @@ div.productOverView {
 }
 
 .category {
-  display: flex;
+  display: inline;
   flex-flow: column;
   position: absolute;
   margin-left: 630px;
-  margin-top: 30px;
-  margin-bottom: 1;
+  margin-top: -15px;
   font-size: 18px;
-  line-height: 18px;
+  line-height: 38px;
 }
 
 .category-item {
   font-size: 25px;
   margin-bottom: 0px;
+  margin-top: -20px;
+}
+
+.cate {
+  margin-top: 25px;
+  margin-bottom: 3px
 }
 
 .itemNameOV {
-  font-size: 23px;
+  font-size: 45px;
 }
 
 .product-priceOV {
-  display: flex;
+  display: inline;
   flex-flow: column;
   position: absolute;
   margin-left: 630px;
-  margin-top: 235px;
+  margin-top: 225px;
   font-size: 18px;
-  line-height: 0;
+  line-height: .5px;
 }
 .stylescontainerOV{
-  display: flex;
+  display: inline;
   flex-flow: row;
   position: absolute;
   margin-left: 625px;
   margin-top: 330px;
+  margin-right: 10px;
 
 }
 
@@ -277,7 +283,7 @@ div.productOverView {
   flex-flow: column;
   position: absolute;
   margin-left: 630px;
-  margin-top: 295px;
+  margin-top: 305px;
   margin-bottom: 1;
   font-size: 18px;
   line-height: 18px;
