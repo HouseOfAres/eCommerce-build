@@ -3,6 +3,7 @@ import AnswerImg from './AnswerImg.jsx';
 import moment from 'moment';
 
 const Answers = (props) => {
+
   return (
     <div className="answers">
       {props.index === 0 &&

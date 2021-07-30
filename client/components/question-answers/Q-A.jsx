@@ -3,7 +3,6 @@ import questions from '../../../mock-data/questions-data.js';
 import { ProductContext } from '../../ProductContext.jsx';
 import QuestionsList from './QuestionsList.jsx';
 import SearchBar from './SearchBar.jsx';
-import QaButtons from './Q-A-Buttons.jsx';
 import access from '../../../config.js';
 import axios from 'axios';
 
@@ -20,8 +19,8 @@ const QuestionsAndAnswers = () => {
 
 
   useEffect(() => {
-    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
-      // axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17074&count=20`,
+    // fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
+      fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=20',
       {
         headers: { 'Authorization': `${access.TOKEN}` }
       })
@@ -30,6 +29,7 @@ const QuestionsAndAnswers = () => {
         setQuestionData(data.results);
         setQuestionList(data.results);
         setIsLoaded(true);
+        console.log(isLoaded)
       })
       .catch((err) => {
         console.log('Error: ', err);

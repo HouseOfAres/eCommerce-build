@@ -26,6 +26,22 @@ const QuestionsList = (props) => {
     }
   }
 
+  // const filterQuestions = () => {
+  //   let result = []
+  //   for (var i = 0; i < questionList.length; i++) {
+  //     let currentQ = questionList[i];
+  //     if (Object.keys(currentQ.answers).length === 0) {
+  //       continue;
+  //     } else {
+  //       result.push(currentQ);
+  //     }
+  //   }
+  //   return result;
+  // }
+  // filterQuestions(questionList);
+
+  // console.log(filterQuestions);
+
 
   return (
     <div>

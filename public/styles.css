@@ -451,6 +451,13 @@ div.answers .q_a_answer_text {
   max-width: 990px;
 }
 
+.load_more_answers {
+  margin: 10px 0px 0px 30px;
+  font-size: .8rem;
+  max-width: 990px;
+  cursor: pointer;
+}
+
 
 /* Q&A IMAGES */
 div.answers .q_a_thumbnail_img {
