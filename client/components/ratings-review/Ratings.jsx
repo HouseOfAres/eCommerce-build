@@ -1,56 +1,72 @@
-import React, { useState, useEffect, useContext } from 'react';
+import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
 import productReviews from '../../../mock-data/reviews-data.js';
+import React, { useState, useEffect, useContext } from 'react';
 import productData from '../../../mock-data/products-data.js';
 import { ProductContext } from '../../ProductContext.jsx';
+import AddReview from './AddReviewForm/AddReview.jsx';
+import ReviewList from './ReviewList/ReviewList.jsx';
 import RatingBreakdown from './RatingBreakdown.jsx';
-import ReviewList from './ReviewList.jsx';
-import AddReview from './AddReview.jsx';
 import access from '../../../config.js';
-import axios from 'axios'
+import 'regenerator-runtime/runtime'
+import Sort from './Sort.jsx';
+import axios from 'axios';
 import './Ratings.css';
 
 
 const Ratings = () => {
   // UseContext to get product ID
   const currentProduct = useContext(ProductContext);
-  const productId = currentProduct.id;
-  const [incomingReviews, setProductReviews] = useState({});
-
   const reviewData = productReviews.review.results;
+  const productId = currentProduct.id;
+  const [incomingReviews, setProductReviews] = useState(reviewData);
   const [toggleMoreReviewButton, setToggleMoreReviewButton] = useState(true);
   const [reviewList, setReviewList] = useState([reviewData[0], reviewData[1]]);
   const [reviewIndex, setReviewIndex] = useState(2);
   const [showModal, setShowModal] = useState(false);
 
-  //Create API call for the product reviews
+
   useEffect(()=> {
-    axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=17067', {headers: {'Authorization': `${access.TOKEN}`}
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`,
+     'signal': signal }
           })
           .then((response) => {
-            setProductReviews(response.data.results);
+            if (response.data.results.length === 0) {
+              setToggleMoreReviewButton(false);
+            } else {
+              setProductReviews(response.data.results);
+              setReviewList([response.data.results[0], response.data.results[1]])
+            }
           })
           .catch((err) => {
             console.log(err);
           });
-  },[]);
 
-  // Deal with varying review quantities
-  if (reviewData.length === 0) {
-    setToggleMoreReviewButton(false);
-  }
+          return function cleanup() {
+            abortController.abort();
+          }
+  },[productId]);
+
+
 
   // More Reviews Button
   const moreReviewsHandler = () => {
+    if (reviewData.length === reviewIndex) {
+      setToggleMoreReviewButton(false);
+    }
 
     const updateIndex = reviewIndex + 2;
     setReviewIndex(updateIndex)
 
-    const updateReviewList = reviewData.slice(0, updateIndex);
+    const updateReviewList = incomingReviews.slice(0, updateIndex);
     setReviewList(updateReviewList);
-
-    if (reviewData.length === reviewIndex) {
+    // Deal with varying review quantities
+    if (updateIndex >= incomingReviews.length) {
       setToggleMoreReviewButton(false);
     }
+
   }
 
   // Add a Review Modal
@@ -58,9 +74,15 @@ const Ratings = () => {
     setShowModal(!showModal);
   }
 
+  // Sorting
+  const sortReviewHandler = (data) => {
+    setReviewList(data);
+  }
+
   return (
     <div className='test'>
       <div className='component'>
+        <Sort incomingReviews={incomingReviews} sortReviewHandler={sortReviewHandler}/>
         <div className='reviewsRatingsContainer'>
 
                 <div className='reviewList'>
@@ -77,7 +99,8 @@ const Ratings = () => {
                 }
 
                 <div className='ratingComponent'>
-                  <RatingBreakdown reviewData={reviewData} />
+                  <RatingBreakdown incomingReviews={incomingReviews} />
+                  <ProductBreakdown />
                 </div>
 
                 <div className='addingReviewComponent'>

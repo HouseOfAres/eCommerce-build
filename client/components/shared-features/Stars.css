@@ -39,7 +39,5 @@
 }
 
 .inner-star::before {
-  /* content: "\f005 \f005 \f005 \f005 \f005"; */
   color: #d4a516;
-
 }
