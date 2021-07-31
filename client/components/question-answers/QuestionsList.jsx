@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddQuestion from './AddQuestion.jsx';
+import AddQ from './AddQ.jsx';
 import Question from './Question.jsx';
 
 const QuestionsList = (props) => {
@@ -72,7 +73,7 @@ const QuestionsList = (props) => {
           />
         }
         {showModal &&
-          <AddQuestion id={props.id} handleClose={showModalHandler} />
+          <AddQ productName={props.productName} handleClose={showModalHandler} />
         }
         <input
           className="buttons"

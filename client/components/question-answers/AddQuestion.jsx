@@ -3,21 +3,11 @@ import access from '../../../config.js';
 
 const AddQuestion = (props) => {
 
-  const [productName, setProductName] = useState('');
+  const [productName, setProductName] = useState(props.productName);
 
-  useEffect(() => {
-    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${props.id}`,
-      {
-        headers: { 'Authorization': `${access.TOKEN}` }
-      })
-      .then(response => response.json())
-      .then((data) => {
-        setProductName(data.name);
-      })
-      .catch((err) => {
-        console.log('Error: ', err);
-      });
-  }, [productName]);
+  const fillGreen = () => {
+    return {"test_radio": "test_radio_green"}
+  }
 
   return (
     <div className='q_a_popup_box'>
@@ -42,12 +32,12 @@ const AddQuestion = (props) => {
             <h3>Characteristics</h3>
             <div className="form_characteristics_container">
               <div className="form_characteristics_text">
-                Size<br></br>
-                Width<br></br>
-                Comfort<br></br>
-                Quality<br></br>
-                Length<br></br>
-                Fit<br></br>
+                <span>Size....................................................</span>
+                <span>Width....................................................</span>
+                <span>Comfort....................................................</span>
+                <span>Quality....................................................</span>
+                <span>Length....................................................</span>
+                <span>Fit....................................................</span>
               </div>
               <div className="form_characteristics_radio">
                 <div>
@@ -121,13 +111,13 @@ const AddQuestion = (props) => {
 
             <div className="form_item">
               <h3>Email</h3>
-              <input placeholder="Insert placeholder here..." className="pop_up_input_form" type='text' />
+              <input placeholder="email@address.com" className="pop_up_input_form" type='text' />
             </div>
 
           </form>
 
           <div className="form_button">
-            <button className="modal_button">Submit</button>
+            <button className="modal_button">SUBMIT REVIEW</button>
           </div>
         </div>
       </div>

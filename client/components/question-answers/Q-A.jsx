@@ -12,7 +12,6 @@ const QuestionsAndAnswers = () => {
 
   let currentProduct = useContext(ProductContext);
   let currentProductId = currentProduct.id;
-  console.log(currentProductId)
   const [questionData, setQuestionData] = useState([]);
   const [questionList, setQuestionList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -45,7 +44,7 @@ const QuestionsAndAnswers = () => {
           <SearchBar questionData={questionData} setQuestionList={setQuestionList} />
         }
         {isLoaded &&
-          <QuestionsList questionList={questionList} test={setQuestionList} id={currentProductId}/>
+          <QuestionsList questionList={questionList} test={setQuestionList} productName={currentProduct.name}/>
         }
       </div>
     </div>
