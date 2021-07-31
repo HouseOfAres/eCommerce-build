@@ -61,7 +61,7 @@ const QuestionsList = (props) => {
       }}
     >
       {questionList.map((item) =>
-        <Question item={item} key={item.question_id} />
+        <Question currentProduct={props.currentProduct} item={item} key={item.question_id} handleClose={showModalHandler} />
       )}
       <div className="q_a_buttons">
         {toggleMoreQuestionsButton &&
@@ -73,7 +73,7 @@ const QuestionsList = (props) => {
           />
         }
         {showModal &&
-          <AddQ productName={props.productName} handleClose={showModalHandler} />
+          <AddQ currentProduct={props.currentProduct} handleClose={showModalHandler} />
         }
         <input
           className="buttons"

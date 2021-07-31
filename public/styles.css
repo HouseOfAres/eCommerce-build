@@ -706,12 +706,15 @@ hr.form_hr {
   border: none;
   border-top: 1px solid #d6d6d6;
   border-radius: 4px;
-  padding: 0 10px;
+  padding: 5px 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: .9rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin-top: 3px;
   resize: none;
+  height: 150px;
 }
 
 .pop_up_input_form_textarea::placeholder {
@@ -726,7 +729,7 @@ hr.form_hr {
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
   font-size: .9rem;
-  height: 151px;
+  height: 150px;
 }
 
 .pop_up_email_text {
@@ -738,6 +741,11 @@ hr.form_hr {
 .form_item {
   margin-bottom: 15px;
   font-size: .8rem;
+}
+
+.add_answer_pop_up {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .form_characteristics_container {
@@ -773,4 +781,5 @@ hr.form_hr {
   font-family: 'Poppins', sans-serif;
   font-size: .9rem;
   margin: 0 auto;
+  cursor: pointer;
 }

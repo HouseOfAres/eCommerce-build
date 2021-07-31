@@ -26,7 +26,6 @@ const QuestionsAndAnswers = () => {
       .then(response => response.json())
       .then((data) => {
         setQuestionData(data.results);
-        console.log(data);
         setQuestionList(data.results);
         setIsLoaded(true);
       })
@@ -44,7 +43,7 @@ const QuestionsAndAnswers = () => {
           <SearchBar questionData={questionData} setQuestionList={setQuestionList} />
         }
         {isLoaded &&
-          <QuestionsList questionList={questionList} test={setQuestionList} productName={currentProduct.name}/>
+          <QuestionsList questionList={questionList} test={setQuestionList} currentProduct={currentProduct}/>
         }
       </div>
     </div>

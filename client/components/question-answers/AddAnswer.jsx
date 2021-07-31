@@ -1,28 +1,29 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-const AddQ = (props) => {
+const AddAnswer = (props) => {
 
-  const [productName, setProductName] = useState(props.currentProduct.name);
+  const [productName, setProductName] = useState(props.productName);
+  const [questionBody, setQuestionBody] = useState(props.questionBody);
 
 
   return (
     <div className='q_a_popup_box'>
       <div className='q_a_box'>
         <div className='q_a_close-icon' onClick={props.handleClose}>✖</div>
-        <div className='pop_up_title'>Ask your question</div>
-        <div className='pop_up_subtitle'>about {productName}</div>
+        <div className='pop_up_title'>Submit your Answer</div>
+        <div className='pop_up_subtitle'>{productName} : {questionBody}</div>
         <hr className="form_hr"></hr>
         <div className="form_data">
 
           <form>
             <div className="form_item">
-              <h3>* Your Question:</h3>
-              <textarea placeholder="Example: What is the airspeed of an unladen swallow?" className="pop_up_input_form_textarea" rows="10" />
+              <h3>* Your Answer:</h3>
+              <textarea placeholder="Example: Well, you have to know these things when you're a king, you know..." className="pop_up_input_form_textarea" rows="10" />
             </div>
 
             <div className="form_item">
               <h3>* What is your nickname?</h3>
-              <input placeholder="Example: jackson11!" className="pop_up_input_form" type='text' required />
+              <input placeholder="Example: jack543!" className="pop_up_input_form" type='text' required />
               <div className="pop_up_email_text">
                 For privacy reasons, do not use your full name or email address
               </div>
@@ -31,7 +32,7 @@ const AddQ = (props) => {
 
             <div className="form_item">
               <h3>* Your email:</h3>
-              <input placeholder="Example: email@address.com" className="pop_up_input_form" type='text' required />
+              <input placeholder="Example: jack@email.com" className="pop_up_input_form" type='text' required />
               <div className="pop_up_email_text">
                 For authentication reasons, you will not be emailed
               </div>
@@ -49,4 +50,4 @@ const AddQ = (props) => {
   )
 };
 
-export default AddQ;
+export default AddAnswer;
