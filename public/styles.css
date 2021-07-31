@@ -289,6 +289,19 @@ div.productOverView {
   line-height: 18px;
 }
 
+.salePriceOV {
+  font-size: large;
+  color: red;
+  font-style: italic;
+
+}
+
+
+.defaultPriceOV {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
 body div.component div.related-products .carousel {

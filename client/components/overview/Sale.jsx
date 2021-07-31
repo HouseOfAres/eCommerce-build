@@ -4,7 +4,7 @@ const Sale = (props) => {
 
   if (props.sale !== null) {
     return (
-      <p className="">${props.sale}</p>
+      <p className="salePriceOV">SALE: ${props.sale}</p>
     )
   } else {
     return (
