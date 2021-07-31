@@ -7,13 +7,12 @@ import './../Ratings.css';
 
 
 const ProductBreakdown = (props) => {
-  let id = (useContext(ProductContext))
-  //const currentProduct = useContext(ProductContext);
-
+  //let id = (useContext(ProductContext))
+  const currentProduct = useContext(ProductContext);
   const [ metaData, setMetaData ] = useState({});
   const [ isLoading, setLoading ] = useState(false);
 
-  let productId = id.id;
+  let productId = currentProduct.id;
 
   useEffect(()=> {
     fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`}

@@ -3,11 +3,9 @@ import './../Ratings.css';
 
 
 
-
 const Characteristic = (props) => {
   const showChars = Object.keys(props.productCharacteristics);
-  //console.log(showChars)
-  const [ showSize, setShowSize ] = useState(true);
+  const [ showSize, setShowSize ] = useState(false);
   const [ showFit, setShowFit ] = useState(false);
   const [ showLength, setShowLength ] = useState(false);
   const [ showComfort, setShowComfort ] = useState(false);
@@ -40,7 +38,7 @@ const Characteristic = (props) => {
           <h5 className='decriptionText'>Size</h5>
           <span className='characterBar'>
                 <span className='triangle'>
-                  <i className="fa fa-caret-up fa-2x" aria-hidden="true" style={{ "paddingLeft": "50px"}}></i>
+                  <i className="fa fa-caret-up fa-2x" aria-hidden="true" style={{ "paddingLeft": "100px"}}></i>
                 </span>
           </span>
           <div className='descriptions'>
