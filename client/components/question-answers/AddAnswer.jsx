@@ -18,7 +18,7 @@ const AddAnswer = (props) => {
           <form>
             <div className="form_item">
               <h3>* Your Answer:</h3>
-              <textarea placeholder="Example: Well, you have to know these things when you're a king, you know..." className="pop_up_input_form_textarea" rows="10" />
+              <textarea placeholder="Example: Well, you have to know these things when you're a king, you know..." className="pop_up_input_form_textarea" rows="10" required />
             </div>
 
             <div className="form_item">
