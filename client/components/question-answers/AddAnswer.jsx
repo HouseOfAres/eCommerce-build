@@ -38,15 +38,27 @@ const AddAnswer = (props) => {
               </div>
             </div>
 
+            <div className="form_item">
+              <h3>Upload your photos:</h3>
+              <input type="file" className="pop_up_img_loader"/>
+              <div className="add_answer_img_thumbnails">
+                <div className="img_placeholder">Image 1</div>
+                <div className="img_placeholder">Image 2</div>
+                <div className="img_placeholder">Image 3</div>
+                <div className="img_placeholder">Image 4</div>
+                <div className="img_placeholder">Image 5</div>
+              </div>
+            </div>
+
           </form>
         </div>
 
 
         <div className="form_button">
-          <button className="modal_button">SUBMIT QUESTION</button>
+          <button className="modal_button">SUBMIT ANSWER</button>
         </div>
       </div>
-    </div>
+    </div >
   )
 };
 

@@ -10,7 +10,6 @@ const Question = (props) => {
     return b.helpfulness - a.helpfulness;
   });
   const [currentProduct, setCurrentProduct] = useState(props.currentProduct);
-  console.log(currentProduct)
   const [toggleMoreAnswersButton, setToggleMoreAnswersButton] = useState(true);
   const [firstTime, setFirstTime] = useState(true);
   const [answerData, setAnswerData] = useState(answers);
