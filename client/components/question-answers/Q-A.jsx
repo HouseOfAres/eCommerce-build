@@ -12,6 +12,7 @@ const QuestionsAndAnswers = () => {
 
   let currentProduct = useContext(ProductContext);
   let currentProductId = currentProduct.id;
+  console.log(currentProductId)
   const [questionData, setQuestionData] = useState([]);
   const [questionList, setQuestionList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
