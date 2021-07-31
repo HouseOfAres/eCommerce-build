@@ -86,7 +86,6 @@ const Ratings = () => {
   }
 
   return (
-    <div className='test'>
       <div className='component'>
         <Sort incomingReviews={incomingReviews} sortReviewHandler={sortReviewHandler}/>
         <div className='reviewsRatingsContainer'>
@@ -124,7 +123,6 @@ const Ratings = () => {
 
         </div>
       </div>
-    </div>
 
   )
 

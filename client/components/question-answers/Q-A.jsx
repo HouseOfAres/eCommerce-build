@@ -1,67 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import questions from '../../../mock-data/questions-data.js';
+import { ProductContext } from '../../ProductContext.jsx';
 import QuestionsList from './QuestionsList.jsx';
+import SearchBar from './SearchBar.jsx';
+import access from '../../../config.js';
+import axios from 'axios';
 
-// import React { useState } from 'react;'
 
 // CHANGE NAME HERE
-const App = () => {
+const QuestionsAndAnswers = () => {
 
-  const questionData = questions.questions.results;
+  let currentProduct = useContext(ProductContext);
+  let currentProductId = currentProduct.id;
+  const [questionData, setQuestionData] = useState([]);
+  const [questionList, setQuestionList] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const [toggleMoreQuestionsButton, setToggleMoreQuestionsButton] = useState(true);
-  const [questionList, setQuestionList] = useState(questionData.slice(0, 4));
-  const [questionIndex, setQuestionIndex] = useState(4);
-  const [question, setProductID] = useState(questions.questions);
 
-  if (questionData.length === 0) {
-    setToggleMoreQuestionButton(false);
-  }
-
-  // More Questions Button
-  const moreQuestionsHandler = (e) => {
-
-    e.preventDefault();
-    const updateIndex = questionIndex + 2;
-    setQuestionIndex(updateIndex)
-
-    console.log(updateIndex);
-
-    const updateQuestionList = questionData.slice(0, questionIndex);
-    setQuestionList(updateQuestionList);
-
-    if (questionIndex >= questionData.length) {
-      setToggleMoreQuestionsButton(false);
-    }
-  }
+  useEffect(() => {
+    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
+      // fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=20',
+      {
+        headers: { 'Authorization': `${access.TOKEN}` }
+      })
+      .then(response => response.json())
+      .then((data) => {
+        setQuestionData(data.results);
+        setQuestionList(data.results);
+        setIsLoaded(true);
+      })
+      .catch((err) => {
+        console.log('Error: ', err);
+      });
+  }, [currentProductId]);
 
 
   return (
     <div className="component">
       <div className="q_a_component">
         <div className="component_title">QUESTIONS & ANSWERS</div>
-        <div className="searchBar_container">
-          <form>
-            <input className="searchbar" type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS...">
-            </input>
-          </form>
-        </div>
-        <QuestionsList questionList={questionList} />
-        <div className="q_a_buttons">
-          {toggleMoreQuestionsButton &&
-            <button
-              className="buttons"
-              type="submit"
-              onClick={() => moreQuestionsHandler}>
-              MORE ANSWERED QUESTIONS
-            </button>
-          }
-          <button
-            className="buttons"
-            type="submit">
-            ADD A QUESTION +
-          </button>
-        </div>
+        {isLoaded &&
+          <SearchBar questionData={questionData} setQuestionList={setQuestionList} />
+        }
+        {isLoaded &&
+          <QuestionsList questionList={questionList} test={setQuestionList} currentProduct={currentProduct}/>
+        }
       </div>
     </div>
   )
@@ -69,4 +52,4 @@ const App = () => {
 }
 
 // CHANGE EXPORT HERE
-export default App;
+export default QuestionsAndAnswers;

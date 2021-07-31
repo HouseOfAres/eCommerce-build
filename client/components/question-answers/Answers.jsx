@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import AnswerImg from './AnswerImg.jsx';
 import moment from 'moment';
 
 const Answers = (props) => {
+
   return (
     <div className="answers">
       {props.index === 0 &&
@@ -18,8 +20,8 @@ const Answers = (props) => {
           {props.answer.body}
         </div>}
       {props.answer.photos.length > 0 &&
-        <div className="q_a_thumbnail_img">{props.answer.photos.map(img => {
-          return <img src={img}></img>
+        <div className="q_a_thumbnail_img">{props.answer.photos.map((img, i) => {
+          return <AnswerImg img={img} key={i}/>
         })}</div>
       }
 
