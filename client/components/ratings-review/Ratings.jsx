@@ -14,44 +14,64 @@ import './Ratings.css';
 
 
 const Ratings = () => {
-  // UseContext to get product ID
+
   const currentProduct = useContext(ProductContext);
   const reviewData = productReviews.review.results;
   const productId = currentProduct.id;
-  const [incomingReviews, setProductReviews] = useState(reviewData);
-  const [toggleMoreReviewButton, setToggleMoreReviewButton] = useState(true);
-  const [reviewList, setReviewList] = useState([reviewData[0], reviewData[1]]);
-  const [reviewIndex, setReviewIndex] = useState(2);
-  const [showModal, setShowModal] = useState(false);
+  const [ incomingReviews, setProductReviews ] = useState(reviewData);
+  const [ toggleMoreReviewButton, setToggleMoreReviewButton ] = useState(true);
+  const [ reviewList, setReviewList ] = useState([reviewData[0], reviewData[1]]);
+  const [ reviewIndex, setReviewIndex ] = useState(2);
+  const [ showModal, setShowModal ] = useState(false);
+  const [ metaData, setMetaData ] = useState({});
+  const [ isLoading, setLoading ] = useState(false);
 
 
   useEffect(()=> {
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`,
-     'signal': signal }
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`
+     }
           })
-          .then((response) => {
-            if (response.data.results.length === 0) {
-              setToggleMoreReviewButton(false);
-            } else {
-              setProductReviews(response.data.results);
-              setReviewList([response.data.results[0], response.data.results[1]])
+          .then(async (response) => {
+            try{
+              const data = await response.data;
+              setProductReviews(data.results);
+              setReviewList([data.results[0], data.results[1]])
+            } catch(error) {
+              console.log(error)
             }
           })
-          .catch((err) => {
-            console.log(err);
-          });
 
-          return function cleanup() {
-            abortController.abort();
-          }
+          // .then((data) => {
+          //   if (data.results.length === 0) {
+          //     setToggleMoreReviewButton(false);
+          //   } else {
+          //     setProductReviews(data.results);
+          //     setReviewList([data.results[0], data.results[1]])
+          //   }
+          // })
+          // .catch((err) => {
+          //   console.log(err);
+          // });
+
   },[productId]);
 
+  useEffect(()=> {
+    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`}
+            })
+            .then(response => response.json())
+            .then((data) => {
+              setMetaData(data)
+              setLoading(true)
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+  },[productId]);
 
+  const handleRecommendation = (e) => {
+    setSelectRecommendation(e.target.value)
+  }
 
-  // More Reviews Button
   const moreReviewsHandler = () => {
     if (reviewData.length === reviewIndex) {
       setToggleMoreReviewButton(false);
@@ -69,15 +89,16 @@ const Ratings = () => {
 
   }
 
-  // Add a Review Modal
+
   const showModalHandler = (e) => {
     setShowModal(!showModal);
   }
 
-  // Sorting
+
   const sortReviewHandler = (data) => {
     setReviewList(data);
   }
+
 
   return (
       <div className='component'>
@@ -103,8 +124,8 @@ const Ratings = () => {
                 </div>
 
                 <div className='addingReviewComponent'>
-                  {showModal &&
-                    <AddReview handleClose={showModalHandler}/>
+                  {showModal && isLoading &&
+                    <AddReview handleClose={showModalHandler} productName={currentProduct.name} characteristics={metaData.characteristics}/>
                   }
                 </div>
 
@@ -117,9 +138,7 @@ const Ratings = () => {
 
         </div>
       </div>
-
   )
-
 }
 
 export default Ratings;

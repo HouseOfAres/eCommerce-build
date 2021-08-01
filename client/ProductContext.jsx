@@ -12,6 +12,9 @@ import React, { useState } from 'react';
 //       });
 // console.log(productData);
 
+// Create another function
+// Invoke the function
+
 const ProductContext = React.createContext(null);
 
 export { ProductContext };
