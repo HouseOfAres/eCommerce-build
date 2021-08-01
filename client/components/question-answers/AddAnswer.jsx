@@ -4,7 +4,12 @@ const AddAnswer = (props) => {
 
   const [productName, setProductName] = useState(props.productName);
   const [questionBody, setQuestionBody] = useState(props.questionBody);
-
+  const [forms, setForms] = useState(document.forms);
+  console.log(forms[1])
+  let form = document.forms;
+  console.log(form)
+  console.log(form.length)
+  console.log(form[1])
 
   return (
     <div className='q_a_popup_box'>
@@ -15,7 +20,7 @@ const AddAnswer = (props) => {
         <hr className="form_hr"></hr>
         <div className="form_data">
 
-          <form>
+          <form className="test">
             <div className="form_item">
               <h3>* Your Answer:</h3>
               <textarea placeholder="Example: Well, you have to know these things when you're a king, you know..." className="pop_up_input_form_textarea" rows="10" required />
@@ -29,7 +34,6 @@ const AddAnswer = (props) => {
               </div>
             </div>
 
-
             <div className="form_item">
               <h3>* Your email:</h3>
               <input placeholder="Example: jack@email.com" className="pop_up_input_form" type='text' required />
@@ -40,7 +44,7 @@ const AddAnswer = (props) => {
 
             <div className="form_item">
               <h3>Upload your photos:</h3>
-              <input type="file" className="pop_up_img_loader"/>
+              <input type="file" className="pop_up_img_loader" />
               <div className="add_answer_img_thumbnails">
                 <div className="img_placeholder">Image 1</div>
                 <div className="img_placeholder">Image 2</div>

@@ -4,6 +4,20 @@ import moment from 'moment';
 
 const Answers = (props) => {
 
+  const [helpful, setHelpful] = useState(props.answer.helpfulness);
+  const [report, setReport] = useState('Report');
+  const [reported, setReported] = useState(false);
+
+  const reportAnswer = () => {
+    setReported(true);
+    setReport('Reported')
+  }
+
+  const addHelpfulness = () => {
+    const addOne = props.answer.helpfulness + 1;
+    setHelpful(addOne);
+  }
+
   return (
     <div className="answers">
       {props.index === 0 &&
@@ -21,12 +35,24 @@ const Answers = (props) => {
         </div>}
       {props.answer.photos.length > 0 &&
         <div className="q_a_thumbnail_img">{props.answer.photos.map((img, i) => {
-          return <AnswerImg img={img} key={i}/>
+          return <AnswerImg img={img} key={i} />
         })}</div>
       }
 
       <div className="q_a_footer">
-        by {props.answer.answerer_name}, {moment(props.answer.date).format('ll')} | Helpful? <u>Yes</u> ({props.answer.helpfulness}) | <u>Report</u>
+        <div className="q_a_footer_item_first">
+          by {props.answer.answerer_name},
+        </div>
+        <div className="q_a_footer_item">
+          {moment(props.answer.date).format('ll')}
+        </div>
+        |
+        <div className="q_a_footer_item">Helpful? <div className="q_a_footer_item_yes" onClick={addHelpfulness}><u>Yes</u></div> ({helpful})</div>
+        |
+        <div onClick={reportAnswer} className="q_a_footer_item_report">
+          <u>{report}</u>
+        </div>
+
       </div>
     </div>
   )

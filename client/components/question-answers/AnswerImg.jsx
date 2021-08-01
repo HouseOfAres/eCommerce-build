@@ -19,7 +19,6 @@ const AnswerImg = (props) => {
                 src={props.img}
                 height='500px'
                 width='auto'
-                class='center'
               ></img>
           </div>
         </div>

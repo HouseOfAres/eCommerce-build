@@ -7,20 +7,20 @@ import access from '../../../config.js';
 import axios from 'axios';
 
 
+
 // CHANGE NAME HERE
 const QuestionsAndAnswers = () => {
 
   let currentProduct = useContext(ProductContext);
   let currentProductId = currentProduct.id;
-  console.log(currentProductId)
+
   const [questionData, setQuestionData] = useState([]);
   const [questionList, setQuestionList] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-
   useEffect(() => {
-    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
-      // fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=20',
+    // fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
+      fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=20',
       {
         headers: { 'Authorization': `${access.TOKEN}` }
       })
