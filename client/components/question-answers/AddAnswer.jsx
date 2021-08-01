@@ -4,7 +4,6 @@ const AddAnswer = (props) => {
 
   const [productName, setProductName] = useState(props.productName);
   const [questionBody, setQuestionBody] = useState(props.questionBody);
-  console.log(productName)
 
   return (
     <div className='q_a_popup_box'>

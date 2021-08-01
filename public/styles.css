@@ -483,16 +483,27 @@ div.q_a_container div.questions {
   margin: 10px 0px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 div.questions #q_a_question_text {
   margin-left: 5px;
 }
 
-div.questions #q_a_helpful_add {
+div.questions .q_a_helpful_add {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   font-size: .7rem;
   margin-left: 25px;
+  height: 15px;
+  width: auto;
+}
+
+.q_a_helpful_yes {
+  display: inline-block;
+  margin: 0px 5px;
+  cursor: pointer;
 }
 
 div.q_a_container div.answers {
@@ -883,6 +894,7 @@ hr.form_hr {
 .add_answer_pop_up {
   text-decoration: underline;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .add_answer_img_thumbnails {

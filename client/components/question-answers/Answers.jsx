@@ -1,22 +1,42 @@
 import React, { useState } from 'react';
 import AnswerImg from './AnswerImg.jsx';
+import access from '../../../config.js';
+import axios from 'axios';
 import moment from 'moment';
 
 const Answers = (props) => {
 
-  const [helpful, setHelpful] = useState(props.answer.helpfulness);
   const [report, setReport] = useState('Report');
   const [reported, setReported] = useState(false);
+  const [answerHelpfulness, setAnswerHelpfulness] = useState(props.answer.helpfulness);
+  const [firstVote, setFirstVote] = useState(true)
+  let answerId = props.answer.id;
+
+
+  // Update Answer Helpful Number
+  let newAnswerObj = {
+    id: answerHelpfulness,
+  }
+
+  const addHelpfulness = () => {
+    if (firstVote) {
+      const addOne = props.answer.helpfulness + 1;
+      setAnswerHelpfulness(addOne);
+      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${answerId}/helpful`, newAnswerObj, {
+        headers: { 'Authorization': `${access.TOKEN}` }
+      });
+      setFirstVote(false);
+    } else {
+      console.log('You already voted!')
+    }
+  }
+
 
   const reportAnswer = () => {
     setReported(true);
     setReport('Reported')
   }
 
-  const addHelpfulness = () => {
-    const addOne = props.answer.helpfulness + 1;
-    setHelpful(addOne);
-  }
 
   return (
     <div className="answers">
@@ -47,7 +67,7 @@ const Answers = (props) => {
           {moment(props.answer.date).format('ll')}
         </div>
         |
-        <div className="q_a_footer_item">Helpful? <div className="q_a_footer_item_yes" onClick={addHelpfulness}><u>Yes</u></div> ({helpful})</div>
+        <div className="q_a_footer_item">Helpful? <div className="q_a_footer_item_yes" onClick={addHelpfulness}><u>Yes</u></div> ({answerHelpfulness})</div>
         |
         <div onClick={reportAnswer} className="q_a_footer_item_report">
           <u>{report}</u>
