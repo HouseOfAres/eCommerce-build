@@ -5,13 +5,15 @@ import Question from './Question.jsx';
 
 const QuestionsList = (props) => {
 
+  const mainQuestionList = props.questionList;
   const [toggleMoreQuestionsButton, setToggleMoreQuestionsButton] = useState(true);
-  const [questionData, setQuestionData] = useState(props.questionList);
-  questionData.sort(function (a, b) {
-    return b.question_helpfulness - a.question_helpfulness;
-  });
-  const [questionList, setQuestionList] = useState(questionData.slice(0, 4));
   const [questionIndex, setQuestionIndex] = useState(4);
+  let questionList = mainQuestionList
+  .sort((a, b) => {
+    return b.question_helpfulness - a.question_helpfulness;
+  })
+  .slice(0, questionIndex);
+
   const [showModal, setShowModal] = useState(false);
 
 
@@ -21,10 +23,9 @@ const QuestionsList = (props) => {
     const updateIndex = questionIndex + 2;
     setQuestionIndex(updateIndex)
 
-    const updateQuestionList = questionData.slice(0, updateIndex);
-    setQuestionList(updateQuestionList);
+    const updateQuestionList = questionList.slice(0, updateIndex);
 
-    if (updateIndex >= questionData.length) {
+    if (updateIndex >= mainQuestionList.length) {
       setToggleMoreQuestionsButton(false);
     }
   }
@@ -36,22 +37,6 @@ const QuestionsList = (props) => {
   const handleOutsideClick = e => {
     if (!node.contains(e.target)) showModalHandler();
   };
-
-  // const filterQuestions = () => {
-  //   let result = []
-  //   for (var i = 0; i < questionList.length; i++) {
-  //     let currentQ = questionList[i];
-  //     if (Object.keys(currentQ.answers).length === 0) {
-  //       continue;
-  //     } else {
-  //       result.push(currentQ);
-  //     }
-  //   }
-  //   return result;
-  // }
-  // filterQuestions(questionList);
-
-  // console.log(filterQuestions);
 
 
   return (

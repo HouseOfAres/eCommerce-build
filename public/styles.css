@@ -6,6 +6,7 @@ body, html {
   color: rgb(87, 87, 87);
 }
 
+
 /* Main Nav Bar */
 
   body div.nav {
@@ -13,7 +14,7 @@ body, html {
     position: relative;
     width: 100%;
     max-width: 1280px;
-    background-color: rgb(49, 49, 49);
+    background-color: #283618;
     height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
@@ -31,7 +32,7 @@ body, html {
     display: flex;
     position: relative;
     width: 100%;
-    background-color: rgb(49, 49, 49);
+    background-color: #283618;
     height: 80px;
     margin: 0px auto 20px auto;
     padding: 0px;
@@ -101,6 +102,7 @@ h2 {
   margin: 0px;
   color: rgb(87, 87, 87);
   font-family: 'Poppins', sans-serif;
+  color: #606c38;
 }
 
 h3 {
@@ -144,7 +146,7 @@ div.slogan_container .slogan_title {
 div.slogan_container .slogan_body {
   grid-column: 1;
   grid-row: 1;
-  margin: 40px 20px 20px 0px;
+  margin: 20px;
 }
 
 div.slogan_container .slogan_list {
@@ -163,9 +165,16 @@ div.slogan_container .slogan_list {
 }
 
 .slogan_list ul li:before {
+  color: #dda15e;
   content: '✔';
   font-size: 1.2rem;
   margin-right: 10px;
+}
+
+.slogan_and_description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* OVERVIEW ******************************************************************/
@@ -325,7 +334,7 @@ div.productOverView {
 
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
-body div.component div.related-products .carousel {
+/* body div.component div.related-products .carousel {
   width: 100%;
   height: 100%;
   background-color: antiquewhite;
@@ -340,7 +349,7 @@ body div.component div.related-products .carousel {
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  background-color: rgba(199, 85, 85, 0.5);
+  background-color: #606c38;
 }
 
 .carouselInner button {
@@ -366,6 +375,37 @@ body div.component div.related-products .carousel {
   background-color: rgb(0, 0, 0, 0.5);
   display: grid;
   place-items: center;
+} */
+
+.related_items_container {
+  width: 100%;
+  margin: none;
+  padding: none;
+}
+
+.related_container, .your_list_container {
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.product, .yours {
+  height: 100%;
+  width: 235px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ececec;
+  color: rgb(160, 160, 160);
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+}
+
+#gradient_tile {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255));
 }
 
 
@@ -386,16 +426,18 @@ div.component div.q_a_component {
 
 /* SEARCHBAR */
 div.q_a_component div.searchBar_container {
+  display: block;
   margin: 10px 0px;
   padding: 0px;
 }
 
 div.searchBar_container .searchbar {
-  height: 65px;
+  height: 50px;
   width: 100%;
   color:rgb(87, 87, 87);
   border: none;
-  border: 1px solid black;
+  border-top: 2px solid #d6d6d6;
+  background-color: #ececec;
   margin: 10px 0px;
   padding: 0px 15px;
   -webkit-box-sizing: border-box;
@@ -403,6 +445,12 @@ div.searchBar_container .searchbar {
   box-sizing: border-box;
   font-size: 1.1rem;
   font-weight: bold;
+  border-radius: 4px;
+}
+
+.searchbar:focus {
+  outline: none;
+  box-shadow: 0 0 0 2pt #606c38;
 }
 
 ::placeholder {
@@ -425,22 +473,37 @@ div.searchBar_container .noMatch {
 /* Q&A CONTAINER */
 div.q_a_container {
   margin: 10px 0px;
+  max-width: 1020px;
+  max-height: 650px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 div.q_a_container div.questions {
   margin: 10px 0px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
-div.questions .q_a_question_text {
+div.questions #q_a_question_text {
   margin-left: 5px;
 }
 
-div.questions #q_a_helpful_add {
+div.questions .q_a_helpful_add {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   font-size: .7rem;
   margin-left: 25px;
+  height: 15px;
+  width: auto;
+}
+
+.q_a_helpful_yes {
+  display: inline-block;
+  margin: 0px 5px;
+  cursor: pointer;
 }
 
 div.q_a_container div.answers {
@@ -514,9 +577,42 @@ div.answers img {
 
 /* Q&A SECTION FOOTER */
 div.answers .q_a_footer {
+  display: flex;
+  justify-content: start;
+  height: 15px;
+  width: 100%;
   font-size: .7rem;
   margin: 10px 25px 20px 30px;
   color:rgb(87, 87, 87);
+}
+
+.q_a_footer .q_a_footer_item_first {
+  display: flex;
+  height: 15px;
+  width: auto;
+}
+
+.q_a_footer .q_a_footer_item {
+  display: flex;
+  height: 15px;
+  width: auto;
+  margin: 0px 5px;
+}
+
+.q_a_footer .q_a_footer_item_yes {
+  display: flex;
+  height: 15px;
+  width: auto;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.q_a_footer .q_a_footer_item_report {
+  display: flex;
+  height: 15px;
+  width: auto;
+  margin: 0px 5px;
+  cursor: pointer;
 }
 
 
@@ -526,7 +622,7 @@ div.q_a_component div.q_a_buttons {
   margin: 10px 0px;
 }
 
-div.q_a_buttons .buttons {
+/* div.q_a_buttons .buttons {
   display: inline-block;
   height: 65px;
   margin: 10px 0px;
@@ -534,6 +630,21 @@ div.q_a_buttons .buttons {
   font-size: 1rem;
   border: none;
   border: 1px solid black;
+  padding: 0px 20px;
+  color: rgb(87, 87, 87);
+  cursor: pointer;
+  margin-right: 20px;
+} */
+
+div.q_a_buttons .buttons {
+  display: inline-block;
+  min-width: 200px;
+  height: 50px;
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: .9rem;
+  border: 1px solid rgb(87, 87, 87);
+  border-radius: 4px;
   padding: 0px 20px;
   color: rgb(87, 87, 87);
   cursor: pointer;
@@ -586,6 +697,11 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   padding: 20px;
 }
 
+.ratings_and_reviews_title {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+}
 
 
 
@@ -613,7 +729,7 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   background: #f4f7f8;
   border-radius: 15px;
   padding: 20px;
-  border: 5px solid rgba(114, 170, 114, 0.726);
+  border: 5px solid #606c38;
   overflow: auto;
   z-index: 999;
   margin-top: 5vh;
@@ -666,7 +782,7 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   line-height: 30px;
   text-align: center;
   font-size: 2.4rem;
-  color: rgba(114, 170, 114, 0.726);
+  color: #606c38;
 }
 
 .pop_up_title {
@@ -683,9 +799,19 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   font-weight: bold;
 }
 
+
+hr {
+  border-top: 1px solid #d6d6d6;
+}
+
+hr.review_hr {
+  border-top: 1px solid #d6d6d6;
+  width: 90%;
+}
+
 hr.form_hr {
   width: 80%;
-  border-top: 1px solid #d1d1d1;
+  border-top: 1px solid #606c38;
   margin-bottom: 15px;
 }
 
@@ -700,7 +826,7 @@ hr.form_hr {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  margin-top: 3px;
+  margin: 3px 0px;
   font-family: 'Poppins', sans-serif;
   font-size: .9rem;
 }
@@ -713,7 +839,8 @@ hr.form_hr {
 }
 
 .pop_up_input_form:focus {
-  outline: 2px solid rgba(114, 170, 114, 0.726);
+  outline: none;
+  box-shadow: 0 0 0 2pt #606c38;
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
   font-size: .9rem;
@@ -745,7 +872,8 @@ hr.form_hr {
 }
 
 .pop_up_input_form_textarea:focus {
-  outline: 2px solid rgba(114, 170, 114, 0.726);
+  outline: none;
+  box-shadow: 0 0 0 2pt #606c38;
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
   font-size: .9rem;
@@ -766,6 +894,7 @@ hr.form_hr {
 .add_answer_pop_up {
   text-decoration: underline;
   cursor: pointer;
+  margin-left: 5px;
 }
 
 .add_answer_img_thumbnails {
@@ -820,10 +949,58 @@ hr.form_hr {
   width: 200px;
   border: none;
   color: white;
-  background-color: rgb(241, 145, 81);
+  background-color: #dda15e;
   border-radius: 4px;
   font-family: 'Poppins', sans-serif;
   font-size: .9rem;
   margin: 0 auto;
   cursor: pointer;
+}
+
+i.fas.fa-check-circle {
+  color: #606c38;
+}
+
+i.fas.fa-star {
+  color: #dda15e;
+}
+
+i.fas.fa-search {
+  position: absolute;
+  right: 150px;
+  top: 100px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
+}
+
+#topleft {
+  position: absolute;
+  left: 150px;
+  top: 223px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
+}
+
+#topright {
+  position: absolute;
+  right: 150px;
+  top: 223px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
+}
+
+#bottomright {
+  position: absolute;
+  right: 150px;
+  bottom: 190px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
+}
+
+#bottomleft {
+  position: absolute;
+  left: 150px;
+  bottom: 190px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
 }

@@ -59,7 +59,6 @@ const RatingBreakdown = (props) => {
   return (
     <div>
       <div className='mainRating'>
-        <h3>RATINGS &amp; REVIEWS</h3>
         <h1>{calcAvgRating(props.incomingReviews)}</h1>
         <Stars rating={calcAvgRating(props.incomingReviews)}/>
 
