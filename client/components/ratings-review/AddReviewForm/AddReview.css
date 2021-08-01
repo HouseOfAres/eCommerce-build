@@ -5,7 +5,24 @@
   width: 500px;
 }
 
-/* Popup style */
+.overallRating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.recommendation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.recButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 .popup-box {
   position: fixed;
   background: #00000050;
@@ -44,4 +61,43 @@
   border: 2px solid #999;
   font-size: 20px;
   padding: 2px;
+}
+
+.reviewform_characteristics_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.reviewform_characteristics_text{
+  justify-self: right;
+}
+
+.showButtons {
+  justify-items: end;
+}
+
+.starRating {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.rateButton button{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+.on {
+  color: #000;
+}
+.off {
+  color: #ccc;
+}
+
+.uploadPhoto {
+  display: flex;
+  justify-content: space-between;
 }

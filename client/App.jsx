@@ -18,10 +18,11 @@ const App = () => {
 
     useEffect(()=> {
 
-      axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/17067', {headers: {'Authorization': `${access.TOKEN}`}
+      fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/17067', {headers: {'Authorization': `${access.TOKEN}`}
             })
-            .then((response) => {
-              setProductData(response.data);
+            .then(response => response.json())
+            .then((data) => {
+              setProductData(data);
             })
             .catch((err) => {
               console.log(err);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import AddQuestion from './AddQuestion.jsx';
+//import AddQuestion from './AddQuestion.jsx';
 import AddQ from './AddQ.jsx';
 import Question from './Question.jsx';
 
