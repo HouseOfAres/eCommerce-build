@@ -111,6 +111,11 @@ h3 {
   font-family: 'Poppins', sans-serif;
 }
 
+h5 {
+  margin: 0px;
+  font-weight: bold;
+}
+
 p {
   font-size: .9rem;
   color: rgb(87, 87, 87);

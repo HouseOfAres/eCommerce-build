@@ -165,6 +165,7 @@
   grid-column-start: 1;
   text-align: left;
   justify-content: end;
+  margin-bottom: 10px;
 }
 
 .rightText {
@@ -175,5 +176,5 @@
 .leftText {
   grid-column-start: 1;
   text-align: left;
-  background: #606c38;
+  background: #606c3800;
 }
