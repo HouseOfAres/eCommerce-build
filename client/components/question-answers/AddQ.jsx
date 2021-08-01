@@ -3,6 +3,14 @@ import React, { useState, useEffect, useContext } from 'react';
 const AddQ = (props) => {
 
   const [productName, setProductName] = useState(props.currentProduct.name);
+  const [questionText, setQuestionText] = useState('');
+  const [nickName, setnickName] = useState('');
+  const [email, setemail] = useState('');
+  const [letterCount, setLetterCount] = useState(0);
+
+  const handleLetterCount = (e) => {
+    setLetterCount(e.target.value.length)
+  }
 
 
   return (
@@ -17,7 +25,10 @@ const AddQ = (props) => {
           <form>
             <div className="form_item">
               <h3>* Your Question:</h3>
-              <textarea placeholder="Example: What is the airspeed of an unladen swallow?" className="pop_up_input_form_textarea" rows="10" />
+              <textarea onChange={handleLetterCount} placeholder="Example: What is the airspeed of an unladen swallow?" className="pop_up_input_form_textarea" rows="10" />
+              <div className="pop_up_letter_counter">
+                Char count: {letterCount}/1000
+              </div>
             </div>
 
             <div className="form_item">

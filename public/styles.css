@@ -517,7 +517,7 @@ div.answers .answerA {
 
 div.answers .q_a_answer_first {
   display: inline-block;
-  margin: 6px 0px 0px 10px;
+  margin: 6px 0px 0px 14px;
   font-size: .9rem;
   max-width: 990px;
 }
@@ -715,6 +715,7 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   top: 0;
   left: 0;
   vertical-align: middle;
+  z-index: 999 !important;
 }
 
 .q_a_box {
@@ -731,7 +732,7 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   padding: 20px;
   border: 5px solid #606c38;
   overflow: auto;
-  z-index: 999;
+  z-index: 999 !important;
   margin-top: 5vh;
 }
 
@@ -880,10 +881,14 @@ hr.form_hr {
   height: 150px;
 }
 
+.pop_up_letter_counter {
+  font-size: .7rem;
+  color: rgb(160, 160, 160);
+}
+
 .pop_up_email_text {
   font-size: .7rem;
   color: rgb(160, 160, 160);
-  text-align: center;
 }
 
 .form_item {
