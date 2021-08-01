@@ -20,10 +20,10 @@ const Slogan = () => {
       </div>
       <div className="slogan_list">
         <ul>
-          <li>Sophia - Big Bad Boss</li>
-          <li>Jair - Merge Master</li>
-          <li>Chi - Inception ArCHItect</li>
-          <li>Tyler - CSS Wizard</li>
+          <li><strong>Sophia</strong> - Big Bad Boss</li>
+          <li><strong>Jair</strong> - Merge Master</li>
+          <li><strong>Chi</strong> - Inception ArCHItect</li>
+          <li><strong>Tyler</strong> - CSS Wizard</li>
         </ul>
       </div>
     </div>

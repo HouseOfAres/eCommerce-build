@@ -52,7 +52,7 @@ const SearchBar = (props) => {
           onChange={searchChangeHandler}
         >
         </input>
-        <div><i class="fas fa-search"></i></div>
+        <div><i className="fas fa-search"></i></div>
       </form>
       {noMatches === true && <h3 className="noMatch">Oops! Nothing to see here...</h3>}
     </div>

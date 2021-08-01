@@ -165,7 +165,7 @@ div.slogan_container .slogan_list {
 }
 
 .slogan_list ul li:before {
-  color: #606c38;
+  color: #dda15e;
   content: '✔';
   font-size: 1.2rem;
   margin-right: 10px;
@@ -334,7 +334,7 @@ div.productOverView {
 
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
-body div.component div.related-products .carousel {
+/* body div.component div.related-products .carousel {
   width: 100%;
   height: 100%;
   background-color: antiquewhite;
@@ -375,6 +375,37 @@ body div.component div.related-products .carousel {
   background-color: rgb(0, 0, 0, 0.5);
   display: grid;
   place-items: center;
+} */
+
+.related_items_container {
+  width: 100%;
+  margin: none;
+  padding: none;
+}
+
+.related_container, .your_list_container {
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.product, .yours {
+  height: 100%;
+  width: 235px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ececec;
+  color: rgb(160, 160, 160);
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+}
+
+#gradient_tile {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255));
 }
 
 
@@ -596,6 +627,7 @@ div.q_a_component div.q_a_buttons {
 
 div.q_a_buttons .buttons {
   display: inline-block;
+  min-width: 200px;
   height: 50px;
   margin: 10px 0px;
   font-weight: bold;
@@ -654,6 +686,11 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   padding: 20px;
 }
 
+.ratings_and_reviews_title {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+}
 
 
 
@@ -920,6 +957,38 @@ i.fas.fa-search {
   position: absolute;
   right: 150px;
   top: 100px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
+}
+
+#topleft {
+  position: absolute;
+  left: 150px;
+  top: 223px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
+}
+
+#topright {
+  position: absolute;
+  right: 150px;
+  top: 223px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
+}
+
+#bottomright {
+  position: absolute;
+  right: 150px;
+  bottom: 190px;
+  font-size: 1.4rem;
+  color: rgb(160, 160, 160);
+}
+
+#bottomleft {
+  position: absolute;
+  left: 150px;
+  bottom: 190px;
   font-size: 1.4rem;
   color: rgb(160, 160, 160);
 }

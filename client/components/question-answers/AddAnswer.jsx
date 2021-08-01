@@ -4,12 +4,7 @@ const AddAnswer = (props) => {
 
   const [productName, setProductName] = useState(props.productName);
   const [questionBody, setQuestionBody] = useState(props.questionBody);
-  const [forms, setForms] = useState(document.forms);
-  console.log(forms[1])
-  let form = document.forms;
-  console.log(form)
-  console.log(form.length)
-  console.log(form[1])
+  console.log(productName)
 
   return (
     <div className='q_a_popup_box'>
