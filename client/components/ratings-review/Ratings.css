@@ -131,6 +131,7 @@
 
 .characterBar {
   position:absolute;
+  /* If width is change, update the percentage for the triangle in Characteristics.jsx */
   width: 200px;
   background: #e5e6e279;
   height: 5px;
@@ -140,9 +141,9 @@
 
 .triangle {
   align-self: top;
-  position: absolute;
+  position: relative;
   height: 10px;
-  width: 50%;
+  width: 100%;
   max-width: 100%;
   background: rgba(114, 170, 114, 0);
 }
