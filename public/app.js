@@ -333,7 +333,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*******************/
 /***/ ((module) => {
 
-eval("module.exports = {\n  TOKEN: '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'\n};\n\n//# sourceURL=webpack://frontend-capstone/./config.js?");
+eval("module.exports = {\n  TOKEN: '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'\n};\n\n//# sourceURL=webpack://frontend-capstone/./config.js?");
 
 /***/ }),
 
