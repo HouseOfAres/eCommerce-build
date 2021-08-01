@@ -39,7 +39,7 @@ const QuestionsAndAnswers = () => {
   return (
     <div className="component">
       <div className="q_a_component">
-        <div className="component_title">QUESTIONS & ANSWERS</div>
+        <h2>QUESTIONS & ANSWERS</h2>
         {isLoaded &&
           <SearchBar questionData={questionData} setQuestionList={setQuestionList} />
         }

@@ -28,14 +28,14 @@
 
 .sortDropdown {
   height: 35px;
-  width: 130px;
   font-size: 1rem;
-  border: none;
-  border: 1px solid rgba(0, 0, 0, 0.514);
   color: rgb(87, 87, 87);
   cursor: pointer;
   padding: 3px;
   margin: 3px;
+  border-radius: 4px;
+  text-decoration: underline;
+  border: none;
 }
 
 .sort {
