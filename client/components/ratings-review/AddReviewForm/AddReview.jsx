@@ -4,7 +4,12 @@ import './AddReview.css';
 const AddReview = (props) => {
   const showChars = Object.keys(props.characteristics);
   const [ selectRecommendation, setSelectRecommendation ] = useState('yes');
-  const [ selectSize, setSelectSize ] = useState('yes');
+  const [ selectSize, setSelectSize ] = useState('');
+  const [ selectComfort, setSelectComfort ] = useState('');
+  const [ selectQuality, setSelectQuality ] = useState('');
+  const [ selectWidth, setSelectWidth ] = useState('');
+  const [ selectLength, setSelectLength ] = useState('');
+  const [ selectFit, setSelectFit ] = useState('');
   const [ rating, setRating ] = useState(0);
   const [ hover, setHover ] = useState(0);
   const [ showSize, setShowSize ] = useState(false);
@@ -42,14 +47,33 @@ const AddReview = (props) => {
   const handleRecommendation = (e) => {
     setSelectRecommendation(e.target.value)
   }
+
   const handleSizeSelection = (e) => {
     setSelectSize(e.target.value)
+  }
+
+  const handleComfortSelection = (e) => {
+    setSelectComfort(e.target.value)
+  }
+
+  const handleQualitySelection = (e) => {
+    setSelectQuality(e.target.value)
+  }
+
+  const handleWidthSelection = (e) => {
+    setSelectWidth(e.target.value)
+  }
+
+  const handleLengthSelection = (e) => {
+    setSelectLength(e.target.value)
+  }
+  const handleFitSelection = (e) => {
+    setSelectFit(e.target.value)
   }
 
   const summaryChangeHandler = (e) => {
     setSummaryForm(e.target.value)
   }
-
 
   const bodyChangeHandler = (e) => {
     setBodyFormLength(e.target.value.length)
@@ -117,79 +141,154 @@ const AddReview = (props) => {
                     <label>Size......................................................
                       <label>
                         A size too small
-                        <input type="radio" value='1' checked={selectRecommendation === '1'} onChange={handleSizeSelection} />
+                        <input type="radio" value='1' checked={selectSize === '1'} onChange={handleSizeSelection} />
                       </label>
                       <label>
                         1/2 a size too small
-                        <input type="radio" value='2' checked={selectRecommendation === '2'} onChange={handleSizeSelection} />
+                        <input type="radio" value='2' checked={selectSize === '2'} onChange={handleSizeSelection} />
                       </label>
                       <label>
                         Perfect
-                        <input type="radio" value='3' checked={selectRecommendation === '3'} onChange={handleSizeSelection} />
+                        <input type="radio" value='3' checked={selectSize === '3'} onChange={handleSizeSelection} />
                       </label>
                       <label>
                         1/2 a size too big
-                        <input type="radio" value='4' checked={selectRecommendation === '4'} onChange={handleSizeSelection} />
+                        <input type="radio" value='4' checked={selectSize === '4'} onChange={handleSizeSelection} />
                       </label>
                       <label>
                         A size too wide
-                        <input type="radio" value='5' checked={selectRecommendation === '5'} onChange={handleSizeSelection} />
+                        <input type="radio" value='5' checked={selectSize === '5'} onChange={handleSizeSelection} />
                       </label>
                     </label>
                   </div>
                 }
                 {showWidth &&
                   <div className='showButtons'>>
-                    <label>Width......................................................
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
+                    <label>Width..............
+                    <label>
+                        Too Narrow
+                        <input type="radio" value='1' checked={selectWidth === '1'} onChange={handleWidthSelection} />
+                      </label>
+                      <label>
+                        Slightly Narrow
+                        <input type="radio" value='2' checked={selectWidth === '2'} onChange={handleWidthSelection} />
+                      </label>
+                      <label>
+                        Perfect
+                        <input type="radio" value='3' checked={selectWidth === '3'} onChange={handleWidthSelection} />
+                      </label>
+                      <label>
+                        Slightly Wide
+                        <input type="radio" value='4' checked={selectWidth === '4'} onChange={handleWidthSelection} />
+                      </label>
+                      <label>
+                        Too Wide
+                        <input type="radio" value='5' checked={selectWidth === '5'} onChange={handleWidthSelection} />
+                      </label>
                     </label>
                   </div>
                   }
                 {showComfort &&
                   <div className='showButtons'>
-                     <label>Comfort....................................................
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
+                     <label>Comfort.............
+                     <label>
+                        Uncomfortable
+                        <input type="radio" value='1' checked={selectComfort === '1'} onChange={handleComfortSelection} />
+                      </label>
+                      <label>
+                        Slightly Uncomfortable
+                        <input type="radio" value='2' checked={selectComfort === '2'} onChange={handleComfortSelection} />
+                      </label>
+                      <label>
+                        Ok
+                        <input type="radio" value='3' checked={selectComfort === '3'} onChange={handleComfortSelection} />
+                      </label>
+                      <label>
+                        Comfortable
+                        <input type="radio" value='4' checked={selectComfort === '4'} onChange={handleComfortSelection} />
+                      </label>
+                      <label>
+                        Perfect
+                        <input type="radio" value='5' checked={selectComfort === '5'} onChange={handleComfortSelection} />
+                      </label>
                     </label>
                   </div>
                 }
                 {showQuality &&
                   <div className='showButtons'>
-                    <label>Quality.......................................................
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
+                    <label>Quality..........
+                    <label>
+                        Poor
+                        <input type="radio" value='1' checked={selectQuality === '1'} onChange={handleQualitySelection} />
+                      </label>
+                      <label>
+                        Below Average
+                        <input type="radio" value='2' checked={selectQuality === '2'} onChange={handleQualitySelection} />
+                      </label>
+                      <label>
+                        What I expected
+                        <input type="radio" value='3' checked={selectQuality === '3'} onChange={handleQualitySelection} />
+                      </label>
+                      <label>
+                        Pretty Great
+                        <input type="radio" value='4' checked={selectQuality === '4'} onChange={handleQualitySelection} />
+                      </label>
+                      <label>
+                        Perfect
+                        <input type="radio" value='5' checked={selectQuality === '5'} onChange={handleQualitySelection} />
+                      </label>
                   </label>
                  </div>
                  }
                 {showLength &&
                    <div className='showButtons'>
-                    <label>Length........................................................
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
+                    <label>Length.............
+                    <label>
+                        Runs Short
+                        <input type="radio" value='1' checked={selectLength === '1'} onChange={handleLengthSelection} />
+                      </label>
+                      <label>
+                        Runs Slightly Short
+                        <input type="radio" value='2' checked={selectLength === '2'} onChange={handleLengthSelection} />
+                      </label>
+                      <label>
+                        Perfect
+                        <input type="radio" value='3' checked={selectLength === '3'} onChange={handleLengthSelection} />
+                      </label>
+                      <label>
+                      Runs Slightly Long
+                        <input type="radio" value='4' checked={selectLength === '4'} onChange={handleLengthSelection} />
+                      </label>
+                      <label>
+                        Runs Long
+                        <input type="radio" value='5' checked={selectLength === '5'} onChange={handleLengthSelection} />
+                      </label>
                     </label>
                   </div>
                   }
                 {showFit &&
                   <div className='showButtons'>
-                    <label>Fit...................................................................
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
-                      <input type="radio" />
+                    <label>Fit.................
+                    <label>
+                        Runs Tight
+                        <input type="radio" value='1' checked={selectFit=== '1'} onChange={handleFitSelection} />
+                      </label>
+                      <label>
+                        Runs Slightly Tightly
+                        <input type="radio" value='2' checked={selectFit === '2'} onChange={handleFitSelection} />
+                      </label>
+                      <label>
+                        Perfect
+                        <input type="radio" value='3' checked={selectFit === '3'} onChange={handleFitSelection} />
+                      </label>
+                      <label>
+                      Runs Slightly Long
+                        <input type="radio" value='4' checked={selectFit === '4'} onChange={handleFitSelection} />
+                      </label>
+                      <label>
+                        Runs Long
+                        <input type="radio" value='5' checked={selectFit === '5'} onChange={handleFitSelection} />
+                      </label>
                     </label>
                   </div>
                   }
