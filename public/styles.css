@@ -337,6 +337,59 @@ div.productOverView {
   text-decoration-thickness: 2px;
 }
 
+.cartOV {
+  position: absolute;
+  width: 322px;
+  height: 50px;
+  margin: 10px 625px;
+  font-weight: bold;
+  font-size: .9rem;
+  border: 1px solid rgb(87, 87, 87);
+  border-radius: 4px;
+  padding: 0px 20px;
+  color: rgb(87, 87, 87);
+  cursor: pointer;
+  margin-top: 690px;
+}
+
+.sizeOV {
+    position: absolute;
+    margin-left: 625px;
+    margin-top: 643px;
+    font-size: 19px;
+}
+
+#sizeItemOV {
+  height: 25px;
+  font-size: 19px;
+  width: 65px;
+  text-align-last: center;
+}
+
+.quantityOV {
+  position: absolute;
+  margin-left: 792px;
+  margin-top: 643px;
+  font-size: 19px;
+}
+
+#quantOV {
+  height: 25px;
+  font-size: 19px;
+  width: 65px;
+  text-align-last: center;
+}
+
+.fab {
+  margin: 2px;
+}
+
+.shareOV {
+  position: absolute;
+  margin-left: 874px;
+  margin-top: 7px;
+}
+
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
 
 /* body div.component div.related-products .carousel {
