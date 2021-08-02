@@ -125,7 +125,7 @@ const Ratings = () => {
 
                 <div className='addingReviewComponent'>
                   {showModal && isLoading &&
-                    <AddReview handleClose={showModalHandler} productName={currentProduct.name} characteristics={metaData.characteristics}/>
+                    <AddReview handleClose={showModalHandler} productName={currentProduct.name} characteristics={metaData.characteristics} id={productId}/>
                   }
                 </div>
 
@@ -135,7 +135,6 @@ const Ratings = () => {
                   value='ADD A REVIEW +'
                   onClick={showModalHandler}
                  />
-
         </div>
       </div>
   )

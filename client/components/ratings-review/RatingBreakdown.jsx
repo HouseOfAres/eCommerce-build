@@ -15,17 +15,38 @@ const RatingBreakdown = (props) => {
   let productId = currentProduct.id;
 
   useEffect(()=> {
-    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`}
-            })
-            .then(response => response.json())
-            .then((data) => {
-              setMetaData(data)
-              calcRatingBar(data.ratings)
-              setLoading(true)
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `${access.TOKEN}`, 'Content-Type', 'application/json');
+
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+
+    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        setMetaData(result)
+        calcRatingBar(result.ratings)})
+      .then((result) => {
+          setLoading(true)
+        }
+      )
+      .catch(error => console.log('error', error));
+
+
+    // fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`, 'Content-Type': 'application/json'}
+    //         })
+    //         .then(response => response.json())
+    //         .then(result => {
+    //           setMetaData(result)
+    //           calcRatingBar(result.ratings)
+    //           setLoading(true)
+    //         })
+    //         .catch((error) => {
+    //           console.log(error);
+    //         });
   },[productId]);
 
 
