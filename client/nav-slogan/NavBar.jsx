@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 // import logo from '../public/3fdfe2c633aef5a5091d72734c294522.png';
-import logo from './aresLogo.png';
 const NavigationBar = () => {
 
   return (
