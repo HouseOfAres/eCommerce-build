@@ -20,6 +20,8 @@ const AddReview = (props) => {
   const [ showWidth, setShowWidth ] = useState(false);
   const [ summaryForm, setSummaryForm ] = useState('');
   const [ bodyFormLength, setBodyFormLength ] = useState('');
+  const [ selectedFile, setSelectedFile ] = useState([]);
+  const [ toggleUpload, setToggleUpload ] = useState(true);
 
 
   useEffect(() => {
@@ -79,6 +81,28 @@ const AddReview = (props) => {
     setBodyFormLength(e.target.value.length)
   }
 
+  const fileChangedHandler = (e) => {
+    e.preventDefault();
+    let file_reader = new FileReader();
+    let file = e.target.files[0];
+
+    file_reader.onload = () => {
+      setSelectedFile([...selectedFile, {
+        uploaded_file: file_reader.result,
+        photoURL: URL.createObjectURL(file) }
+      ])
+    }
+    file_reader.readAsDataURL(file);
+
+    if (selectedFile.length === 5) {
+      setToggleUpload(false);
+    }
+  }
+
+  const uploadHandler = (e) => {
+    e.preventDefault();
+    console.log(selectedFile)
+  }
 
 
   return (
@@ -315,7 +339,17 @@ const AddReview = (props) => {
               <div className="form_item">
                 <h3>Upload Photos (5 Max.)</h3>
               </div>
-                <input type='submit' value='UPLOAD' />
+              <div className='uploadPhotos'>
+                <input type='file' multiple accept='.jpeg, .png, .pdf' onChange={fileChangedHandler} />
+              </div>
+              <div className='previewPhotos'>
+                  {
+                    selectedFile.map(photo => (
+                      <img src={photo.photoURL} alt='...' height="30px" />
+                    ))
+                  }
+              </div>
+              <button onClick={uploadHandler}>Upload</button>
             </div>
 
               <div className="form_item">

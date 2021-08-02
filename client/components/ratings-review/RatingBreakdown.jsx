@@ -11,6 +11,7 @@ const RatingBreakdown = (props) => {
   const [ metaData, setMetaData ] = useState({});
   const [ isLoading, setLoading ] = useState(false);
   const [ ratingBarFill, setRatingBar ] = useState({});
+  const [ average, setAverage ] = useState(0);
   let productId = currentProduct.id;
 
   useEffect(()=> {
@@ -28,13 +29,16 @@ const RatingBreakdown = (props) => {
   },[productId]);
 
 
-  const calcAvgRating = (array) => {
-    let total = 0;
-    array.forEach((item) => total += item.rating);
-    const average = total / array.length;
-    return Math.round(average * 10) / 10;
+  const calcAvgRating = (data) => {
+    let sum = parseInt(data['1']) + parseInt(data['2']) + parseInt(data['3']) + parseInt(data['4']) + parseInt(data['5']);
+    const fiveStar = parseInt(data['5']) * 5;
+    const fourStar = parseInt(data['4']) * 4;
+    const threeStar = parseInt(data['3']) * 3;
+    const twoStar = parseInt(data['2']) * 2;
+    const oneStar = parseInt(data['1']) * 1;
+    const calcAvg = (fiveStar + fourStar + threeStar + twoStar + oneStar) / sum;
+    return calcAvg.toFixed(1);
   };
-
 
   const calcRecommended = (data) => {
       const yesRecommends = parseInt(data['true']);
@@ -59,8 +63,12 @@ const RatingBreakdown = (props) => {
   return (
     <div>
       <div className='mainRating'>
-        <h1>{calcAvgRating(props.incomingReviews)}</h1>
-        <Stars rating={calcAvgRating(props.incomingReviews)}/>
+        {isLoading &&
+          <h1>{calcAvgRating(metaData.ratings)}</h1>
+          }
+        {isLoading &&
+          <Stars rating={calcAvgRating(metaData.ratings)}/>
+          }
 
         <div className='starBar'>
           <p className='numberRating'>5 Stars</p>
