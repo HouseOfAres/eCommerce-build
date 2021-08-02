@@ -896,6 +896,13 @@ hr.form_hr {
   color: rgb(160, 160, 160);
 }
 
+.pop_up_incomplete_text {
+  font-size: .7rem;
+  color: red;
+  width: 100%;
+  text-align: center;
+}
+
 .form_item {
   margin-bottom: 15px;
   font-size: .8rem;

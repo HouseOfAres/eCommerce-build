@@ -14,7 +14,8 @@ const AddAnswer = (props) => {
         <hr className="form_hr"></hr>
         <div className="form_data">
 
-          <form className="test">
+          <form>
+
             <div className="form_item">
               <h3>* Your Answer:</h3>
               <textarea placeholder="Example: Well, you have to know these things when you're a king, you know..." className="pop_up_input_form_textarea" rows="10" required />
@@ -48,12 +49,12 @@ const AddAnswer = (props) => {
               </div>
             </div>
 
+            <div className="form_button">
+              <button className="modal_button">SUBMIT ANSWER</button>
+            </div>
+
           </form>
-        </div>
 
-
-        <div className="form_button">
-          <button className="modal_button">SUBMIT ANSWER</button>
         </div>
       </div>
     </div >

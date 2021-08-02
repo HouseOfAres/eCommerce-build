@@ -4,7 +4,7 @@ import AddQ from './AddQ.jsx';
 import Question from './Question.jsx';
 
 const QuestionsList = (props) => {
-
+  console.log(props.questionList)
   const mainQuestionList = props.questionList;
   const [toggleMoreQuestionsButton, setToggleMoreQuestionsButton] = useState(true);
   const [questionIndex, setQuestionIndex] = useState(4);
