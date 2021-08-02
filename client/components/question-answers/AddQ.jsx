@@ -5,17 +5,24 @@ import axios from 'axios'
 const AddQ = (props) => {
 
   const [productName, setProductName] = useState(props.currentProduct.name);
-  const [questionText, setQuestionText] = useState('');
-  const [nickName, setNickName] = useState('');
-  const [email, setEmail] = useState('');
+  // const [questionText, setQuestionText] = useState('');
+  // const [nickName, setNickName] = useState('');
+  // const [email, setEmail] = useState('');
   const [productId, setProductId] = useState(props.currentProduct.id);
   const [letterCount, setLetterCount] = useState(0);
   const [incompleteFields, setIncompleteFields] = useState(false);
 
+  // const addQuestionFormData = {
+  //   body: questionText,
+  //   name: nickName,
+  //   email: email,
+  //   product_id: productId
+  // }
+
   const addQuestionFormData = {
-    body: questionText,
-    name: nickName,
-    email: email,
+    body: '',
+    name: '',
+    email: '',
     product_id: productId
   }
 
@@ -31,23 +38,26 @@ const AddQ = (props) => {
   }
 
   const handleQuestionTextChange = (e) => {
-    setQuestionText(e.target.value)
+    // setQuestionText(e.target.value)
     setLetterCount(e.target.value.length)
+    addQuestionFormData.body = e.target.value;
   }
 
   const handleNickNameChange = (e) => {
-    setNickName(e.target.value)
+    // setNickName(e.target.value)
+    addQuestionFormData.name = e.target.value;
   }
 
   const handleEmailChange = (e) => {
-    setEmail(e.target.value)
+    // setEmail(e.target.value)
+    addQuestionFormData.email = e.target.value;
   }
 
-  if (!incompleteFields) {
-    if (email === '1') {
-      setIncompleteFields(true);
-    }
-  }
+  // if (!incompleteFields) {
+  //   if (email === '1') {
+  //     setIncompleteFields(true);
+  //   }
+  // }
 
 
   return (
