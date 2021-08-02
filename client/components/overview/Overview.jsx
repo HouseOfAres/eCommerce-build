@@ -7,6 +7,8 @@ import axios from 'axios';
 import access from '../../../config.js';
 import { ProductContext } from '../../ProductContext.jsx';
 import Sale from './Sale.jsx';
+import Size from './Size.jsx';
+import Quantity from './Quantity.jsx';
 import DefaultPrice from './DefaultPrice.jsx';
 import Stars from '../shared-features/Stars.jsx';
 
@@ -91,7 +93,14 @@ const Overview = () => {
           <p><Stars rating={average} /> - Read all reviews</p>
           <h2 className="itemNameOV">{id.name}</h2>
           <p className="cate">CATEGORY</p>
+
           <div className="category-item"><h3><strong>{id.category}</strong></h3></div>
+        </div>
+        <div className="shareOV">
+          <i class="fab fa-facebook-square fa-lg"></i>
+          <i class="fab fa-twitter-square fa-lg"></i>
+          <i class="fab fa-pinterest-square fa-lg"></i>
+
         </div>
         <div className="product-priceOV">
           <DefaultPrice sale={salePrice} price={id.default_price} />
@@ -106,6 +115,9 @@ const Overview = () => {
           })}
 
         </div>
+        <Size />
+        <Quantity />
+        <button type="button" className="cartOV">ADD TO CART</button>
       </div>
     </div>
   )
