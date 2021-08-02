@@ -80,6 +80,10 @@ const RatingBreakdown = (props) => {
     setRatingBar({1: `${oneStar}`, 2: `${twoStar}`, 3: `${threeStar}`, 4: `${fourStar}`, 5: `${fiveStar}`})
   }
 
+  const filterByStars = (e) => {
+    console.log('Filter Reviews by Stars')
+    e.preventDefault();
+  }
 
   return (
     <div>
@@ -92,39 +96,49 @@ const RatingBreakdown = (props) => {
           }
 
         <div className='starBar'>
-          <p className='numberRating'>5 Stars</p>
+          <p className='numberRating' onClick={filterByStars} value= 'five'>5 Stars</p>
             <div className='ratingBar'>
               <span className='rbars' style={{ "width": `${ratingBarFill['5']}%`}}>
               </span>
             </div>
+            {isLoading &&
+              <p className='reviewCount'> {parseInt(metaData.ratings['5'])} </p>}
         </div>
 
         <div className='starBar'>
-          <p className='numberRating'>4 Stars</p>
+          <p className='numberRating' onClick={filterByStars} value= 'four'>4 Stars</p>
           <div className='ratingBar'>
             <span className='rbars' style={{ "width": `${ratingBarFill['4']}%`}}></span>
           </div>
+            {isLoading &&
+              <p className='reviewCount'> {parseInt(metaData.ratings['4'])} </p>}
         </div>
 
         <div className='starBar'>
-          <p className='numberRating'>3 Stars</p>
+          <p className='numberRating' onClick={filterByStars} value= 'three'>3 Stars</p>
           <div className='ratingBar'>
             <span className='rbars' style={{ "width": `${ratingBarFill['3']}%`}}></span>
           </div>
+          {isLoading &&
+              <p className='reviewCount'> {parseInt(metaData.ratings['3'])} </p>}
         </div>
 
         <div className='starBar'>
-         <p className='numberRating'>2 Stars</p>
+         <p className='numberRating' onClick={filterByStars} value= 'two'>2 Stars</p>
           <div className='ratingBar'>
             <span className='rbars' style={{ "width": `${ratingBarFill['2']}%`}}></span>
           </div>
+          {isLoading &&
+              <p className='reviewCount'> {parseInt(metaData.ratings['2'])} </p>}
         </div>
 
         <div className='starBar'>
-         <p className='numberRating'>1 Stars</p>
+         <p className='numberRating' onClick={filterByStars} value= 'one'>1 Stars</p>
           <div className='ratingBar'>
             <span className='rbars' style={{ "width": `${ratingBarFill['1']}%`}}></span>
           </div>
+          {isLoading &&
+              <p className='reviewCount'> {parseInt(metaData.ratings['1'])} </p>}
         </div>
 
         {isLoading &&

@@ -108,6 +108,8 @@
 
 .numberRating{
   grid-column-start: 1;
+  cursor: pointer;
+  text-decoration: underline;
   white-space: nowrap;
 }
 
@@ -130,6 +132,11 @@
   width: 50%;
   max-width: 100%;
   background: rgba(114, 170, 114, 0.726);
+}
+
+.reviewCount {
+  grid-column-start: 3;
+  align-self: end;
 }
 
 .productBreakdown{
