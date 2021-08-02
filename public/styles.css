@@ -344,10 +344,12 @@ div.productOverView {
   margin: 10px 625px;
   font-weight: bold;
   font-size: .9rem;
-  border: 1px solid rgb(87, 87, 87);
+  border: none;
+  border-bottom: 2px solid rgb(87, 87, 87);
   border-radius: 4px;
   padding: 0px 20px;
-  color: rgb(87, 87, 87);
+  color: white;
+  background-color: #dda15e;
   cursor: pointer;
   margin-top: 690px;
 }
