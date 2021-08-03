@@ -5,6 +5,37 @@ const AddAnswer = (props) => {
   const [productName, setProductName] = useState(props.productName);
   const [questionBody, setQuestionBody] = useState(props.questionBody);
 
+  const [answerText, setAnswerText] = useState('');
+  const [nickName, setNickName] = useState('');
+  const [email, setEmail] = useState('');
+  const [photos, setPhotos] = useState([]);
+  const [questionId, setQuestionId] = useState(props.questionId);
+  const [letterCount, setLetterCount] = useState(0);
+  const [incompleteFields, setIncompleteFields] = useState(false);
+
+
+  const addQuestionFormData = {
+    body: questionText,
+    name: nickName,
+    email: email,
+    photos: photos
+  }
+
+  const consoleLog = (e) => {
+    e.preventDefault();
+    console.log(addQuestionFormData)
+    axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions', addQuestionFormData, {
+      headers: { 'Authorization': `${access.TOKEN}` }
+    })
+    .then((response) => {
+      console.log('post received');
+    })
+    .catch((err) => {
+      console.log('Error: ', err);
+    });
+    props.handleClose();
+  }
+
   return (
     <div className='q_a_popup_box'>
       <div className='q_a_box'>
@@ -18,7 +49,7 @@ const AddAnswer = (props) => {
 
             <div className="form_item">
               <h3>* Your Answer:</h3>
-              <textarea placeholder="Example: Well, you have to know these things when you're a king, you know..." className="pop_up_input_form_textarea" rows="10" required />
+              <textarea type="text" placeholder="Example: Well, you have to know these things when you're a king, you know..." className="pop_up_input_form_textarea" rows="10" required />
             </div>
 
             <div className="form_item">

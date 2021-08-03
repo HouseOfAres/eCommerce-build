@@ -5,25 +5,18 @@ import axios from 'axios'
 const AddQ = (props) => {
 
   const [productName, setProductName] = useState(props.currentProduct.name);
-  // const [questionText, setQuestionText] = useState('');
-  // const [nickName, setNickName] = useState('');
-  // const [email, setEmail] = useState('');
+  const [questionText, setQuestionText] = useState('');
+  const [nickName, setNickName] = useState('');
+  const [email, setEmail] = useState('');
   const [productId, setProductId] = useState(props.currentProduct.id);
   const [letterCount, setLetterCount] = useState(0);
   const [incompleteFields, setIncompleteFields] = useState(false);
 
-  // const addQuestionFormData = {
-  //   body: questionText,
-  //   name: nickName,
-  //   email: email,
-  //   product_id: productId
-  // }
-
   const addQuestionFormData = {
-    body: '',
-    name: '',
-    email: '',
-    product_id: productId
+    body: questionText,
+    name: nickName,
+    email: email,
+    product_id: 17072
   }
 
   const consoleLog = (e) => {
@@ -35,29 +28,30 @@ const AddQ = (props) => {
     .then((response) => {
       console.log('post received');
     })
+    .catch((err) => {
+      console.log('Error: ', err);
+    });
+    props.handleClose();
   }
 
   const handleQuestionTextChange = (e) => {
-    // setQuestionText(e.target.value)
+    setQuestionText(e.target.value)
     setLetterCount(e.target.value.length)
-    addQuestionFormData.body = e.target.value;
   }
 
   const handleNickNameChange = (e) => {
-    // setNickName(e.target.value)
-    addQuestionFormData.name = e.target.value;
+    setNickName(e.target.value)
   }
 
   const handleEmailChange = (e) => {
-    // setEmail(e.target.value)
-    addQuestionFormData.email = e.target.value;
+    setEmail(e.target.value)
   }
 
-  // if (!incompleteFields) {
-  //   if (email === '1') {
-  //     setIncompleteFields(true);
-  //   }
-  // }
+  if (!incompleteFields) {
+    if (email === '1') {
+      setIncompleteFields(true);
+    }
+  }
 
 
   return (
@@ -69,11 +63,11 @@ const AddQ = (props) => {
         <hr className="form_hr"></hr>
         <div className="form_data">
 
-          <form>
+          <form onSubmit={consoleLog}>
 
             <div className="form_item">
               <h3>* Your Question:</h3>
-              <textarea onChange={handleQuestionTextChange} maxLength="1000" placeholder="Example: What is the airspeed velocity of an unladen swallow?" className="pop_up_input_form_textarea" rows="10" required />
+              <textarea type='text' onChange={handleQuestionTextChange} placeholder="Example: What is the airspeed velocity of an unladen swallow?" className="pop_up_input_form_textarea" rows="10" required />
               <div className="pop_up_letter_counter">
                 Char count: {letterCount}/1000
               </div>
@@ -100,7 +94,7 @@ const AddQ = (props) => {
               <div className="pop_up_incomplete_text" style={{ color: "red" }}>You must fill in all required fields before submitting a question!</div>
             }
             <div className="form_button">
-              <button onClick={consoleLog} className="modal_button">SUBMIT QUESTION</button>
+              <button type="submit" className="modal_button">SUBMIT QUESTION</button>
             </div>
 
           </form>
