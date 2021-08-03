@@ -18,14 +18,10 @@ const Sort = (props) => {
 
       if (sortProperty === 'date') {
         sortedReviews = [...data].sort((a, b) => -a.date.localeCompare(b.date))
-        //setData(sortedReviews);
-        //console.log(sortedReviews);
         props.sortReviewHandler(sortedReviews);
 
       } else {
         sortedReviews = [...data].sort((a, b) => (a.sortProperty < b.sortProperty ? 1 : -1));
-        //setData(sortedReviews);
-        //console.log('Sorted by Helpfulness', data)
         props.sortReviewHandler(data);
       }
 
@@ -39,7 +35,7 @@ const Sort = (props) => {
       <h2>RATINGS & REVIEWS</h2>
       <div className='sort'>Sort on :
         <select className='sortDropdown' onChange={(e) => setSortType(e.target.value)}>
-          {/* <option value='relevance'>Relevance</option> */}
+          <option value='relevance'>Relevance</option>
           <option value='helpfulness'>Helpful</option>
           <option value='date'>Newest</option>
         </select>
