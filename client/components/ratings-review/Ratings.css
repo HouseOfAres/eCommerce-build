@@ -2,7 +2,18 @@
   justify-items: center;
 }
 
+.largeRating {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 80px;
+  align-items: baseline;
+  justify-items: center;
+  font-size: 1.2rem;
+}
 
+.ratingNum {
+  font-size: 4rem;
+}
 .addButton {
   display: inline-block;
   width: 200px;
@@ -103,7 +114,7 @@
 
 .starBar{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 20% 65% 15%;
 }
 
 .numberRating{
@@ -117,7 +128,7 @@
   grid-column-start: 2;
   align-self: center;
   position: relative;
-  width: 150px;
+  width: 100%;
 
   margin: 0 auto;
   background: #e5e6e279;
@@ -136,22 +147,25 @@
 
 .reviewCount {
   grid-column-start: 3;
-  align-self: end;
+  text-align: right;
 }
 
 .productBreakdown{
+  display: flex;
+  flex-direction: column;
   padding-top: 50px;
-  justify-content: center;
+  justify-content: stretch;
 }
 
 .characterBar {
   position:absolute;
+  justify-self: stretch;
   /* If width is change, update the percentage for the triangle in Characteristics.jsx */
-  width: 200px;
+  width: 23%;
+  min-width: 227px;
   background: #e5e6e279;
-  height: 5px;
+  height: 8px;
   border-radius: 2px;
-  padding: 1px 5px;
 }
 
 .triangle {
@@ -184,4 +198,28 @@
   grid-column-start: 1;
   text-align: left;
   background: #606c3800;
+}
+
+.filterByStars {
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+}
+
+.filterStar {
+  margin: 5px;
+  height: 20px;
+  font-weight: bold;
+  font-size: .9rem;
+  background-color: rgba(211, 211, 211, 0.486);
+  border-radius: 4px;
+  padding: 3px 20px;
+  color: rgb(87, 87, 87);
+  cursor: pointer;
+}
+
+.clearFilter {
+  font-size: .7rem;
+  color: rgb(97, 96, 96);
+  cursor: pointer;
 }

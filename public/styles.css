@@ -754,7 +754,7 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
-  padding: 20px;
+  padding: 0px 20px;
 }
 
 .ratings_and_reviews_title {
