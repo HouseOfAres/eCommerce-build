@@ -6,7 +6,6 @@ const AddAnswer = (props) => {
 
   const [productName, setProductName] = useState(props.productName);
   const [questionBody, setQuestionBody] = useState(props.questionBody);
-
   const [answerText, setAnswerText] = useState('');
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');
@@ -14,21 +13,18 @@ const AddAnswer = (props) => {
   const [questionId, setQuestionId] = useState(props.questionId);
   const [letterCount, setLetterCount] = useState(0);
   const [incompleteFields, setIncompleteFields] = useState(false);
-
   const [answerValid, setAnswerValid] = useState(false);
   const [nickNameValid, setNickNameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
-  let allValid = false;
   const [showErrors, setShowErrors] = useState(false);
+  let allValid = false;
 
 
 
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(answerValid)
-    console.log(nickNameValid)
-    console.log(emailValid)
+
     if (
       answerValid === true &&
       nickNameValid === true &&
