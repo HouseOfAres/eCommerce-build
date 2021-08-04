@@ -4,7 +4,6 @@ import './Ratings.css';
 
 const Sort = (props) => {
 
-  const [data, setData] = useState(props.incomingReviews);
   const [sortType, setSortType] = useState('helpfulness');
 
   useEffect(() => {
@@ -17,12 +16,12 @@ const Sort = (props) => {
       var sortedReviews;
 
       if (sortProperty === 'date') {
-        sortedReviews = [...data].sort((a, b) => -a.date.localeCompare(b.date))
+        sortedReviews = [...props.incomingReviews].sort((a, b) => -a.date.localeCompare(b.date))
         props.sortReviewHandler(sortedReviews);
 
       } else {
-        sortedReviews = [...data].sort((a, b) => (a.sortProperty < b.sortProperty ? 1 : -1));
-        props.sortReviewHandler(data);
+        sortedReviews = [...props.incomingReviews].sort((a, b) => (a.sortProperty < b.sortProperty ? 1 : -1));
+        props.sortReviewHandler(sortedReviews);
       }
 
     }

@@ -145,7 +145,7 @@ const AddReview = (props) => {
     if (form.email === '') {
       foundErrors.push('Email Required');
     }
-    if (form.email.indexOf('@') === -1) {
+    if (form.email.indexOf('@') === -1 || form.email.indexOf('.') === -1) {
       foundErrors.push('Please provide a valid email');
     }
 
@@ -196,7 +196,6 @@ const AddReview = (props) => {
       return;
     }
 
-    console.log(final);
     setFinalInfo(final);
     props.handleClose();
 
@@ -236,7 +235,7 @@ const AddReview = (props) => {
                   {[...Array(5)].map((star, index) => {
                     index += 1;
                     return (
-                      <div className='rateButton'>
+                      <div className='rateButton' key={index}>
                         <button
                           type='button'
                           key={index}
@@ -484,7 +483,7 @@ const AddReview = (props) => {
               </div>
               <div className='errors'>
                     {errors.map(error => (
-                      <p key={error}>Error: {error}</p>
+                      <li key={error}>Error: {error}</li>
                     ))}
               </div>
             <div className="form_button">
@@ -495,6 +494,7 @@ const AddReview = (props) => {
       </div>
     </div>
   )
+
 };
 
 export default AddReview;
