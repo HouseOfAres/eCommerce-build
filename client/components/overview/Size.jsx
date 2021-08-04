@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
 const Size = (props) => {
+  // console.log(Object.keys(props.sku))
+
+  // for (const key in props.sku) {
+  //   console.log(props.sku[key].size)
+  // }
 
   return (
     <form action="/action_page.php" className="sizeOV">
       <label for="item">Size: </label>
       <select name="size" id="sizeItemOV">
+        {Object.keys(props.sku).map(e => {
+          console.log(props.sku[e].size)
+        })}
         <option value="default">--</option>
         <option value="x-small">XS</option>
         <option value="small">S</option>

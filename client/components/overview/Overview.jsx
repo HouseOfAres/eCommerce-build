@@ -22,7 +22,7 @@ const Overview = () => {
   const [salePrice, setSalePrice] = useState('')
   const [styname, setStyname] = useState('')
   const [average, setAverage] = useState('')
-
+  const [itemSku, setItemSku] = useState({})
 
   const imageHandler = (evt) => {
     setMain(evt.url)
@@ -33,7 +33,8 @@ const Overview = () => {
     setNail(evt.photos)
     setStyname(evt.name.toUpperCase())
     setSalePrice(evt.sale_price)
-    // console.log(evt)
+    setItemSku(evt.skus)
+    // console.log(evt.skus)
   }
 
 
@@ -47,7 +48,7 @@ const Overview = () => {
         setSty(response.data.results)
         setStyname(response.data.results[0].name.toUpperCase())
         setSalePrice(response.data.results[0].sale_price)
-        // console.log(response.data.results[0].sale_price)
+        setItemSku(response.data.results[0].skus)
       })
       .catch((err) => {
         console.log(err);
@@ -115,7 +116,7 @@ const Overview = () => {
           })}
 
         </div>
-        <Size />
+        <Size sku={itemSku}/>
         <Quantity />
         <button type="button" className="cartOV">ADD TO CART</button>
       </div>
