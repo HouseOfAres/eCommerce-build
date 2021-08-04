@@ -12,6 +12,8 @@ const RatingBreakdown = (props) => {
   const [ isLoading, setLoading ] = useState(false);
   const [ ratingBarFill, setRatingBar ] = useState({});
   const [ average, setAverage ] = useState(0);
+  const [ selectedFilters, setSelectedFilters ] = useState([]);
+  const [ toggleEmptyFilter, setToggleEmptyFilter ] = useState(false);
   let productId = currentProduct.id;
 
   useEffect(()=> {
@@ -80,23 +82,84 @@ const RatingBreakdown = (props) => {
     setRatingBar({1: `${oneStar}`, 2: `${twoStar}`, 3: `${threeStar}`, 4: `${fourStar}`, 5: `${fiveStar}`})
   }
 
-  const filterByStars = (e) => {
-    console.log('Filter Reviews by Stars')
-    e.preventDefault();
+  useEffect(() => {
+    const filteredStarReviews = [];
+
+    props.incomingReviews.forEach((review) => {
+      if(selectedFilters.indexOf('5 Stars') !== -1 && review.rating === 5) {
+        filteredStarReviews.push(review)
+      }
+      if(selectedFilters.indexOf('4 Stars') !== -1 && review.rating === 4) {
+        filteredStarReviews.push(review)
+      }
+      if(selectedFilters.indexOf('3 Stars') !== -1 && review.rating === 3) {
+        filteredStarReviews.push(review)
+      }
+      if(selectedFilters.indexOf('2 Stars') !== -1 && review.rating === 2) {
+        filteredStarReviews.push(review)
+      }
+      if(selectedFilters.indexOf('1 Stars') !== -1 && review.rating === 1) {
+        filteredStarReviews.push(review)
+      }
+    })
+    if (selectedFilters.length > 0) {
+      setToggleEmptyFilter(true)
+    }
+    if (selectedFilters.length === 0) {
+      setToggleEmptyFilter(false)
+    }
+    props.filterHandler(filteredStarReviews)
+  }, [selectedFilters])
+
+  const filterByStars = (star) => {
+
+    const currentIndex = selectedFilters.indexOf(star);
+    let addFilter = [...selectedFilters];
+
+    if(currentIndex === -1) {
+      addFilter.push(star);
+    } else {
+      addFilter.splice(currentIndex, 1)
+    }
+
+    setSelectedFilters(addFilter);
+
+  }
+
+  useEffect(() => {
+    if(!toggleEmptyFilter || selectedFilters.length === 0) {
+      props.filterHandler(props.incomingReviews)
+    }
+  }, [toggleEmptyFilter])
+
+
+  const clearFilters = () => {
+    setSelectedFilters([]);
+    setToggleEmptyFilter(!setToggleEmptyFilter);
   }
 
   return (
     <div>
       <div className='mainRating'>
-        {isLoading &&
-          <h1>{calcAvgRating(metaData.ratings)}</h1>
-          }
-        {isLoading &&
-          <Stars rating={calcAvgRating(metaData.ratings)}/>
-          }
+
+        <div className='largeRating'>
+          {isLoading &&
+            <div className='ratingNum'>{calcAvgRating(metaData.ratings)}</div>
+            }
+          {isLoading &&
+            <Stars rating={calcAvgRating(metaData.ratings)}/>
+            }
+        </div>
+
+          <div className='filterByStars'>
+            {selectedFilters.map((filter) => (
+              <div className='filterStar' key={filter} onClick={() => {filterByStars(filter)}}>{filter}</div>
+              ))}
+              {toggleEmptyFilter && <div className='clearFilter' onClick={clearFilters}>Clear Filters</div>}
+          </div>
 
         <div className='starBar'>
-          <p className='numberRating' onClick={filterByStars} value= 'five'>5 Stars</p>
+          <p className='numberRating' onClick={() => {filterByStars('5 Stars')}} value='5 Stars'>5 Stars</p>
             <div className='ratingBar'>
               <span className='rbars' style={{ "width": `${ratingBarFill['5']}%`}}>
               </span>
@@ -106,7 +169,7 @@ const RatingBreakdown = (props) => {
         </div>
 
         <div className='starBar'>
-          <p className='numberRating' onClick={filterByStars} value= 'four'>4 Stars</p>
+          <p className='numberRating' onClick={() =>filterByStars('4 Stars')} value='4 Stars'>4 Stars</p>
           <div className='ratingBar'>
             <span className='rbars' style={{ "width": `${ratingBarFill['4']}%`}}></span>
           </div>
@@ -115,7 +178,7 @@ const RatingBreakdown = (props) => {
         </div>
 
         <div className='starBar'>
-          <p className='numberRating' onClick={filterByStars} value= 'three'>3 Stars</p>
+          <p className='numberRating' onClick={filterByStars} value='three' onClick={() => filterByStars('3 Stars')}>3 Stars</p>
           <div className='ratingBar'>
             <span className='rbars' style={{ "width": `${ratingBarFill['3']}%`}}></span>
           </div>
@@ -124,7 +187,7 @@ const RatingBreakdown = (props) => {
         </div>
 
         <div className='starBar'>
-         <p className='numberRating' onClick={filterByStars} value= 'two'>2 Stars</p>
+         <p className='numberRating' onClick={filterByStars} value= 'two' onClick={() => filterByStars('2 Stars')}>2 Stars</p>
           <div className='ratingBar'>
             <span className='rbars' style={{ "width": `${ratingBarFill['2']}%`}}></span>
           </div>
@@ -133,7 +196,7 @@ const RatingBreakdown = (props) => {
         </div>
 
         <div className='starBar'>
-         <p className='numberRating' onClick={filterByStars} value= 'one'>1 Stars</p>
+         <p className='numberRating' onClick={filterByStars} value= 'one' onClick={() => filterByStars('1 Stars')}>1 Stars</p>
           <div className='ratingBar'>
             <span className='rbars' style={{ "width": `${ratingBarFill['1']}%`}}></span>
           </div>

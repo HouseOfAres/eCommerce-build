@@ -1,15 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react';
+import access from '../../../../config.js';
+import axios from 'axios';
 import './AddReview.css';
 
 const AddReview = (props) => {
   const showChars = Object.keys(props.characteristics);
-  const [ selectRecommendation, setSelectRecommendation ] = useState(null);
-  const [ selectSize, setSelectSize ] = useState('');
-  const [ selectComfort, setSelectComfort ] = useState('');
-  const [ selectQuality, setSelectQuality ] = useState('');
-  const [ selectWidth, setSelectWidth ] = useState('');
-  const [ selectLength, setSelectLength ] = useState('');
-  const [ selectFit, setSelectFit ] = useState('');
+  const [ selectRecommendation, setSelectRecommendation ] = useState(true);
+  const [ selectSize, setSelectSize ] = useState(0);
+  const [ selectComfort, setSelectComfort ] = useState(0);
+  const [ selectQuality, setSelectQuality ] = useState(0);
+  const [ selectWidth, setSelectWidth ] = useState(0);
+  const [ selectLength, setSelectLength ] = useState(0);
+  const [ selectFit, setSelectFit ] = useState(0);
   const [ rating, setRating ] = useState(0);
   const [ hover, setHover ] = useState(0);
   const [ showSize, setShowSize ] = useState(false);
@@ -26,9 +28,11 @@ const AddReview = (props) => {
   const [ name, setName ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ finalInfo, setFinalInfo ] = useState('');
+  const [ errors, setErrors ] = useState([]);
 
 
   useEffect(() => {
+
     if (showChars.indexOf('Size') !== -1) {
       setShowSize(true)
     }
@@ -47,11 +51,17 @@ const AddReview = (props) => {
     if (showChars.indexOf('Width') !== -1) {
       setShowWidth(true)
     }
+
   }, [showChars])
 
 
   const handleRecommendation = (e) => {
-    setSelectRecommendation(e.target.value)
+    if (e.target.value === 'true') {
+      setSelectRecommendation(true)
+    }
+    if (e.target.value === 'false') {
+      setSelectRecommendation(false)
+    }
   }
 
   const handleSizeSelection = (e) => {
@@ -114,7 +124,56 @@ const AddReview = (props) => {
 
   const uploadHandler = (e) => {
     e.preventDefault();
-    console.log(selectedFile)
+    console.log('You just uploaded: ', selectedFile)
+  }
+
+  const validate = (form) => {
+    let foundErrors = [];
+
+    if (form.rating === 0) {
+      foundErrors.push('Please select a rating!');
+    }
+    if (form.recommend === null) {
+      foundErrors.push('Please select recommendation!');
+    }
+    if (bodyFormLength < 50 || bodyFormLength > 1000) {
+      foundErrors.push('Review body must be between 50 and 1000 characters');
+    }
+    if (form.name === '') {
+      foundErrors.push('Username Required');
+    }
+    if (form.email === '') {
+      foundErrors.push('Email Required');
+    }
+    if (form.email.indexOf('@') === -1 || form.email.indexOf('.') === -1) {
+      foundErrors.push('Please provide a valid email');
+    }
+
+    return foundErrors;
+  }
+
+  const createCharObj = () => {
+    let charObj = {};
+
+    if (showChars.indexOf('Size') !== -1) {
+      charObj[props.characteristics['Size']['id']] = parseInt(selectSize);
+    }
+    if (showChars.indexOf('Fit') !== -1) {
+      charObj[props.characteristics['Fit']['id']] = parseInt(selectFit);
+    }
+    if (showChars.indexOf('Length') !== -1) {
+      charObj[props.characteristics['Length']['id']] = parseInt(selectLength);
+    }
+    if (showChars.indexOf('Comfort') !== -1) {
+      charObj[props.characteristics['Comfort']['id']] = parseInt(selectComfort);
+    }
+    if (showChars.indexOf('Quality') !== -1) {
+      charObj[props.characteristics['Quality']['id']] = parseInt(selectQuality);
+    }
+    if (showChars.indexOf('Width') !== -1) {
+      charObj[props.characteristics['Width']['id']] = parseInt(selectWidth);
+    }
+    return charObj;
   }
 
   const handleFinalSubmit = (e) => {
@@ -123,22 +182,41 @@ const AddReview = (props) => {
       product_id: props.id,
       rating: rating,
       summary: summaryForm,
-      body: body,
       recommend: selectRecommendation,
-      reviewer_name: name,
+      body: body,
+      name: name,
       email: email,
       photos: selectedFile,
-      characteristics: {
-        size: selectSize,
-        width: selectWidth,
-        comfort: selectComfort,
-        quality: selectQuality,
-        fit: selectFit,
-        length: selectLength
-      },
+      characteristics: createCharObj()
     }
-    console.log(final);
+
+    const errors = validate(final);
+    if (errors.length > 0) {
+      setErrors(errors);
+      return;
+    }
+
     setFinalInfo(final);
+    props.handleClose();
+
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `${access.TOKEN}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify(final);
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+
   }
 
   return (
@@ -157,7 +235,7 @@ const AddReview = (props) => {
                   {[...Array(5)].map((star, index) => {
                     index += 1;
                     return (
-                      <div className='rateButton'>
+                      <div className='rateButton' key={index}>
                         <button
                           type='button'
                           key={index}
@@ -180,11 +258,19 @@ const AddReview = (props) => {
                 <h3>Do you recommend this product?*</h3>
                   <div className="recButton">
                     <label>
-                    <input type="radio" value='true' checked={selectRecommendation === 'true'} onChange={handleRecommendation} />
+                    <input
+                      type="radio"
+                      value={true}
+                      checked={selectRecommendation}
+                      onChange={handleRecommendation} />
                       Yes
                     </label>
                     <label>
-                      <input type="radio" value='false' checked={selectRecommendation === 'false'} onChange={handleRecommendation} />
+                      <input
+                        type="radio"
+                        value={false}
+                        checked={!selectRecommendation}
+                        onChange={handleRecommendation} />
                       No
                     </label>
                   </div>
@@ -200,23 +286,23 @@ const AddReview = (props) => {
                       <label>Size......................................................
                         <label>
                           A size too small
-                          <input type="radio" value='1' checked={selectSize === '1'} onChange={handleSizeSelection} />
+                          <input type="radio" value={1} checked={selectSize === '1'} onChange={handleSizeSelection} />
                         </label>
                         <label>
                           1/2 a size too small
-                          <input type="radio" value='2' checked={selectSize === '2'} onChange={handleSizeSelection} />
+                          <input type="radio" value={2} checked={selectSize === '2'} onChange={handleSizeSelection} />
                         </label>
                         <label>
                           Perfect
-                          <input type="radio" value='3' checked={selectSize === '3'} onChange={handleSizeSelection} />
+                          <input type="radio" value={3} checked={selectSize === '3'} onChange={handleSizeSelection} />
                         </label>
                         <label>
                           1/2 a size too big
-                          <input type="radio" value='4' checked={selectSize === '4'} onChange={handleSizeSelection} />
+                          <input type="radio" value={4} checked={selectSize === '4'} onChange={handleSizeSelection} />
                         </label>
                         <label>
                           A size too wide
-                          <input type="radio" value='5' checked={selectSize === '5'} onChange={handleSizeSelection} />
+                          <input type="radio" value={5} checked={selectSize === '5'} onChange={handleSizeSelection} />
                         </label>
                       </label>
                     </div>
@@ -226,23 +312,23 @@ const AddReview = (props) => {
                       <label>Width..............
                       <label>
                           Too Narrow
-                          <input type="radio" value='1' checked={selectWidth === '1'} onChange={handleWidthSelection} />
+                          <input type="radio" value={1} checked={selectWidth === '1'} onChange={handleWidthSelection} />
                         </label>
                         <label>
                           Slightly Narrow
-                          <input type="radio" value='2' checked={selectWidth === '2'} onChange={handleWidthSelection} />
+                          <input type="radio" value={2} checked={selectWidth === '2'} onChange={handleWidthSelection} />
                         </label>
                         <label>
                           Perfect
-                          <input type="radio" value='3' checked={selectWidth === '3'} onChange={handleWidthSelection} />
+                          <input type="radio" value={3} checked={selectWidth === '3'} onChange={handleWidthSelection} />
                         </label>
                         <label>
                           Slightly Wide
-                          <input type="radio" value='4' checked={selectWidth === '4'} onChange={handleWidthSelection} />
+                          <input type="radio" value={4} checked={selectWidth === '4'} onChange={handleWidthSelection} />
                         </label>
                         <label>
                           Too Wide
-                          <input type="radio" value='5' checked={selectWidth === '5'} onChange={handleWidthSelection} />
+                          <input type="radio" value={5} checked={selectWidth === '5'} onChange={handleWidthSelection} />
                         </label>
                       </label>
                     </div>
@@ -252,23 +338,23 @@ const AddReview = (props) => {
                       <label>Comfort.............
                       <label>
                           Uncomfortable
-                          <input type="radio" value='1' checked={selectComfort === '1'} onChange={handleComfortSelection} />
+                          <input type="radio" value={1} checked={selectComfort === '1'} onChange={handleComfortSelection} />
                         </label>
                         <label>
                           Slightly Uncomfortable
-                          <input type="radio" value='2' checked={selectComfort === '2'} onChange={handleComfortSelection} />
+                          <input type="radio" value={2} checked={selectComfort === '2'} onChange={handleComfortSelection} />
                         </label>
                         <label>
                           Ok
-                          <input type="radio" value='3' checked={selectComfort === '3'} onChange={handleComfortSelection} />
+                          <input type="radio" value={3} checked={selectComfort === '3'} onChange={handleComfortSelection} />
                         </label>
                         <label>
                           Comfortable
-                          <input type="radio" value='4' checked={selectComfort === '4'} onChange={handleComfortSelection} />
+                          <input type="radio" value={4} checked={selectComfort === '4'} onChange={handleComfortSelection} />
                         </label>
                         <label>
                           Perfect
-                          <input type="radio" value='5' checked={selectComfort === '5'} onChange={handleComfortSelection} />
+                          <input type="radio" value={5} checked={selectComfort === '5'} onChange={handleComfortSelection} />
                         </label>
                       </label>
                     </div>
@@ -278,23 +364,23 @@ const AddReview = (props) => {
                       <label>Quality..........
                       <label>
                           Poor
-                          <input type="radio" value='1' checked={selectQuality === '1'} onChange={handleQualitySelection} />
+                          <input type="radio" value={1} checked={selectQuality === '1'} onChange={handleQualitySelection} />
                         </label>
                         <label>
                           Below Average
-                          <input type="radio" value='2' checked={selectQuality === '2'} onChange={handleQualitySelection} />
+                          <input type="radio" value={2} checked={selectQuality === '2'} onChange={handleQualitySelection} />
                         </label>
                         <label>
                           What I expected
-                          <input type="radio" value='3' checked={selectQuality === '3'} onChange={handleQualitySelection} />
+                          <input type="radio" value={3} checked={selectQuality === '3'} onChange={handleQualitySelection} />
                         </label>
                         <label>
                           Pretty Great
-                          <input type="radio" value='4' checked={selectQuality === '4'} onChange={handleQualitySelection} />
+                          <input type="radio" value={4} checked={selectQuality === '4'} onChange={handleQualitySelection} />
                         </label>
                         <label>
                           Perfect
-                          <input type="radio" value='5' checked={selectQuality === '5'} onChange={handleQualitySelection} />
+                          <input type="radio" value={5} checked={selectQuality === '5'} onChange={handleQualitySelection} />
                         </label>
                     </label>
                   </div>
@@ -304,23 +390,23 @@ const AddReview = (props) => {
                       <label>Length.............
                       <label>
                           Runs Short
-                          <input type="radio" value='1' checked={selectLength === '1'} onChange={handleLengthSelection} />
+                          <input type="radio" value={1} checked={selectLength === '1'} onChange={handleLengthSelection} />
                         </label>
                         <label>
                           Runs Slightly Short
-                          <input type="radio" value='2' checked={selectLength === '2'} onChange={handleLengthSelection} />
+                          <input type="radio" value={2} checked={selectLength === '2'} onChange={handleLengthSelection} />
                         </label>
                         <label>
                           Perfect
-                          <input type="radio" value='3' checked={selectLength === '3'} onChange={handleLengthSelection} />
+                          <input type="radio" value={3} checked={selectLength === '3'} onChange={handleLengthSelection} />
                         </label>
                         <label>
                         Runs Slightly Long
-                          <input type="radio" value='4' checked={selectLength === '4'} onChange={handleLengthSelection} />
+                          <input type="radio" value={4} checked={selectLength === '4'} onChange={handleLengthSelection} />
                         </label>
                         <label>
                           Runs Long
-                          <input type="radio" value='5' checked={selectLength === '5'} onChange={handleLengthSelection} />
+                          <input type="radio" value={5} checked={selectLength === '5'} onChange={handleLengthSelection} />
                         </label>
                       </label>
                     </div>
@@ -330,23 +416,23 @@ const AddReview = (props) => {
                       <label>Fit.................
                       <label>
                           Runs Tight
-                          <input type="radio" value='1' checked={selectFit=== '1'} onChange={handleFitSelection} />
+                          <input type="radio" value={1} checked={selectFit=== '1'} onChange={handleFitSelection} />
                         </label>
                         <label>
                           Runs Slightly Tightly
-                          <input type="radio" value='2' checked={selectFit === '2'} onChange={handleFitSelection} />
+                          <input type="radio" value={2} checked={selectFit === '2'} onChange={handleFitSelection} />
                         </label>
                         <label>
                           Perfect
-                          <input type="radio" value='3' checked={selectFit === '3'} onChange={handleFitSelection} />
+                          <input type="radio" value={3} checked={selectFit === '3'} onChange={handleFitSelection} />
                         </label>
                         <label>
                         Runs Slightly Long
-                          <input type="radio" value='4' checked={selectFit === '4'} onChange={handleFitSelection} />
+                          <input type="radio" value={4} checked={selectFit === '4'} onChange={handleFitSelection} />
                         </label>
                         <label>
                           Runs Long
-                          <input type="radio" value='5' checked={selectFit === '5'} onChange={handleFitSelection} />
+                          <input type="radio" value={5} checked={selectFit === '5'} onChange={handleFitSelection} />
                         </label>
                       </label>
                     </div>
@@ -395,7 +481,11 @@ const AddReview = (props) => {
                 <input placeholder="Example: jackson11@email.com" className="pop_up_input_form" type='text' maxLength={60} onChange={emailHandler}/>
                 <h5>“For authentication reasons, you will not be emailed” </h5>
               </div>
-
+              <div className='errors'>
+                    {errors.map(error => (
+                      <li key={error}>Error: {error}</li>
+                    ))}
+              </div>
             <div className="form_button">
               <input className="modal_button" type='submit' value="SUBMIT REVIEW" />
             </div>
@@ -404,6 +494,7 @@ const AddReview = (props) => {
       </div>
     </div>
   )
+
 };
 
 export default AddReview;
