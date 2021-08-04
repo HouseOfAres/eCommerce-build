@@ -5,16 +5,14 @@ import React, { useState } from 'react';
 const ReviewList = (props) => {
 
   return (
-    <div>
       <div>
-        {props.reviewList.map((item) =>
-          <>
-            <ReviewTile item={item} key={item.review_id} handleClose={props.showModalHandler} />
+        {props.reviewList.map((item, i) =>
+          <div key={i}>
+            <ReviewTile key={item.review_id} item={item} handleClose={props.showModalHandler} productId={props.productId}/>
             <hr className="review_hr"></hr>
-          </>
+          </div>
         )}
       </div>
-    </div>
   )
 };
 
