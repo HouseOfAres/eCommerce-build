@@ -9,11 +9,11 @@ const Stars = (props) => {
     return (
       <div className="outer-star">
           <span className="inner-star" style={{ "width": roundPercentage}}>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
-          <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
+            <i className="fas fa-star"></i>
           </span>
       </div>
   );

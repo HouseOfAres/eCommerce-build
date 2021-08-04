@@ -55,12 +55,12 @@ const Characteristic = (props) => {
     <div>
       {showSize &&
         <div className='size'>
-          <h5 className='decriptionText'>Size</h5>
-          <span className='characterBar'>
-                <span className='triangle'>
+          <h3 className='decriptionText'>Size</h3>
+          <div className='characterBar'>
+                <div className='triangle'>
                   <i className="fa fa-caret-up fa-2x" aria-hidden="true" style={{ "paddingLeft": `${sizeNum}%` }}></i>
-                </span>
-          </span>
+                </div>
+          </div>
           <div className='descriptions'>
             <h6 className='leftText'>Fits Tight</h6><h6 className='rightText'>Fits Loose</h6>
           </div>
@@ -69,12 +69,12 @@ const Characteristic = (props) => {
 
       {showFit &&
         <div className='fit'>
-          <h5 className='decriptionText'>Fit</h5>
-          <span className='characterBar'>
-                <span className='triangle'>
+          <h3 className='decriptionText'>Fit</h3>
+          <div className='characterBar'>
+                <div className='triangle'>
                   <i className="fa fa-caret-up fa-2x" aria-hidden="true" style={{ "paddingLeft": `${fitNum}%` }}></i>
-                </span>
-          </span>
+                </div>
+          </div>
           <div className='descriptions'>
             <h6 className='leftText'>MouseFeet</h6><h6 className='rightText'>ClownTown</h6>
           </div>
@@ -83,12 +83,12 @@ const Characteristic = (props) => {
 
       {showLength &&
         <div className='fit'>
-          <h5 className='decriptionText'>Length</h5>
-          <span className='characterBar'>
-                <span className='triangle'>
+          <h3 className='decriptionText'>Length</h3>
+          <div className='characterBar'>
+                <div className='triangle'>
                   <i className="fa fa-caret-up fa-2x" aria-hidden="true" style={{ "paddingLeft": `${lengthNum}%`}}></i>
-                </span>
-          </span>
+                </div>
+          </div>
           <div className='descriptions'>
             <h6 className='leftText'>Too Short</h6><h6 className='rightText'>Too Long</h6>
           </div>
@@ -97,12 +97,12 @@ const Characteristic = (props) => {
 
       {showComfort &&
         <div className='fit'>
-          <h5 className='decriptionText'>Comfort</h5>
-          <span className='characterBar'>
-                <span className='triangle'>
+          <h3 className='decriptionText'>Comfort</h3>
+          <div className='characterBar'>
+                <div className='triangle'>
                   <i className="fa fa-caret-up fa-2x" aria-hidden="true" style={{ "paddingLeft": `${comfortNum}%`}}></i>
-                </span>
-          </span>
+                </div>
+          </div>
           <div className='descriptions'>
             <h6 className='leftText'>Feels like a cloud</h6><h6 className='rightText'>It would hurt if mom hit you with this</h6>
           </div>
@@ -111,12 +111,12 @@ const Characteristic = (props) => {
 
       {showQuality &&
         <div className='fit'>
-          <h5 className='decriptionText'>Quality</h5>
-          <span className='characterBar'>
-                <span className='triangle'>
+          <h3 className='decriptionText'>Quality</h3>
+          <div className='characterBar'>
+                <div className='triangle'>
                   <i className="fa fa-caret-up fa-2x" aria-hidden="true" style={{ "paddingLeft": `${qualityNum}%`}}></i>
-                </span>
-          </span>
+                </div>
+          </div>
           <div className='descriptions'>
             <h6 className='leftText'>Poor</h6><h6 className='rightText'>Gucci</h6>
           </div>

@@ -101,3 +101,13 @@
   display: flex;
   justify-content: space-between;
 }
+
+.errors{
+  color: red;
+  font-size: .7rem;
+  list-style-type: none;
+}
+
+.eachStar:hover {
+  color: green;
+}

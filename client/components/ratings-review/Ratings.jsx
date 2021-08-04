@@ -99,6 +99,11 @@ const Ratings = () => {
     setReviewList(data);
   }
 
+  // Filter Handler
+  const filterHandler = (filteredReviews) => {
+    setReviewList(filteredReviews)
+  }
+
 
   return (
       <div className='component'>
@@ -119,7 +124,7 @@ const Ratings = () => {
                 }
 
                 <div className='ratingComponent'>
-                  <RatingBreakdown incomingReviews={incomingReviews} />
+                  <RatingBreakdown incomingReviews={incomingReviews} filterHandler={filterHandler}/>
                   <ProductBreakdown />
                 </div>
 
