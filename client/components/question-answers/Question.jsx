@@ -80,7 +80,7 @@ const Question = (props) => {
           </div>
         </div>
         {answerList.map((item, i) =>
-          <Answers index={i} key={item.id} answer={item} />
+          <Answers questionId={questionId} index={i} key={item.id} answer={item} />
         )}
         {toggleMoreAnswersButton &&
           <div

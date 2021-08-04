@@ -6,16 +6,22 @@ import moment from 'moment';
 
 const Answers = (props) => {
 
-  const [report, setReport] = useState('Report');
-  const [reported, setReported] = useState(false);
+  const [report, setReport] = useState('Report Question');
+  const [firstReport, setFirstReport] = useState(true);
   const [answerHelpfulness, setAnswerHelpfulness] = useState(props.answer.helpfulness);
-  const [firstVote, setFirstVote] = useState(true)
+  const [firstVote, setFirstVote] = useState(true);
   let answerId = props.answer.id;
+  let questionId = props.questionId;
+  // console.log(questionId)
 
 
   // Update Answer Helpful Number
   let newAnswerObj = {
     id: answerHelpfulness,
+  }
+
+  let newQuestionObj = {
+    question_id: questionId,
   }
 
   const addHelpfulness = () => {
@@ -27,14 +33,20 @@ const Answers = (props) => {
       });
       setFirstVote(false);
     } else {
-      console.log('You already voted!')
+      console.log('You have already voted!')
     }
   }
 
-
-  const reportAnswer = () => {
-    setReported(true);
-    setReport('Reported')
+  const reportQuestion = () => {
+    if (firstReport) {
+      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${questionId}/report`, newAnswerObj, {
+        headers: { 'Authorization': `${access.TOKEN}` }
+      });
+      setReport('Question Reported!')
+      setFirstReport(false);
+    } else {
+      console.log('This question has already been reported!')
+    }
   }
 
 
@@ -69,7 +81,7 @@ const Answers = (props) => {
         |
         <div className="q_a_footer_item">Helpful? <div className="q_a_footer_item_yes" onClick={addHelpfulness}><u>Yes</u></div> ({answerHelpfulness})</div>
         |
-        <div onClick={reportAnswer} className="q_a_footer_item_report">
+        <div onClick={reportQuestion} className="q_a_footer_item_report">
           <u>{report}</u>
         </div>
 
