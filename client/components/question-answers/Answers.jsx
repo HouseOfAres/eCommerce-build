@@ -14,6 +14,7 @@ const Answers = (props) => {
   let questionId = props.questionId;
   // console.log(questionId)
 
+  // just some text to save
 
   // Update Answer Helpful Number
   let newAnswerObj = {
@@ -70,7 +71,6 @@ const Answers = (props) => {
           return <AnswerImg img={img} key={i} />
         })}</div>
       }
-
       <div className="q_a_footer">
         <div className="q_a_footer_item_first">
           by {props.answer.answerer_name},
