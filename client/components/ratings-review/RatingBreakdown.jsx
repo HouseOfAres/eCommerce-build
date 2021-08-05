@@ -205,7 +205,7 @@ const RatingBreakdown = (props) => {
         </div>
 
         {isLoading &&
-        <h5>{calcRecommended(metaData.recommended)}% of reviews recommend this product</h5>}
+        <div className='smallFont'>{calcRecommended(metaData.recommended)}% of reviews recommend this product</div>}
 
       </div>
     </div>

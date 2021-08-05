@@ -82,7 +82,7 @@ const Overview = () => {
   return (
     <div className="overviewComponent">
       <div className="productOverView">
-        <img className="Main-ImageOV" src={main}></img>
+        <img className="Main-ImageOV" src={main} alt="overview"></img>
         <div className="thumbnailList">
           {nail.map((e) => {
             return <Thumbnail thumb={e} imageHandle={imageHandler} />

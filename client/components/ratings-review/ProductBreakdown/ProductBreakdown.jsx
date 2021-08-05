@@ -34,20 +34,6 @@ useEffect(() => {
 
 }, [productId])
 
-  // useEffect(()=> {
-  //   fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`,
-  //     'Content-Type': 'application/json'
-  //   }
-  //           })
-  //           .then(response => response.json())
-  //           .then((data) => {
-  //             setMetaData(data)
-  //             setLoading(true)
-  //           })
-  //           .catch((err) => {
-  //             console.log(err);
-  //           });
-  // },[productId]);
 
   return (
     <div className='productBreakdown'>

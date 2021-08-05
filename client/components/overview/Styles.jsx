@@ -5,7 +5,7 @@ const Styles = (props) => {
 
   return (
     // <img className="ThumbnailOV" src={props.thumb.thumbnail_url} onClick={() => props.imageHandle(props.thumb.url)}></img>
-    <img className="styleOV" src={props.style.photos[0].thumbnail_url} onClick={() => props.styleHandle(props.style)}></img>
+    <img className="styleOV" src={props.style.photos[0].thumbnail_url} onClick={() => props.styleHandle(props.style)} alt="style overview"></img>
   )
 
   // const [currentSkuObj, setCurrentSkuObj] = useState( Object.values(currentStyleSkus)[0] );

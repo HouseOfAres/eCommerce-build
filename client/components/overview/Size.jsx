@@ -5,7 +5,7 @@ const Size = (props) => {
   return (
     <form action="/action_page.php" className="sizeOV">
       <label for="item">Size: </label>
-      <select name="size" id="sizeItemOV">
+      <select name="size" id="sizeItemOV" aria-label="size">
         <option value="default">--</option>
         <option value="x-small">XS</option>
         <option value="small">S</option>

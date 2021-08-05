@@ -56,8 +56,14 @@ body .site_wide_announce {
 
 body div.nav .logo {
   height: 100%;
+
 }
 
+/* Jair */
+body div.jair {
+  color: #606c38;
+  justify-self: right;
+}
 /* Component Div */
 
 body div.component {
@@ -90,6 +96,10 @@ body div.component {
     font-family: 'Poppins', sans-serif;
     z-index: 0;
   }
+}
+
+.makeTransparent {
+  color: #fffffff3;
 }
 
 h1 {
