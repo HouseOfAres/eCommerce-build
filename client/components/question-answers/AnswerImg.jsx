@@ -10,7 +10,7 @@ const AnswerImg = (props) => {
 
   return (
     <div>
-      <img src={props.img} height="70px" width="auto" onClick={imageClickHandler.bind(this)}/>
+      <img src={props.img} height="70px" width="auto" onClick={imageClickHandler.bind(this)} alt="answer image"/>
       {isOpen &&
           <div className='popup-box'>
           <div className='imgPop'>
@@ -19,6 +19,7 @@ const AnswerImg = (props) => {
                 src={props.img}
                 height='500px'
                 width='auto'
+                alt="answer"
               ></img>
           </div>
         </div>

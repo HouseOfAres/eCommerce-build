@@ -6,7 +6,7 @@ const Size = (props) => {
   return (
     <form action="/action_page.php" className="sizeOV">
       <label for="item">Size: </label>
-      <select name="size" id="sizeItemOV" onChange={props.sizeHandle}>
+      <select name="size" id="sizeItemOV" aria-label="size" onChange={props.sizeHandle}>
         <option value="default">--</option>
         {Object.keys(props.sku).map(e => {
           return <SizePer item={props.sku[e].size} sizeHandle={props.sizeHandle} />
