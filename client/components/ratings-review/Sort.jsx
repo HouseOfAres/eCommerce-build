@@ -3,11 +3,12 @@ import './Ratings.css';
 
 const Sort = (props) => {
 
-  const [sortType, setSortType] = useState('helpfulness');
+  const [sortType, setSortType] = useState('relevance');
 
   useEffect(() => {
     const sortArray = sortBy => {
       const types = {
+        relevance: 'relevance',
         helpfulness: 'helpfulness',
         date: 'date'
       };
@@ -20,14 +21,15 @@ const Sort = (props) => {
 
       } else if (sortProperty === 'relevance') {
         sortedReviews = [...props.incomingReviews].sort((a, b) => {
-          if(a.helpfulness > b.helpfulness) return 1;
-          if (a.helpfulness < b.helpfulness) return -1;
+          if(a.helpfulness > b.helpfulness) return -1;
+          if (a.helpfulness < b.helpfulness) return 1;
           if (-a.date.localeCompare(b.date)) return 1;
           if (!-a.date.localeCompare(b.date)) return -1;
         })
+        props.sortReviewHandler(sortedReviews);
 
-      } else {
-        sortedReviews = [...props.incomingReviews].sort((a, b) => (a.sortProperty < b.sortProperty ? 1 : -1));
+      } else if (sortProperty === 'helpfulness') {
+        sortedReviews = [...props.incomingReviews].sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
         props.sortReviewHandler(sortedReviews);
       }
     }
@@ -39,8 +41,8 @@ const Sort = (props) => {
   return (
     <div className="ratings_and_reviews_title">
       <h2>RATINGS &amp; REVIEWS</h2>
-      <div className='sort'>Sort on :
-        <select className='sortDropdown' onChange={(e) => setSortType(e.target.value)}>
+      <div className='sort'>{props.incomingReviews.length} Reviews, Sort on :
+        <select className='sortDropdown' onChange={(e) => setSortType(e.target.value)} aria-label="sortby">
           <option value='relevance'>Relevance</option>
           <option value='helpfulness'>Helpful</option>
           <option value='date'>Newest</option>

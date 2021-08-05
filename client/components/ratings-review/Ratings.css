@@ -192,12 +192,16 @@
 .rightText {
   grid-column-start: 2;
   text-align: right;
+  font-size: .7rem;
+  padding: 23px 0px;
 }
 
 .leftText {
   grid-column-start: 1;
   text-align: left;
   background: #606c3800;
+  font-size: .7rem;
+  padding: 23px 0px;
 }
 
 .filterByStars {
@@ -222,4 +226,9 @@
   font-size: .7rem;
   color: rgb(97, 96, 96);
   cursor: pointer;
+}
+
+.smallFont{
+  font-size: .9rem;
+  text-align: center;
 }

@@ -62,7 +62,7 @@ const Characteristic = (props) => {
                 </div>
           </div>
           <div className='descriptions'>
-            <h6 className='leftText'>Fits Tight</h6><h6 className='rightText'>Fits Loose</h6>
+            <div className='leftText'>Fits Tight</div><div className='rightText'>Fits Loose</div>
           </div>
         </div>
       }
@@ -76,7 +76,7 @@ const Characteristic = (props) => {
                 </div>
           </div>
           <div className='descriptions'>
-            <h6 className='leftText'>MouseFeet</h6><h6 className='rightText'>ClownTown</h6>
+            <div className='leftText'>MouseFeet</div><div className='rightText'>ClownTown</div>
           </div>
         </div>
       }
@@ -90,7 +90,7 @@ const Characteristic = (props) => {
                 </div>
           </div>
           <div className='descriptions'>
-            <h6 className='leftText'>Too Short</h6><h6 className='rightText'>Too Long</h6>
+            <div className='leftText'>Too Short</div><div className='rightText'>Too Long</div>
           </div>
         </div>
       }
@@ -104,7 +104,7 @@ const Characteristic = (props) => {
                 </div>
           </div>
           <div className='descriptions'>
-            <h6 className='leftText'>Feels like a cloud</h6><h6 className='rightText'>It would hurt if mom hit you with this</h6>
+            <div className='leftText'>Feels like a cloud</div><div className='rightText'>It would hurt if mom hit you with this</div>
           </div>
         </div>
       }
@@ -118,7 +118,7 @@ const Characteristic = (props) => {
                 </div>
           </div>
           <div className='descriptions'>
-            <h6 className='leftText'>Poor</h6><h6 className='rightText'>Gucci</h6>
+            <div className='leftText'>Poor</div><div className='rightText'>Gucci</div>
           </div>
         </div>
       }
