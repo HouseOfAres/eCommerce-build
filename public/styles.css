@@ -237,6 +237,7 @@ div.productOverView {
   border-style: groove;
   margin-left: -100px;
 }
+
 .ThumbnailOV {
   max-width: 50px;
   max-height: 50px;
@@ -390,6 +391,30 @@ div.productOverView {
   position: absolute;
   margin-left: 874px;
   margin-top: 7px;
+}
+
+.starOVcontainer {
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.fa-angle-left{
+  margin-top: 335px;
+  margin-left: -33px;
+  position: absolute;
+  color: white;
+  /* text-shadow: 2px 2px 3px rgb(145, 145, 145); */
+  text-shadow: 0 0 3px #0000006b, 0 0 5px #0000006b;
+
+}
+
+.fa-angle-right{
+  margin-top: 335px;
+  margin-left: 515px;
+  position: absolute;
+  color: white;
+  /* text-shadow: 2px 2px 3px rgb(145, 145, 145); */
+  text-shadow: 0 0 3px #0000006b, 0 0 5px #0000006b;
 }
 
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
