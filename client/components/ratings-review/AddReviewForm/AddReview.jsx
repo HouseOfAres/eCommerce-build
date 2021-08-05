@@ -197,6 +197,7 @@ const AddReview = (props) => {
 
     setFinalInfo(final);
     props.handleClose();
+    props.addReviewHandler();
 
     var myHeaders = new Headers();
     myHeaders.append("Authorization", `${access.TOKEN}`);
@@ -463,7 +464,7 @@ const AddReview = (props) => {
                 <div className='previewPhotos'>
                     {
                       selectedFile.map(photo => (
-                        <img src={photo.photoURL} alt='...' height="30px" />
+                        <img src={photo.photoURL} alt='upload' height="30px" />
                       ))
                     }
                 </div>

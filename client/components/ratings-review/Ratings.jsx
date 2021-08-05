@@ -25,6 +25,7 @@ const Ratings = () => {
   const [ showModal, setShowModal ] = useState(false);
   const [ metaData, setMetaData ] = useState({});
   const [ isLoading, setLoading ] = useState(false);
+  const [ addedReviews, setAddedReviews ] = useState([]);
 
 
   useEffect(()=> {
@@ -41,19 +42,7 @@ const Ratings = () => {
             }
           })
 
-          // .then((data) => {
-          //   if (data.results.length === 0) {
-          //     setToggleMoreReviewButton(false);
-          //   } else {
-          //     setProductReviews(data.results);
-          //     setReviewList([data.results[0], data.results[1]])
-          //   }
-          // })
-          // .catch((err) => {
-          //   console.log(err);
-          // });
-
-  },[productId]);
+  },[productId, addedReviews]);
 
   useEffect(()=> {
     fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`}
@@ -82,7 +71,7 @@ const Ratings = () => {
 
     const updateReviewList = incomingReviews.slice(0, updateIndex);
     setReviewList(updateReviewList);
-    // Deal with varying review quantities
+
     if (updateIndex >= incomingReviews.length) {
       setToggleMoreReviewButton(false);
     }
@@ -99,9 +88,14 @@ const Ratings = () => {
     setReviewList(data);
   }
 
-  // Filter Handler
+
   const filterHandler = (filteredReviews) => {
     setReviewList(filteredReviews)
+  }
+
+
+  const addReviewHandler = () => {
+    setAddedReviews([...addedReviews, 1])
   }
 
 
@@ -130,7 +124,7 @@ const Ratings = () => {
 
                 <div className='addingReviewComponent'>
                   {showModal && isLoading &&
-                    <AddReview handleClose={showModalHandler} productName={currentProduct.name} characteristics={metaData.characteristics} id={productId}/>
+                    <AddReview handleClose={showModalHandler} productName={currentProduct.name} characteristics={metaData.characteristics} id={productId} addReviewHandler={addReviewHandler}/>
                   }
                 </div>
 

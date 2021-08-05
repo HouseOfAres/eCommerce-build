@@ -184,11 +184,11 @@ const AddAnswer = (props) => {
                 className="pop_up_img_loader"
               />
               <div className="add_answer_img_thumbnails">
-                <div className="img_placeholder">Image 1</div>
-                <div className="img_placeholder">Image 2</div>
-                <div className="img_placeholder">Image 3</div>
-                <div className="img_placeholder">Image 4</div>
-                <div className="img_placeholder">Image 5</div>
+                <div className="img_placeholder" alt="upload">Image 1</div>
+                <div className="img_placeholder" alt="upload">Image 2</div>
+                <div className="img_placeholder" alt="upload">Image 3</div>
+                <div className="img_placeholder" alt="upload">Image 4</div>
+                <div className="img_placeholder" alt="upload">Image 5</div>
               </div>
             </div> */}
 

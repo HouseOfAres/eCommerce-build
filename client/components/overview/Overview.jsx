@@ -12,17 +12,20 @@ import Quantity from './Quantity.jsx';
 import DefaultPrice from './DefaultPrice.jsx';
 import Stars from '../shared-features/Stars.jsx';
 
+let count = 0;
 
 const Overview = () => {
   let id = (useContext(ProductContext))
 
   const [main, setMain] = useState(image.productStyles.results[0].photos[0].url);
   const [nail, setNail] = useState(image.productStyles.results[0].photos);
-  const [sty, setSty] = useState([])
-  const [salePrice, setSalePrice] = useState('')
-  const [styname, setStyname] = useState('')
-  const [average, setAverage] = useState('')
-
+  const [sty, setSty] = useState(image.productStyles.results);
+  const [salePrice, setSalePrice] = useState('');
+  const [styname, setStyname] = useState('');
+  const [average, setAverage] = useState('');
+  const [itemSku, setItemSku] = useState({});
+  const [quantitySize, setQuantitySize] = useState({})
+  const [cycleCount, setCycleCount] = useState(0)
 
   const imageHandler = (evt) => {
     setMain(evt.url)
@@ -33,9 +36,27 @@ const Overview = () => {
     setNail(evt.photos)
     setStyname(evt.name.toUpperCase())
     setSalePrice(evt.sale_price)
-    // console.log(evt)
+    setItemSku(evt.skus)
+    count = 0
   }
 
+  const sizeHandler = (evt) => {
+    setQuantitySize(evt.target.value)
+  }
+
+  const rightArrowHandler = (evt) => {
+    if(nail[count + 1] !== undefined) {
+      count++
+      setMain(nail[count].url)
+    }
+  }
+
+  const leftArrowHandler = (evt) => {
+    if(count > 0) {
+      count--
+      setMain(nail[count].url)
+    }
+  }
 
   useEffect(() => {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${id.id}/styles`, {
@@ -47,7 +68,7 @@ const Overview = () => {
         setSty(response.data.results)
         setStyname(response.data.results[0].name.toUpperCase())
         setSalePrice(response.data.results[0].sale_price)
-        // console.log(response.data.results[0].sale_price)
+        setItemSku(response.data.results[0].skus)
       })
       .catch((err) => {
         console.log(err);
@@ -64,6 +85,7 @@ const Overview = () => {
         console.log(err)
       })
 
+
     const totalAverage = (data) => {
       let sum = parseInt(data['1']) + parseInt(data['2']) + parseInt(data['3']) + parseInt(data['4']) + parseInt(data['5']);
 
@@ -75,14 +97,13 @@ const Overview = () => {
 
       return ((fiveStar + fourStar + threeStar + twoStar + oneStar) / sum)
     }
-
   }, [id])
 
 
   return (
     <div className="overviewComponent">
       <div className="productOverView">
-        <img className="Main-ImageOV" src={main}></img>
+        <img className="Main-ImageOV" src={main} alt="overview"></img>
         <div className="thumbnailList">
           {nail.map((e) => {
             return <Thumbnail thumb={e} imageHandle={imageHandler} />
@@ -90,16 +111,20 @@ const Overview = () => {
         </div>
         <div className="category">
 
+<<<<<<< HEAD
           <Stars rating={average} /> - Read all reviews
+=======
+          <div className="starOVcontainer"><Stars rating={average} /> - Read all reviews</div>
+>>>>>>> main
           <h2 className="itemNameOV">{id.name}</h2>
           <p className="cate">CATEGORY</p>
 
           <div className="category-item"><h3><strong>{id.category}</strong></h3></div>
         </div>
         <div className="shareOV">
-          <i class="fab fa-facebook-square fa-lg"></i>
-          <i class="fab fa-twitter-square fa-lg"></i>
-          <i class="fab fa-pinterest-square fa-lg"></i>
+          <i className="fab fa-facebook-square fa-lg"></i>
+          <i className="fab fa-twitter-square fa-lg"></i>
+          <i className="fab fa-pinterest-square fa-lg"></i>
 
         </div>
         <div className="product-priceOV">
@@ -115,9 +140,11 @@ const Overview = () => {
           })}
 
         </div>
-        <Size />
+        <Size sku={itemSku} sizeHandle={sizeHandler}/>
         <Quantity />
         <button type="button" className="cartOV">ADD TO CART</button>
+        <i class="fas fa-angle-left fa-3x" onClick={leftArrowHandler}></i>
+        <i class="fas fa-angle-right fa-3x" onClick={rightArrowHandler}></i>
       </div>
     </div>
   )
