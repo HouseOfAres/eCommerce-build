@@ -9,39 +9,62 @@ const AddAnswer = (props) => {
   const [answerText, setAnswerText] = useState('');
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');
-  const [photos, setPhotos] = useState([]);
+  const [selectedFile, setSelectedFile] = useState([]);
+  const [urlArray, setUrlArray] = useState([]);
   const [questionId, setQuestionId] = useState(props.questionId);
   const [letterCount, setLetterCount] = useState(0);
-  const [incompleteFields, setIncompleteFields] = useState(false);
-  const [answerValid, setAnswerValid] = useState(false);
-  const [nickNameValid, setNickNameValid] = useState(false);
-  const [emailValid, setEmailValid] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
+  const [errors, setErrors] = useState([]);
   let allValid = false;
 
+  const testImg = ['https://images.theconversation.com/files/405990/original/file-20210611-13-pcdwbd.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop']
 
+
+  const validate = () => {
+    let foundErrors = [];
+
+    if (answerText === '') {
+      foundErrors.push('Question body must be between 1 and 1000 characters');
+    }
+    if (nickName === '') {
+      foundErrors.push('Username Required');
+    }
+    if (email === '') {
+      foundErrors.push('Email Required');
+    }
+    if (!email.includes('@')) {
+      foundErrors.push('Email Requires \'@\'');
+    }
+    if (!(email.includes('.'))) {
+      foundErrors.push('Email Requires an end (.com, .net, .org, etc.)');
+    }
+
+    return foundErrors;
+  }
 
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    if (
-      answerValid === true &&
-      nickNameValid === true &&
-      emailValid === true
-    ) {
-      allValid = true;
-    } else {
+    console.log(urlArray)
+    const errors = validate();
+
+    if (errors.length > 0) {
+      console.log('hi')
       allValid = false;
+      setErrors(errors);
+      return;
+    }else {
+      allValid = true;
     }
-    console.log(allValid)
+
     if (allValid) {
 
       const addQuestionFormData = {
         body: answerText,
         name: nickName,
         email: email,
-        photos: photos
+        photos: testImg
       }
 
       axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${questionId}/answers`, addQuestionFormData, {
@@ -63,47 +86,44 @@ const AddAnswer = (props) => {
     const answerText = e.target.value;
     setAnswerText(answerText)
     setLetterCount(answerText.length)
-
-    if (answerText.length > 0 && answerText.length < 1000) {
-      setAnswerValid(true)
-    } else {
-      setAnswerValid(false)
-    }
   }
 
   const handleNickNameChange = (e) => {
     const nickNameText = e.target.value;
     setNickName(nickNameText)
-
-    if (nickNameText.length > 0 && nickNameText.length < 30) {
-      setNickNameValid(true)
-    } else {
-      setNickNameValid(false)
-    }
   }
 
   const handleEmailChange = (e) => {
     const emailText = e.target.value;
     setEmail(emailText)
+  }
 
-    if (emailText.length > 0 && emailText.length < 60) {
-      setEmailValid(true)
-    } else {
-      setEmailValid(false);
+  const fileChangedHandler = (e) => {
+    e.preventDefault();
+    let file_reader = new FileReader();
+    let file = e.target.files[0];
+    console.log(file)
+
+    file_reader.onload = () => {
+      setSelectedFile([...selectedFile, {
+        uploaded_file: file_reader.result,
+        photoURL: URL.createObjectURL(file)
+      }
+      ])
+      setUrlArray([...urlArray, URL.createObjectURL(file)]);
     }
+    file_reader.readAsDataURL(file);
 
-    if (emailText.includes('@')) {
-      setEmailValid(true)
-    } else {
-      setEmailValid(false);
-    }
-
-    if (emailText.includes('.') && emailText.indexOf('.') > emailText.indexOf('@')) {
-      setEmailValid(true)
-    } else {
-      setEmailValid(false);
+    if (selectedFile.length === 5) {
+      setToggleUpload(false);
     }
   }
+
+  const uploadHandler = (e) => {
+    e.preventDefault();
+    console.log('You just uploaded: ', selectedFile)
+  }
+
 
   return (
     <div className='q_a_popup_box'>
@@ -157,7 +177,7 @@ const AddAnswer = (props) => {
               </div>
             </div>
 
-            <div className="form_item">
+            {/* <div className="form_item">
               <h3>Upload your photos:</h3>
               <input
                 type="file"
@@ -170,11 +190,28 @@ const AddAnswer = (props) => {
                 <div className="img_placeholder">Image 4</div>
                 <div className="img_placeholder">Image 5</div>
               </div>
-            </div>
+            </div> */}
 
-            {showErrors &&
-              <span>Hello!</span>
-            }
+            <div className="form_item">
+              <h3>Upload Photos (5 Max.)</h3>
+            </div>
+            <div className='uploadPhotos'>
+              <input type='file' multiple accept='.jpeg, .png, .pdf' onChange={fileChangedHandler} />
+            </div>
+            <div className='previewPhotos'>
+              {
+                selectedFile.map(photo => (
+                  <img src={photo.photoURL} alt='...' height="60px" />
+                ))
+              }
+            </div>
+            <button onClick={uploadHandler}>Upload</button>
+
+            <div className='errors'>
+              {errors.map(error => (
+                <li key={error}>Error: {error}</li>
+              ))}
+            </div>
             <div className="form_button">
               <button className="modal_button">SUBMIT ANSWER</button>
             </div>

@@ -10,15 +10,6 @@ const AddQ = (props) => {
   const [email, setEmail] = useState('');
   const [productId, setProductId] = useState(props.currentProduct.id);
   const [letterCount, setLetterCount] = useState(0);
-  const [incompleteFields, setIncompleteFields] = useState(false);
-  const [invalidQuestionLength, setInvalidQuestionLength] = useState(false);
-  const [invalidNickNameLength, setInvalidNickNameLength] = useState(false);
-  const [invalidNickNameChars, setInvalidNickNameChars] = useState(false);
-  const [invalidEmailLength, setInvalidEmailLength] = useState(false);
-  const [invalidEmailChars, setInvalidEmailChars] = useState(false);
-  const [questionValid, setQuestionValid] = useState(false);
-  const [nickNameValid, setNickNameValid] = useState(false);
-  const [emailValid, setEmailValid] = useState(false);
   const [showErrors, setShowErrors] = useState(false);
   const [errors, setErrors] = useState([]);
   let allValid = false;
@@ -27,16 +18,22 @@ const AddQ = (props) => {
   const validate = () => {
     let foundErrors = [];
 
-    if (!questionValid) {
+    if (questionText === '') {
       foundErrors.push('Question body must be between 1 and 1000 characters');
     }
-    if (!nickNameValid) {
+    if (nickName === '') {
       foundErrors.push('Username Required');
     }
-    if (!emailValid === '') {
+    if (email === '') {
       foundErrors.push('Email Required');
     }
-    console.log(foundErrors)
+    if (!email.includes('@')) {
+      foundErrors.push('Email Requires \'@\'');
+    }
+    if (!(email.includes('.'))) {
+      foundErrors.push('Email Requires an end (.com, .net, .org, etc.)');
+    }
+
     return foundErrors;
   }
 
@@ -44,13 +41,13 @@ const AddQ = (props) => {
   const submitNewQuestion = (e) => {
 
     e.preventDefault();
-    console.log(errors)
     const errors = validate();
-    console.log(errors)
     if (errors.length > 0) {
-      allValid(false);
+      allValid = false;
       setErrors(errors);
       return;
+    } else {
+      allValid = true;
     }
 
     if (allValid) {
@@ -85,48 +82,18 @@ const AddQ = (props) => {
     const QText = e.target.value;
     setQuestionText(QText)
     setLetterCount(QText.length)
-
-    if (QText.length > 0 && QText.length < 1000) {
-      setQuestionValid(true)
-    } else {
-      setQuestionValid(false)
-    }
   }
 
   // Nickname Validation
   const handleNickNameChange = (e) => {
     const nickNameText = e.target.value;
     setNickName(nickNameText)
-
-    if (nickNameText.length > 0 && nickNameText.length < 30) {
-      setNickNameValid(true)
-    } else {
-      setNickNameValid(false)
-    }
   }
 
   // Email Validation
   const handleEmailChange = (e) => {
     const emailText = e.target.value;
     setEmail(emailText)
-
-    if (emailText.length > 0 && emailText.length < 60) {
-      setEmailValid(true)
-    } else {
-      setEmailValid(false);
-    }
-
-    if (emailText.includes('@')) {
-      setEmailValid(true)
-    } else {
-      setEmailValid(false);
-    }
-
-    if (emailText.includes('.') && emailText.indexOf('.') > emailText.indexOf('@')) {
-      setEmailValid(true)
-    } else {
-      setEmailValid(false);
-    }
   }
 
 
@@ -145,7 +112,7 @@ const AddQ = (props) => {
               <h3>* Your Question:</h3>
               <textarea type='text' onChange={handleQuestionTextChange} placeholder="Example: What is the airspeed velocity of an unladen swallow?" className="pop_up_input_form_textarea" rows="10" required />
               <div className="pop_up_letter_counter">
-                Char count: {letterCount}/1000 {invalidQuestionLength && <span style={{ color: "red" }}>Max character limit reached! (1000)</span>}
+                Char count: {letterCount}/1000
               </div>
             </div>
 
@@ -162,7 +129,7 @@ const AddQ = (props) => {
               <h3>* Your email:</h3>
               <input onChange={handleEmailChange} placeholder="Example: email@address.com" className="pop_up_input_form" type='text' required />
               <div className="pop_up_email_text">
-                For authentication reasons, you will not be emailed {invalidEmailLength && <span style={{ color: "red" }}>Max character limit reached! (60)</span>}
+                For authentication reasons, you will not be emailed
               </div>
             </div>
 

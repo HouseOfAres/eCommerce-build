@@ -349,7 +349,7 @@ div.productOverView {
   border-radius: 4px;
   padding: 0px 20px;
   color: white;
-  background-color: #dda15e;
+  background-color: #ea6c00;
   cursor: pointer;
   margin-top: 690px;
 }
@@ -1075,4 +1075,22 @@ i.fas.fa-search {
   bottom: 190px;
   font-size: 1.4rem;
   color: rgb(160, 160, 160);
+}
+
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  /* CSS here */
+}
+
+i.fab.fa-facebook-square.fa-lg {
+  color: #4267B2;
+}
+
+i.fab.fa-twitter-square.fa-lg {
+  color: #1DA1F2;
+}
+
+i.fab.fa-pinterest-square.fa-lg {
+  color: #E60023;
 }

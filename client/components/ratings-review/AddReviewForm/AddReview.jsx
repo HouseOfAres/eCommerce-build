@@ -175,7 +175,6 @@ const AddReview = (props) => {
     }
     return charObj;
   }
-
   const handleFinalSubmit = (e) => {
     e.preventDefault();
     const final = {

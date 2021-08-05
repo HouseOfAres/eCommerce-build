@@ -3,18 +3,20 @@ import React, { useState, useEffect } from 'react';
 import AddQ from './AddQ.jsx';
 import Question from './Question.jsx';
 
+
 const QuestionsList = (props) => {
 
   const mainQuestionList = props.questionList;
   const [toggleMoreQuestionsButton, setToggleMoreQuestionsButton] = useState(true);
   const [questionIndex, setQuestionIndex] = useState(4);
-  let questionList = mainQuestionList
-  .sort((a, b) => {
-    return b.question_helpfulness - a.question_helpfulness;
-  })
-  .slice(0, questionIndex);
-
   const [showModal, setShowModal] = useState(false);
+  let questionList = mainQuestionList
+    .sort((a, b) => {
+      return b.question_helpfulness - a.question_helpfulness;
+    })
+    .slice(0, questionIndex);
+
+
 
 
   // More Questions Button

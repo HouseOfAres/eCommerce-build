@@ -90,7 +90,7 @@ const Overview = () => {
         </div>
         <div className="category">
 
-          <p><Stars rating={average} /> - Read all reviews</p>
+          <Stars rating={average} /> - Read all reviews
           <h2 className="itemNameOV">{id.name}</h2>
           <p className="cate">CATEGORY</p>
 
