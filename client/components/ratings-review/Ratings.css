@@ -14,6 +14,11 @@
 .ratingNum {
   font-size: 4rem;
 }
+
+.reviewModalPhoto:hover {
+  cursor: pointer;
+}
+
 .addButton {
   display: inline-block;
   width: 200px;
@@ -27,8 +32,6 @@
   color: rgb(87, 87, 87);
   cursor: pointer;
 }
-
-
 
 .moreButton {
   display: inline-block;
@@ -74,6 +77,10 @@
   box-sizing: border-box;
 }
 
+.image {
+  align-content: center;
+}
+
 .popup-box {
   position: fixed;
   background: #00000050;
@@ -85,6 +92,8 @@
 }
 
 .box {
+  display: grid;
+  justify-content: center;
   position: relative;
   width: 70%;
   margin: 0 auto;
@@ -128,6 +137,13 @@
   white-space: nowrap;
 }
 
+.numberRating:hover{
+  background-color: rgba(211, 211, 211, 0.644);
+  border-radius: 8px;
+  padding: 2px;
+  padding-left: 4px;
+}
+
 .ratingBar {
   grid-column-start: 2;
   align-self: center;
@@ -163,7 +179,6 @@
 .characterBar {
   position:absolute;
   justify-self: stretch;
-  /* If width is change, update the percentage for the triangle in Characteristics.jsx */
   width: 22.5%;
   min-width: 227px;
   background: #e5e6e279;

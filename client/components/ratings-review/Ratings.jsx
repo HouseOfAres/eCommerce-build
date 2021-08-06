@@ -65,6 +65,8 @@ const Ratings = () => {
       });
   }, [productId]);
 
+  const renderLoader = () => <p>Loading</p>;
+
   const handleRecommendation = (e) => {
     setSelectRecommendation(e.target.value)
   }
