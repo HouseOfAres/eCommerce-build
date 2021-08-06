@@ -34,30 +34,24 @@ const App = () => {
     <div>
       <ProductContext.Provider value={productData}>
 
-        <a id="toTheTop"><NavigationBar /></a>
+        <div id="toTheTop"><NavigationBar /></div>
         <Overview />
-        <a
-          id="Related-Items">
-          <Slogan />
-        </a>
+          <div id="Related-Items"><Slogan /></div>
         <Related />
-        <a
-          id="Questions&Answers">
+        {/* <a
+          id="Questions&Answers"> */}
           <a
             href="#toTheTop"
             className="remove_underline" >
-            <div className="backToTop">Back to top <i class="fas fa-caret-up"></i></div>
+            <div id="Questions&Answers" className="backToTop">Back to top <i class="fas fa-caret-up"></i></div>
           </a>
-        </a>
+        {/* </a> */}
         <QuestionsAndAnswers />
-        <a
-          id="Ratings&Reviews">
           <a
             href="#toTheTop"
             className="remove_underline" >
-            <div className="backToTop">Back to top <i class="fas fa-caret-up"></i></div>
+            <div id="Ratings&Reviews" className="backToTop">Back to top <i class="fas fa-caret-up"></i></div>
           </a>
-        </a>
         <Ratings />
         <a
           href="#toTheTop"
