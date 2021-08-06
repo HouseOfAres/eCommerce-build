@@ -10,7 +10,7 @@ const ReviewPhoto = (props) => {
 
   return (
     <div>
-      <img src={props.photo.url} height='75' width='auto' onClick={imageClickHandler.bind(this)} alt="review image"/>
+      <img src={props.photo.url} height='75' width='auto' onClick={imageClickHandler.bind(this)} alt="review image" loading="lazy"/>
       {isOpen &&
           <div className='popup-box'>
           <div className='box'>
@@ -22,6 +22,7 @@ const ReviewPhoto = (props) => {
                 width='auto'
                 class='center'
                 alt='opened review image'
+                loading="lazy"
               ></img>
           </div>
         </div>

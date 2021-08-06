@@ -1,11 +1,16 @@
-import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
+import { lazy, Suspense } from 'react';
+const ProductBreakdown = lazy(() => import('./ProductBreakdown/ProductBreakdown.jsx'));
+// import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
 import productReviews from '../../../mock-data/reviews-data.js';
 import React, { useState, useEffect, useContext } from 'react';
 import productData from '../../../mock-data/products-data.js';
 import { ProductContext } from '../../ProductContext.jsx';
-import AddReview from './AddReviewForm/AddReview.jsx';
-import ReviewList from './ReviewList/ReviewList.jsx';
-import RatingBreakdown from './RatingBreakdown.jsx';
+// import AddReview from './AddReviewForm/AddReview.jsx';
+const AddReview = lazy(() => import('./AddReviewForm/AddReview.jsx'));
+// import ReviewList from './ReviewList/ReviewList.jsx';
+const ReviewList = lazy(() => import('./ReviewList/ReviewList.jsx'));
+//import RatingBreakdown from './RatingBreakdown.jsx';
+const RatingBreakdown = lazy(() => import('./RatingBreakdown.jsx'));
 import access from '../../../config.js';
 import 'regenerator-runtime/runtime'
 import Sort from './Sort.jsx';
@@ -26,7 +31,7 @@ const Ratings = () => {
   const [ metaData, setMetaData ] = useState({});
   const [ isLoading, setLoading ] = useState(false);
   const [ addedReviews, setAddedReviews ] = useState([]);
-
+  const renderLoader = () => <p>Loading</p>;
 
   useEffect(()=> {
     axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`
@@ -103,7 +108,7 @@ const Ratings = () => {
       <div className='component'>
         <Sort incomingReviews={incomingReviews} sortReviewHandler={sortReviewHandler}/>
         <div className='reviewsRatingsContainer'>
-
+        <Suspense fallback={renderLoader()}>
                 <div className='reviewList'>
                   <div className='reviewTiles'>
                     <ReviewList reviewList={reviewList} handleClose={showModalHandler} />
@@ -118,8 +123,10 @@ const Ratings = () => {
                 }
 
                 <div className='ratingComponent'>
-                  <RatingBreakdown incomingReviews={incomingReviews} filterHandler={filterHandler}/>
-                  <ProductBreakdown />
+
+                    <RatingBreakdown incomingReviews={incomingReviews} filterHandler={filterHandler}/>
+                    <ProductBreakdown />
+
                 </div>
 
                 <div className='addingReviewComponent'>
@@ -134,6 +141,7 @@ const Ratings = () => {
                   value='ADD A REVIEW +'
                   onClick={showModalHandler}
                  />
+          </Suspense>
         </div>
       </div>
   )
