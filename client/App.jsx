@@ -14,31 +14,56 @@ import axios from 'axios'
 
 const App = () => {
 
-  const [ productData, setProductData ] = useState({});
+  const [productData, setProductData] = useState({});
 
-    useEffect(()=> {
+  useEffect(() => {
 
-      fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/17067', {headers: {'Authorization': `${access.TOKEN}`}
-            })
-            .then(response => response.json())
-            .then((data) => {
-              setProductData(data);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-    },[])
+    fetch('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/17067', {
+      headers: { 'Authorization': `${access.TOKEN}` }
+    })
+      .then(response => response.json())
+      .then((data) => {
+        setProductData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [])
 
   return (
     <div>
       <ProductContext.Provider value={productData}>
 
-        <NavigationBar />
+        <a id="toTheTop"><NavigationBar /></a>
         <Overview />
-        <Slogan />
+        <a
+          id="Related-Items">
+          <Slogan />
+        </a>
         <Related />
+        <a
+          id="Questions&Answers">
+          <a
+            href="#toTheTop"
+            className="remove_underline" >
+            <div className="backToTop">Back to top <i class="fas fa-caret-up"></i></div>
+          </a>
+        </a>
         <QuestionsAndAnswers />
+        <a
+          id="Ratings&Reviews">
+          <a
+            href="#toTheTop"
+            className="remove_underline" >
+            <div className="backToTop">Back to top <i class="fas fa-caret-up"></i></div>
+          </a>
+        </a>
         <Ratings />
+        <a
+          href="#toTheTop"
+          className="remove_underline" >
+          <div className="backToTop">Back to top <i class="fas fa-caret-up"></i></div>
+        </a>
 
       </ProductContext.Provider>
     </div>
