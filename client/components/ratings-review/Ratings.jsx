@@ -52,6 +52,7 @@ const Ratings = () => {
   }, [productId, addedReviews]);
 
   useEffect(() => {
+    // TODO: Provide a conditional for if the productId is undefined
     fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {
       headers: { 'Authorization': `${access.TOKEN}` }
     })

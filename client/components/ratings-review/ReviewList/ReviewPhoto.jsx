@@ -25,7 +25,7 @@ const ReviewPhoto = (props) => {
                 src={props.photo.url}
                 height='500px'
                 width='auto'
-
+                
                 alt='opened review image'
                 loading="lazy"
               ></img>
