@@ -1,11 +1,16 @@
-import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
+import { lazy, Suspense } from 'react';
+const ProductBreakdown = lazy(() => import('./ProductBreakdown/ProductBreakdown.jsx'));
+// import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
 import productReviews from '../../../mock-data/reviews-data.js';
 import React, { useState, useEffect, useContext } from 'react';
 import productData from '../../../mock-data/products-data.js';
 import { ProductContext } from '../../ProductContext.jsx';
-import AddReview from './AddReviewForm/AddReview.jsx';
-import ReviewList from './ReviewList/ReviewList.jsx';
-import RatingBreakdown from './RatingBreakdown.jsx';
+// import AddReview from './AddReviewForm/AddReview.jsx';
+const AddReview = lazy(() => import('./AddReviewForm/AddReview.jsx'));
+// import ReviewList from './ReviewList/ReviewList.jsx';
+const ReviewList = lazy(() => import('./ReviewList/ReviewList.jsx'));
+//import RatingBreakdown from './RatingBreakdown.jsx';
+const RatingBreakdown = lazy(() => import('./RatingBreakdown.jsx'));
 import access from '../../../config.js';
 import 'regenerator-runtime/runtime'
 import Sort from './Sort.jsx';
@@ -47,6 +52,7 @@ const Ratings = () => {
   }, [productId, addedReviews]);
 
   useEffect(() => {
+    // TODO: Provide a conditional for if the productId is undefined
     fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {
       headers: { 'Authorization': `${access.TOKEN}` }
     })
@@ -59,6 +65,8 @@ const Ratings = () => {
         console.log(err);
       });
   }, [productId]);
+
+  const renderLoader = () => <p>Loading</p>;
 
   const handleRecommendation = (e) => {
     setSelectRecommendation(e.target.value)
@@ -101,11 +109,11 @@ const Ratings = () => {
     setAddedReviews([...addedReviews, 1])
   }
 
-
   return (
     <div className='component'>
       <Sort incomingReviews={incomingReviews} sortReviewHandler={sortReviewHandler} />
       <div className='reviewsRatingsContainer'>
+        <Suspense fallback={renderLoader()}>
 
         <div className='reviewList'>
           <div className='reviewTiles'>
@@ -140,6 +148,7 @@ const Ratings = () => {
             onClick={showModalHandler}
           />
         </div>
+        </Suspense>
       </div>
     </div>
   )
