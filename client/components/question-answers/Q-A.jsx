@@ -19,8 +19,8 @@ const QuestionsAndAnswers = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-      axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=20`,
-      // axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=20',
+      axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=1000`,
+      // axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=1000',
       {
         headers: { 'Authorization': `${access.TOKEN}` }
       })

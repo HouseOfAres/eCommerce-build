@@ -10,7 +10,8 @@ body, html {
 /* Main Nav Bar */
 
   body div.nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
     position: relative;
     width: 100%;
     max-width: 1280px;
@@ -29,7 +30,7 @@ body, html {
 
 @media (min-width:1280px){
   body div.nav {
-    display: flex;
+    grid-template-columns: 25% 50% 25%;
     position: relative;
     width: 100%;
     background-color: #283618;
@@ -55,8 +56,32 @@ body .site_wide_announce {
 /* Nav Logo */
 
 body div.nav .logo {
-  height: 100%;
+  height: 50px;
 
+}
+
+i.fas.fa-street-view.fa-xs {
+  font-size: 2.5rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.jairIcon {
+  position: fixed;
+  bottom: 30px;
+  right: 70px;
+  font-size: 1rem;
+}
+
+@media (max-width:1280px) {
+  .jairIcon {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    font-size: .8rem;
+    color: rgba(0, 0, 0, 0.226);
+    z-index: 1;
+  }
 }
 
 /* Jair */
@@ -98,8 +123,17 @@ body div.component {
   }
 }
 
-.makeTransparent {
-  color: #fffffff3;
+h1.makeTransparent {
+  color:#283618;
+  margin: none;
+  padding: none;
+  height: 80px;
+  overflow: hidden;
+}
+
+.logo {
+  justify-self: center;
+  height: 60px;
 }
 
 h1 {
@@ -283,7 +317,7 @@ div.productOverView {
 .category-item {
   font-size: 25px;
   margin-bottom: 0px;
-  margin-top: -20px;
+  margin-top: -15px;
 }
 
 .cate {
@@ -354,13 +388,13 @@ div.productOverView {
   height: 50px;
   margin: 10px 625px;
   font-weight: bold;
-  font-size: .9rem;
+  font-size: 1.2rem;
   border: none;
   border-bottom: 2px solid rgb(87, 87, 87);
   border-radius: 4px;
   padding: 0px 20px;
   color: white;
-  background-color: #dda15e;
+  background-color: #ea6c00;
   cursor: pointer;
   margin-top: 690px;
 }
@@ -415,7 +449,7 @@ div.productOverView {
   color: white;
   /* text-shadow: 2px 2px 3px rgb(145, 145, 145); */
   text-shadow: 0 0 3px #0000006b, 0 0 5px #0000006b;
-
+  cursor: pointer;
 }
 
 .fa-angle-right{
@@ -425,6 +459,7 @@ div.productOverView {
   color: white;
   /* text-shadow: 2px 2px 3px rgb(145, 145, 145); */
   text-shadow: 0 0 3px #0000006b, 0 0 5px #0000006b;
+  cursor: pointer;
 }
 
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
@@ -492,8 +527,8 @@ div.productOverView {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ececec;
-  color: rgb(160, 160, 160);
+  background-color: #5c5c5c;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   text-align: center;
   border-radius: 4px;
@@ -612,7 +647,7 @@ div.answers .answerA {
 
 div.answers .q_a_answer_first {
   display: inline-block;
-  margin: 6px 0px 0px 10px;
+  margin: 6px 0px 0px 14px;
   font-size: .9rem;
   max-width: 990px;
 }
@@ -755,8 +790,8 @@ div.q_a_buttons .buttons {
 
 body div.component .reviewsRatingsContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 10px;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 20px;
   align-items: start;
 
   width: auto;
@@ -810,6 +845,7 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   top: 0;
   left: 0;
   vertical-align: middle;
+  z-index: 999 !important;
 }
 
 .q_a_box {
@@ -826,7 +862,7 @@ body div.component div.reviewsRatingsContainer .ratingComponent{
   padding: 20px;
   border: 5px solid #606c38;
   overflow: auto;
-  z-index: 999;
+  z-index: 999 !important;
   margin-top: 5vh;
 }
 
@@ -975,9 +1011,20 @@ hr.form_hr {
   height: 150px;
 }
 
+.pop_up_letter_counter {
+  font-size: .7rem;
+  color: rgb(160, 160, 160);
+}
+
 .pop_up_email_text {
   font-size: .7rem;
   color: rgb(160, 160, 160);
+}
+
+.pop_up_incomplete_text {
+  font-size: .7rem;
+  color: red;
+  width: 100%;
   text-align: center;
 }
 
@@ -1098,4 +1145,35 @@ i.fas.fa-search {
   bottom: 190px;
   font-size: 1.4rem;
   color: rgb(160, 160, 160);
+}
+
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  /* CSS here */
+}
+
+i.fab.fa-facebook-square.fa-lg {
+  color: #4267B2;
+}
+
+i.fab.fa-twitter-square.fa-lg {
+  color: #1DA1F2;
+}
+
+i.fab.fa-pinterest-square.fa-lg {
+  color: #E60023;
+}
+
+
+#app_footer {
+  text-align: center;
+  height: 30px;
+  background-color: #283618;
+  padding-top: 5px;
+  max-width: 1280px;
+  margin: 0 auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  color: white;
 }
