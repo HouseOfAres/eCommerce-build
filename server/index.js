@@ -1,9 +1,11 @@
 const express = require('express');
+const compression = require('compression')
 const cors = require('cors');
 let app = express ();
 
 app.use(express.static(__dirname + '/../public'));
-app.use(express.json()); //body parser
+app.use(express.json());
+app.use(compression());
 app.use(cors());
 
 app.get('/products/:product_id', function (req, res) {

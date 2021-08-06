@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: './client/App.jsx',
   mode: 'development',
+  devtool: 'eval-source-map',
   // Where files should be sent once they are bundled
  output: {
    path: path.join(__dirname, '/public'),

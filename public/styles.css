@@ -348,7 +348,12 @@ div.productOverView {
   margin: 1%;
   border-style: double;
   cursor: pointer;
+  opacity: 50%;
+}
 
+.ThumbnailOV:hover {
+  opacity: 100%;
+  box-shadow: 5px #999;
 }
 
 .thumbnailList {
@@ -357,8 +362,6 @@ div.productOverView {
   position: absolute;
   margin-left: -90px;
   margin-top: 10px;
-  opacity: 50%;
-
 }
 
 .category {
