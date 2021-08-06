@@ -34,6 +34,7 @@ const Related = () => {
   return (
     <div className="component">
       <h2>RELATED ITEMS</h2>
+
       <div className="related_items_container">
         <div className="related_container">
           <i class="fas fa-arrow-circle-left" id="topleft"></i>
