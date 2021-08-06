@@ -34,10 +34,6 @@ const QuestionsAndAnswers = () => {
       });
   }, [currentProductId]);
 
-  useEffect(() => {
-    console.log('question list changed')
-}, [questionList]);
-
 
   return (
     <div className="component">

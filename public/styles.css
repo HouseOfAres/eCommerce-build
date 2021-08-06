@@ -69,8 +69,19 @@ i.fas.fa-street-view.fa-xs {
 .jairIcon {
   position: fixed;
   bottom: 30px;
-  right: 100px;
+  right: 70px;
   font-size: 1rem;
+}
+
+@media (max-width:1280px) {
+  .jairIcon {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    font-size: .8rem;
+    color: rgba(0, 0, 0, 0.226);
+    z-index: 1;
+  }
 }
 
 /* Jair */
@@ -438,7 +449,7 @@ div.productOverView {
   color: white;
   /* text-shadow: 2px 2px 3px rgb(145, 145, 145); */
   text-shadow: 0 0 3px #0000006b, 0 0 5px #0000006b;
-
+  cursor: pointer;
 }
 
 .fa-angle-right{
@@ -448,6 +459,7 @@ div.productOverView {
   color: white;
   /* text-shadow: 2px 2px 3px rgb(145, 145, 145); */
   text-shadow: 0 0 3px #0000006b, 0 0 5px #0000006b;
+  cursor: pointer;
 }
 
 /* RELATED ITEMS Change name of SUBCOMPONENT*******************************************************/
@@ -1151,4 +1163,17 @@ i.fab.fa-twitter-square.fa-lg {
 
 i.fab.fa-pinterest-square.fa-lg {
   color: #E60023;
+}
+
+
+#app_footer {
+  text-align: center;
+  height: 30px;
+  background-color: #283618;
+  padding-top: 5px;
+  max-width: 1280px;
+  margin: 0 auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  color: white;
 }
