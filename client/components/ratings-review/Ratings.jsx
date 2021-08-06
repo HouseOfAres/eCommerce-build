@@ -23,44 +23,47 @@ const Ratings = () => {
   const currentProduct = useContext(ProductContext);
   const reviewData = productReviews.review.results;
   const productId = currentProduct.id;
-  const [ incomingReviews, setProductReviews ] = useState(reviewData);
-  const [ toggleMoreReviewButton, setToggleMoreReviewButton ] = useState(true);
-  const [ reviewList, setReviewList ] = useState([reviewData[0], reviewData[1]]);
-  const [ reviewIndex, setReviewIndex ] = useState(2);
-  const [ showModal, setShowModal ] = useState(false);
-  const [ metaData, setMetaData ] = useState({});
-  const [ isLoading, setLoading ] = useState(false);
-  const [ addedReviews, setAddedReviews ] = useState([]);
-  const renderLoader = () => <p>Loading</p>;
+  const [incomingReviews, setProductReviews] = useState(reviewData);
+  const [toggleMoreReviewButton, setToggleMoreReviewButton] = useState(true);
+  const [reviewList, setReviewList] = useState([reviewData[0], reviewData[1]]);
+  const [reviewIndex, setReviewIndex] = useState(2);
+  const [showModal, setShowModal] = useState(false);
+  const [metaData, setMetaData] = useState({});
+  const [isLoading, setLoading] = useState(false);
+  const [addedReviews, setAddedReviews] = useState([]);
 
-  useEffect(()=> {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`
-     }
-          })
-          .then(async (response) => {
-            try{
-              const data = await response.data;
-              setProductReviews(data.results);
-              setReviewList([data.results[0], data.results[1]])
-            } catch(error) {
-              console.log(error)
-            }
-          })
 
-  },[productId, addedReviews]);
+  useEffect(() => {
+    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {
+      headers: {
+        'Authorization': `${access.TOKEN}`
+      }
+    })
+      .then(async (response) => {
+        try {
+          const data = await response.data;
+          setProductReviews(data.results);
+          setReviewList([data.results[0], data.results[1]])
+        } catch (error) {
+          console.log(error)
+        }
+      })
 
-  useEffect(()=> {
-    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {headers: {'Authorization': `${access.TOKEN}`}
-            })
-            .then(response => response.json())
-            .then((data) => {
-              setMetaData(data)
-              setLoading(true)
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-  },[productId]);
+  }, [productId, addedReviews]);
+
+  useEffect(() => {
+    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {
+      headers: { 'Authorization': `${access.TOKEN}` }
+    })
+      .then(response => response.json())
+      .then((data) => {
+        setMetaData(data)
+        setLoading(true)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [productId]);
 
   const handleRecommendation = (e) => {
     setSelectRecommendation(e.target.value)
@@ -103,47 +106,48 @@ const Ratings = () => {
     setAddedReviews([...addedReviews, 1])
   }
 
-
   return (
-      <div className='component'>
-        <Sort incomingReviews={incomingReviews} sortReviewHandler={sortReviewHandler}/>
-        <div className='reviewsRatingsContainer'>
+    <div className='component'>
+      <Sort incomingReviews={incomingReviews} sortReviewHandler={sortReviewHandler} />
+      <div className='reviewsRatingsContainer'>
         <Suspense fallback={renderLoader()}>
-                <div className='reviewList'>
-                  <div className='reviewTiles'>
-                    <ReviewList reviewList={reviewList} handleClose={showModalHandler} />
-                  </div>
-                </div>
-                {toggleMoreReviewButton &&
-                  <input
-                    className='moreButton'
-                    type='submit'
-                    value='MORE REVIEWS'
-                    onClick={() => {moreReviewsHandler()}} />
-                }
 
-                <div className='ratingComponent'>
-
-                    <RatingBreakdown incomingReviews={incomingReviews} filterHandler={filterHandler}/>
-                    <ProductBreakdown />
-
-                </div>
-
-                <div className='addingReviewComponent'>
-                  {showModal && isLoading &&
-                    <AddReview handleClose={showModalHandler} productName={currentProduct.name} characteristics={metaData.characteristics} id={productId} addReviewHandler={addReviewHandler}/>
-                  }
-                </div>
-
-                <input
-                  className='addButton'
-                  type='button'
-                  value='ADD A REVIEW +'
-                  onClick={showModalHandler}
-                 />
-          </Suspense>
+        <div className='reviewList'>
+          <div className='reviewTiles'>
+            <ReviewList reviewList={reviewList} handleClose={showModalHandler} />
+          </div>
         </div>
+
+
+        <div className='ratingComponent'>
+          <RatingBreakdown incomingReviews={incomingReviews} filterHandler={filterHandler} />
+          <ProductBreakdown />
+        </div>
+
+        <div className='addingReviewComponent'>
+          {showModal && isLoading &&
+            <AddReview handleClose={showModalHandler} productName={currentProduct.name} characteristics={metaData.characteristics} id={productId} addReviewHandler={addReviewHandler} />
+          }
+        </div>
+        <div className="review-buttons">
+          {toggleMoreReviewButton &&
+            <input
+              className='moreButton'
+              type='submit'
+              value='MORE REVIEWS'
+              onClick={() => { moreReviewsHandler() }} />
+          }
+
+          <input
+            className='addButton'
+            type='button'
+            value='ADD A REVIEW +'
+            onClick={showModalHandler}
+          />
+        </div>
+        </Suspense>
       </div>
+    </div>
   )
 }
 

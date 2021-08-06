@@ -73,14 +73,14 @@ const Question = (props) => {
             Q: <span id="q_a_question_text">{props.item.question_body}</span>
           </h3>
           {showModal &&
-            <AddAnswer forms={document.forms} productName={currentProduct.name} questionBody={props.item.question_body} handleClose={() => { showModalHandler() }} />
+            <AddAnswer questionId={questionId} productName={currentProduct.name} questionBody={props.item.question_body} handleClose={() => { showModalHandler() }} />
           }
           <div className="q_a_helpful_add">
             Helpful? <div className="q_a_helpful_yes" onClick={addHelpfulness}><u>Yes</u></div> ({questionHelpfulness}) | <div className="add_answer_pop_up" onClick={() => { showModalHandler() }}>Add Answer</div>
           </div>
         </div>
         {answerList.map((item, i) =>
-          <Answers index={i} key={item.id} answer={item} />
+          <Answers questionId={questionId} index={i} key={item.id} answer={item} />
         )}
         {toggleMoreAnswersButton &&
           <div

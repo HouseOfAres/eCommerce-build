@@ -175,7 +175,6 @@ const AddReview = (props) => {
     }
     return charObj;
   }
-
   const handleFinalSubmit = (e) => {
     e.preventDefault();
     const final = {
@@ -336,11 +335,11 @@ const AddReview = (props) => {
                     }
                   {showComfort &&
                     <div className='showButtons'>
-                      <label>Comfort.............
+                      <label className="labelItems"><span>Comfort................
                       <label>
                           Uncomfortable
                           <input type="radio" value={1} checked={selectComfort === '1'} onChange={handleComfortSelection} />
-                        </label>
+                        </label></span>
                         <label>
                           Slightly Uncomfortable
                           <input type="radio" value={2} checked={selectComfort === '2'} onChange={handleComfortSelection} />
@@ -362,11 +361,11 @@ const AddReview = (props) => {
                   }
                   {showQuality &&
                     <div className='showButtons'>
-                      <label>Quality..........
+                      <label className="labelItems"><span>Quality...................
                       <label>
                           Poor
                           <input type="radio" value={1} checked={selectQuality === '1'} onChange={handleQualitySelection} />
-                        </label>
+                        </label></span>
                         <label>
                           Below Average
                           <input type="radio" value={2} checked={selectQuality === '2'} onChange={handleQualitySelection} />
@@ -388,11 +387,11 @@ const AddReview = (props) => {
                   }
                   {showLength &&
                     <div className='showButtons'>
-                      <label>Length.............
+                      <label className="labelItems"><span>Length....................
                       <label>
                           Runs Short
                           <input type="radio" value={1} checked={selectLength === '1'} onChange={handleLengthSelection} />
-                        </label>
+                        </label></span>
                         <label>
                           Runs Slightly Short
                           <input type="radio" value={2} checked={selectLength === '2'} onChange={handleLengthSelection} />
@@ -414,11 +413,11 @@ const AddReview = (props) => {
                     }
                   {showFit &&
                     <div className='showButtons'>
-                      <label>Fit.................
+                      <label className="labelItems"><span>Fit...............................
                       <label>
                           Runs Tight
                           <input type="radio" value={1} checked={selectFit=== '1'} onChange={handleFitSelection} />
-                        </label>
+                        </label></span>
                         <label>
                           Runs Slightly Tightly
                           <input type="radio" value={2} checked={selectFit === '2'} onChange={handleFitSelection} />

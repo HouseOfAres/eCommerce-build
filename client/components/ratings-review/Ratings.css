@@ -26,8 +26,6 @@
   padding: 0px 20px;
   color: rgb(87, 87, 87);
   cursor: pointer;
-  grid-column: 3;
-  grid-row-start: 2;
 }
 
 
@@ -36,7 +34,7 @@
   display: inline-block;
   width: 200px;
   height: 50px;
-  margin: 10px 0px;
+  margin: 10px 25px;
   font-weight: bold;
   font-size: .9rem;
   border: 1px solid rgb(87, 87, 87);
@@ -44,6 +42,12 @@
   padding: 0px 20px;
   color: rgb(87, 87, 87);
   cursor: pointer;
+}
+
+.review_buttons {
+  display: block;
+  height: 50px;
+  width: 100%;
   grid-column-start: 2;
   grid-row-start: 2;
 }
@@ -114,7 +118,7 @@
 
 .starBar{
   display: grid;
-  grid-template-columns: 20% 65% 15%;
+  grid-template-columns: 20% 70% 10%;
 }
 
 .numberRating{
@@ -134,7 +138,6 @@
   background: #e5e6e279;
   height: 10px;
   border-radius: 2px;
-  padding: 1px 5px;
 }
 
 .rbars {
@@ -161,7 +164,7 @@
   position:absolute;
   justify-self: stretch;
   /* If width is change, update the percentage for the triangle in Characteristics.jsx */
-  width: 23%;
+  width: 22.5%;
   min-width: 227px;
   background: #e5e6e279;
   height: 8px;
@@ -194,6 +197,15 @@
   text-align: right;
   font-size: .7rem;
   padding: 23px 0px;
+  margin-left: 80px;
+}
+
+.rightText_long {
+  grid-column-start: 2;
+  text-align: left;
+  font-size: .7rem;
+  padding: 23px 0px;
+  margin-left: 80px;
 }
 
 .leftText {
