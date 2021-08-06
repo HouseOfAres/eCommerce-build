@@ -48,7 +48,7 @@ const Related = () => {
           <div className="yours" id="4">LIST ITEM<br></br>PLACEHOLDER</div>
           <div className="yours" id="5">LIST ITEM<br></br>PLACEHOLDER</div>
           <div className="yours" id="6">LIST ITEM<br></br>PLACEHOLDER</div>
-          <div className="yours" id="gradient_tileb">LIST ITEM<br></br>PLACEHOLDER</div>
+          <div className="yours" id="gradient_tile">LIST ITEM<br></br>PLACEHOLDER</div>
           <i class="fas fa-arrow-circle-right" id="bottomright"></i>
         </div>
       </div>

@@ -31,7 +31,7 @@ const NavigationBar = () => {
           </div>
         }
       </div>
-      <div className="site_wide_announce"><em>SITE-WIDE ANNOUNCEMENT MESSAGE!</em> — Y'ALL ARE <strong>AWESOME!</strong> — <u><a href="https://www.youtube.com/watch?v=NUYvbT6vTPs" target="_blank">KEEP UP THE GOOD WORK!</a></u></div>
+      <div className="site_wide_announce"><em>SITE-WIDE ANNOUNCEMENT MESSAGE!</em> — Y'ALL ARE <strong>AWESOME!</strong> — <u>KEEP UP THE GOOD WORK!</u></div>
     </div >
   )
 };

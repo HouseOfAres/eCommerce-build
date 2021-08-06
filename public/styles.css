@@ -527,8 +527,8 @@ div.productOverView {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ececec;
-  color: rgb(160, 160, 160);
+  background-color: #5c5c5c;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   text-align: center;
   border-radius: 4px;
