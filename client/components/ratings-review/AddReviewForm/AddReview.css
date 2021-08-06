@@ -64,17 +64,26 @@
 }
 
 .reviewform_characteristics_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  width: 100%;
+  padding: 10px;
+  background-color: #ececec;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
 }
 
 .reviewform_characteristics_text{
-  justify-self: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.showButtons {
-  justify-items: end;
+.labelItems {
+  display: flex;
+  justify-content: space-between;
 }
 
 .starRating {

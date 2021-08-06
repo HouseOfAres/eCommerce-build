@@ -111,11 +111,7 @@ const Overview = () => {
         </div>
         <div className="category">
 
-<<<<<<< HEAD
-          <Stars rating={average} /> - Read all reviews
-=======
           <div className="starOVcontainer"><Stars rating={average} /> - Read all reviews</div>
->>>>>>> main
           <h2 className="itemNameOV">{id.name}</h2>
           <p className="cate">CATEGORY</p>
 
