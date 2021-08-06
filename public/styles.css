@@ -30,7 +30,7 @@ body, html {
 
 @media (min-width:1280px){
   body div.nav {
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
     position: relative;
     width: 100%;
     background-color: #283618;
@@ -48,6 +48,39 @@ body, html {
   }
 }
 
+.menu_item {
+
+  height: 40px;
+  width: 200px;
+  margin: 5px 0px;
+  color: #fff;
+  font-size: 1rem;
+  background-color: #606c38;
+  z-index: 1;
+  padding-top: 12px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.menu_item:hover {
+  background-color: #283618;
+}
+
+.dropDown {
+  position: absolute;
+  top: 80px;
+  right: 0px;
+  height: auto;
+  width: auto;
+  z-index: 1;
+  text-decoration: none;
+}
+
+.remove_underline {
+  text-decoration: none;
+}
+
 body .site_wide_announce {
   text-align: center;
   margin: 0px;
@@ -57,7 +90,7 @@ body .site_wide_announce {
 
 body div.nav .logo {
   height: 50px;
-
+  grid-column: 3;
 }
 
 i.fas.fa-street-view.fa-xs {
@@ -66,11 +99,35 @@ i.fas.fa-street-view.fa-xs {
   margin-left: 10px;
 }
 
+i.fas.fa-times {
+  justify-self: right;
+  grid-column: 5;
+  margin-right: 35px;
+  color: #606c38;
+  cursor: pointer;
+  font-size: 3.2rem;
+}
+
+i.fas.fa-bars {
+  justify-self: right;
+  grid-column: 5;
+  margin-right: 30px;
+  color: #606c38;
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+.backToTop {
+  color: rgb(204 204 204);
+  text-align: center;
+}
+
 .jairIcon {
   position: fixed;
   bottom: 30px;
   right: 70px;
   font-size: 1rem;
+  grid-column: 2;
 }
 
 @media (max-width:1280px) {
@@ -343,18 +400,22 @@ div.productOverView {
   flex-flow: row;
   position: absolute;
   margin-left: 625px;
-  margin-top: 330px;
+  margin-top: 340px;
   margin-right: 10px;
 
 }
 
 .styleOV {
-  width: 75px;
-  height: 75px;
+  width: 92px;
+  height: 92px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 3px;
+  margin: 3px 20px 3px 3px;
   cursor: pointer;
+}
+
+.styleOV:hover {
+  box-shadow: 0 0 7pt 3pt #00000077;
 }
 
 
@@ -532,6 +593,11 @@ div.productOverView {
   font-weight: bold;
   text-align: center;
   border-radius: 4px;
+}
+
+.product:hover, .yours:hover {
+  box-shadow: 0 0 10pt 4pt #00000077;
+  cursor: pointer;
 }
 
 #gradient_tile {
@@ -1172,8 +1238,11 @@ i.fab.fa-pinterest-square.fa-lg {
   background-color: #283618;
   padding-top: 5px;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 20px auto 0px auto;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   color: white;
 }
+
+
+
