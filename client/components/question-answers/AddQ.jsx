@@ -59,15 +59,7 @@ const AddQ = (props) => {
         product_id: productId
       }
 
-      axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions', addQuestionFormData, {
-        headers: { 'Authorization': `${access.TOKEN}` }
-      })
-        .then((response) => {
-          console.log('post received');
-        })
-        .catch((err) => {
-          console.log('Error: ', err);
-        });
+      axios.post('/qa/questions', addQuestionFormData);
 
       props.handleClose();
 

@@ -29,9 +29,16 @@ const Answers = (props) => {
     if (firstVote) {
       const addOne = props.answer.helpfulness + 1;
       setAnswerHelpfulness(addOne);
-      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/answers/${answerId}/helpful`, newAnswerObj, {
-        headers: { 'Authorization': `${access.TOKEN}` }
+      console.log(answerId)
+
+      axios.put(`/qa/answers/${answerId}`, newAnswerObj)
+      .then((response) => {
+        console.log('Vote received');
+      })
+      .catch((err) => {
+        console.log('Error: ', err);
       });
+
       setFirstVote(false);
     } else {
       console.log('You have already voted!')
