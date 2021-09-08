@@ -19,11 +19,8 @@ const QuestionsAndAnswers = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-      axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=${currentProductId}&count=1000`,
-      // axios.get('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/?product_id=17071&count=1000',
-      {
-        headers: { 'Authorization': `${access.TOKEN}` }
-      })
+    if (currentProductId) {
+      axios.get(`/questions/${currentProductId}`)
       .then((response) => {
         setQuestionData(response.data.results);
         setQuestionList(response.data.results);
@@ -32,7 +29,8 @@ const QuestionsAndAnswers = () => {
       .catch((err) => {
         console.log('Error: ', err);
       });
-  }, [currentProductId]);
+    }
+}, [currentProductId]);
 
 
   return (

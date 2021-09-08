@@ -1,4 +1,4 @@
-<img src="/Ares_readme_banner.png">
+<img src="/library/img/Ares_readme_banner.png">
 
 * File Structure
 - componenets

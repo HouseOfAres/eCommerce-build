@@ -10,13 +10,12 @@ const QuestionsList = (props) => {
   const [toggleMoreQuestionsButton, setToggleMoreQuestionsButton] = useState(true);
   const [questionIndex, setQuestionIndex] = useState(4);
   const [showModal, setShowModal] = useState(false);
+
   let questionList = mainQuestionList
     .sort((a, b) => {
       return b.question_helpfulness - a.question_helpfulness;
     })
     .slice(0, questionIndex);
-
-
 
 
   // More Questions Button

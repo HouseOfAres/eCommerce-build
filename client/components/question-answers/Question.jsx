@@ -21,13 +21,13 @@ const Question = (props) => {
   const [firstVote, setFirstVote] = useState(true)
   let questionId = props.item.question_id;
 
-
-  // Update Question Helpful Number
-  let newQuestionObj = {
-    question_helpfulness: questionHelpfulness,
-  }
-
+// Update Question Helpful Number
   const addHelpfulness = () => {
+
+    let newQuestionObj = {
+      question_helpfulness: questionHelpfulness,
+    }
+
     if (firstVote) {
       const addOne = props.item.question_helpfulness + 1;
       setQuestionHelpfulness(addOne);

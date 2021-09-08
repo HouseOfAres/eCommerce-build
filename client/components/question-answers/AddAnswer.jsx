@@ -17,8 +17,6 @@ const AddAnswer = (props) => {
   const [errors, setErrors] = useState([]);
   let allValid = false;
 
-  const testImg = ['https://images.theconversation.com/files/405990/original/file-20210611-13-pcdwbd.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop']
-
 
   const validate = () => {
     let foundErrors = [];
@@ -64,18 +62,11 @@ const AddAnswer = (props) => {
         body: answerText,
         name: nickName,
         email: email,
-        photos: testImg
+        photos: selectedFile
       }
 
-      axios.post(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${questionId}/answers`, addQuestionFormData, {
-        headers: { 'Authorization': `${access.TOKEN}` }
-      })
-        .then((response) => {
-          console.log('post received');
-        })
-        .catch((err) => {
-          console.log('Error: ', err);
-        });
+      axios.post(`/qa/questions/${questionId}/answers`, addQuestionFormData);
+
       props.handleClose();
     } else {
       setShowErrors(true);
