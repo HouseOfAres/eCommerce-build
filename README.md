@@ -1,5 +1,4 @@
-# frontend-capstone
-Frontend capstone project for House of Ares
+<img src="/Ares_readme_banner.png">
 
 * File Structure
 - componenets
