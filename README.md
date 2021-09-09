@@ -57,6 +57,7 @@ Set up a config.js with the following:
 
 ### 🤝 Contributors
 - [Chi Chan](https://www.linkedin.com/in/chi-chan88/)
+- [Jair Carbajal](https://www.linkedin.com/in/jair-carbajal/)
 - [Sophia Nguyen](https://www.linkedin.com/in/sophia-x-nguyen/)
 - [Tyler Petersen](https://www.linkedin.com/in/tyler-petersen02/)
 
