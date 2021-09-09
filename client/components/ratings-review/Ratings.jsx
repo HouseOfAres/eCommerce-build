@@ -1,17 +1,12 @@
 import { lazy, Suspense } from 'react';
 const ProductBreakdown = lazy(() => import('./ProductBreakdown/ProductBreakdown.jsx'));
-// import ProductBreakdown from './ProductBreakdown/ProductBreakdown.jsx';
+const AddReview = lazy(() => import('./AddReviewForm/AddReview.jsx'));
+const ReviewList = lazy(() => import('./ReviewList/ReviewList.jsx'));
+const RatingBreakdown = lazy(() => import('./RatingBreakdown.jsx'));
 import productReviews from '../../../mock-data/reviews-data.js';
 import React, { useState, useEffect, useContext } from 'react';
 import productData from '../../../mock-data/products-data.js';
 import { ProductContext } from '../../ProductContext.jsx';
-// import AddReview from './AddReviewForm/AddReview.jsx';
-const AddReview = lazy(() => import('./AddReviewForm/AddReview.jsx'));
-// import ReviewList from './ReviewList/ReviewList.jsx';
-const ReviewList = lazy(() => import('./ReviewList/ReviewList.jsx'));
-//import RatingBreakdown from './RatingBreakdown.jsx';
-const RatingBreakdown = lazy(() => import('./RatingBreakdown.jsx'));
-import access from '../../../config.js';
 import 'regenerator-runtime/runtime'
 import Sort from './Sort.jsx';
 import axios from 'axios';
@@ -30,40 +25,38 @@ const Ratings = () => {
   const [showModal, setShowModal] = useState(false);
   const [metaData, setMetaData] = useState({});
   const [isLoading, setLoading] = useState(false);
+  const [reviewsLoading, setReviewsLoading] = useState(false);
   const [addedReviews, setAddedReviews] = useState([]);
 
 
   useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/?product_id=${productId}`, {
-      headers: {
-        'Authorization': `${access.TOKEN}`
-      }
-    })
+    if (productId) {
+
+    axios.get(`/reviews/${productId}`)
       .then(async (response) => {
         try {
           const data = await response.data;
           setProductReviews(data.results);
           setReviewList([data.results[0], data.results[1]])
+          setReviewsLoading(true)
         } catch (error) {
           console.log(error)
         }
       })
-
+    }
   }, [productId, addedReviews]);
 
   useEffect(() => {
-    // TODO: Provide a conditional for if the productId is undefined
-    fetch(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${productId}`, {
-      headers: { 'Authorization': `${access.TOKEN}` }
-    })
-      .then(response => response.json())
-      .then((data) => {
-        setMetaData(data)
+    if (productId) {
+      axios.get(`reviews/meta/?product_id=${productId}`)
+      .then((response) => {
+        setMetaData(response.data)
         setLoading(true)
       })
       .catch((err) => {
-        console.log(err);
-      });
+        console.log(err)
+      })
+    }
   }, [productId]);
 
   const renderLoader = () => <p>Loading</p>;
@@ -89,7 +82,6 @@ const Ratings = () => {
 
   }
 
-
   const showModalHandler = (e) => {
     setShowModal(!showModal);
   }
@@ -111,7 +103,7 @@ const Ratings = () => {
 
   return (
     <div className='component'>
-      <Sort incomingReviews={incomingReviews} sortReviewHandler={sortReviewHandler} />
+      {reviewsLoading && <Sort incomingReviews={incomingReviews} sortReviewHandler={sortReviewHandler} />}
       <div className='reviewsRatingsContainer'>
         <Suspense fallback={renderLoader()}>
 
@@ -124,7 +116,8 @@ const Ratings = () => {
 
         <div className='ratingComponent'>
           <RatingBreakdown incomingReviews={incomingReviews} filterHandler={filterHandler} />
-          <ProductBreakdown />
+          {isLoading &&
+          <ProductBreakdown characteristics={metaData.characteristics}/>}
         </div>
 
         <div className='addingReviewComponent'>

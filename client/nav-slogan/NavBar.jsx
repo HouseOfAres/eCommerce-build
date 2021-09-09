@@ -38,12 +38,12 @@ const NavigationBar = () => {
         }
         {!showMenu &&
           <>
-            <i onClick={handleMenuClick} class="fas fa-bars"></i>
+            <i onClick={handleMenuClick} className="fas fa-bars"></i>
           </>
         }
         {showMenu &&
           <>
-            <i onClick={handleMenuClick} class="fas fa-times"></i>
+            <i onClick={handleMenuClick} className="fas fa-times"></i>
             <div className="dropDown">
               <a
                 href="#Related-Items"

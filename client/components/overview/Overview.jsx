@@ -4,7 +4,6 @@ import productInfo from '../../../mock-data/product-information.js';
 import Thumbnail from './Thumbnail.jsx';
 import Styles from './Styles.jsx';
 import axios from 'axios';
-import access from '../../../config.js';
 import { ProductContext } from '../../ProductContext.jsx';
 import Sale from './Sale.jsx';
 import Size from './Size.jsx';
@@ -17,7 +16,7 @@ let count = 0;
 const Overview = () => {
   let id = (useContext(ProductContext))
 
-  const [main, setMain] = useState(image.productStyles.results[0].photos[0].url);
+  const [main, setMain] = useState(image.productStyles.results[0].photos[0].thumbnail_url);
   const [nail, setNail] = useState(image.productStyles.results[0].photos);
   const [sty, setSty] = useState(image.productStyles.results);
   const [salePrice, setSalePrice] = useState('');
@@ -59,43 +58,39 @@ const Overview = () => {
   }
 
   useEffect(() => {
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products/${id.id}/styles`, {
-      headers: { 'Authorization': `${access.TOKEN}` }
-    })
-      .then((response) => {
-        setMain(response.data.results[0].photos[0].url);
-        setNail(response.data.results[0].photos)
-        setSty(response.data.results)
-        setStyname(response.data.results[0].name.toUpperCase())
-        setSalePrice(response.data.results[0].sale_price)
-        setItemSku(response.data.results[0].skus)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/meta/?product_id=${id.id}`, {
-      headers: { 'Authorization': `${access.TOKEN}` }
-    })
-      .then((response) => {
-        // setAverage(response.data.ratings)
-        setAverage(totalAverage(response.data.ratings))
-
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    if (id.id) {
+      axios.get(`products/${id.id}/styles`)
+        .then((response) => {
+          setMain(response.data.results[0].photos[0].url);
+          setNail(response.data.results[0].photos)
+          setSty(response.data.results)
+          setStyname(response.data.results[0].name.toUpperCase())
+          setSalePrice(response.data.results[0].sale_price)
+          setItemSku(response.data.results[0].skus)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      axios.get(`reviews/meta/?product_id=${id.id}`)
+        .then((response) => {
+          setAverage(totalAverage(response.data.ratings))
+        })
+        .catch((err) => {
+          console.log(err)
+        })
 
 
-    const totalAverage = (data) => {
-      let sum = parseInt(data['1']) + parseInt(data['2']) + parseInt(data['3']) + parseInt(data['4']) + parseInt(data['5']);
+      const totalAverage = (data) => {
+        let sum = parseInt(data['1']) + parseInt(data['2']) + parseInt(data['3']) + parseInt(data['4']) + parseInt(data['5']);
 
-      let fiveStar = parseInt(data['5']) * 5;
-      let fourStar = parseInt(data['4']) * 4;
-      let threeStar = parseInt(data['3']) * 3;
-      let twoStar = parseInt(data['2']) * 2;
-      let oneStar = parseInt(data['2']) * 1;
+        let fiveStar = parseInt(data['5']) * 5;
+        let fourStar = parseInt(data['4']) * 4;
+        let threeStar = parseInt(data['3']) * 3;
+        let twoStar = parseInt(data['2']) * 2;
+        let oneStar = parseInt(data['2']) * 1;
 
-      return ((fiveStar + fourStar + threeStar + twoStar + oneStar) / sum)
+        return ((fiveStar + fourStar + threeStar + twoStar + oneStar) / sum)
+      }
     }
   }, [id])
 
@@ -105,13 +100,15 @@ const Overview = () => {
       <div className="productOverView">
         <img className="Main-ImageOV" src={main} alt="overview"></img>
         <div className="thumbnailList">
-          {nail.map((e) => {
-            return <Thumbnail thumb={e} imageHandle={imageHandler} />
+          {nail.map((e, i) => {
+            return <Thumbnail thumb={e} imageHandle={imageHandler} key={i}/>
           })}
         </div>
         <div className="category">
 
-          <div className="starOVcontainer"><Stars rating={average} /> - Read all reviews</div>
+          <div className="starOVcontainer"><Stars rating={average} /><a
+                href="#Ratings&Reviews"
+                className="remove_underline"> - Read all reviews</a></div>
           <h2 className="itemNameOV">{id.name}</h2>
           <p className="cate">CATEGORY</p>
 
@@ -131,16 +128,16 @@ const Overview = () => {
         <div className="styleName"><h3>STYLE > {styname}</h3></div>
         <div className="stylescontainerOV">
 
-          {sty.map((e) => {
-            return <Styles style={e} styleHandle={styleHandler} />
+          {sty.map((e, i) => {
+            return <Styles style={e} styleHandle={styleHandler} key={i} />
           })}
 
         </div>
         <Size sku={itemSku} sizeHandle={sizeHandler}/>
         <Quantity />
         <button type="button" className="cartOV">ADD TO CART</button>
-        <i class="fas fa-angle-left fa-3x" onClick={leftArrowHandler}></i>
-        <i class="fas fa-angle-right fa-3x" onClick={rightArrowHandler}></i>
+        <i className="fas fa-angle-left fa-3x" onClick={leftArrowHandler}></i>
+        <i className="fas fa-angle-right fa-3x" onClick={rightArrowHandler}></i>
       </div>
     </div>
   )

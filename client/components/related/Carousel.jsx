@@ -14,7 +14,7 @@
 //       return photo.thumbnail_url;
 //     })
 //   })
-//   const [currArr, setCurrArr] = useState(0)
+//   const [currArr, setCurrArr] = uskjkjeState(0)
 //   const [currImg, setCurrImg] = useState(0)
 //   return (
 //     <div className="carousel">
