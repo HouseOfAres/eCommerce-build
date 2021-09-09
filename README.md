@@ -2,7 +2,7 @@
 
 
 
-# starfire-project-catwalk
+# Ares & Co.
 ### Table of Contents
 1. [General Info](#🌴-General-Info)
 2. [Demo](#✨-Demo)
@@ -13,7 +13,7 @@
 
 
 ### General Info
-Ares & Co. is a client-facing retail web-portal that allows customers to browse items in a retail catalog.
+Ares & Co. is a monolithic e-Commerce website that deliver products to the users. 
 
 ### ✨ Demo
 #### Overview
@@ -27,8 +27,11 @@ Ares & Co. is a client-facing retail web-portal that allows customers to browse 
 
 ### 🧪 Technologies
 * Axios : Version 0.21.1,
+* Compression : 1.7.4,
+* CSS-loader : 6.2.0,
 * Express : Version 4.17.1,
-* Jest : 27.0.6
+* Jest : 27.0.6,
+* Moment : 2.29.1,
 * Nodemon: Version 2.0.12,
 * React : Version 17.0.2,
 * React-dom : Version 17.0.2,
@@ -41,7 +44,7 @@ Ares & Co. is a client-facing retail web-portal that allows customers to browse 
 $ git clone https://github.com/HouseOfAres/frontend-capstone.git
 $ cd ../frontend-capstone.git
 $ npm install
-$ npm run build:dev
+$ npm run build
 $ npm start
 ```
 Set up a config.js with the following: 
@@ -53,7 +56,7 @@ Set up a config.js with the following:
 
 
 ### 🤝 Contributors
-- [Chi Chan](https://github.com/chanychi)
-- [Sophia Nguyen](https://github.com/SOPHXN)
-- [Tyler Peter](https://github.com/tylerpetersen02)
+- [Chi Chan](https://www.linkedin.com/in/chi-chan88/)
+- [Sophia Nguyen](https://www.linkedin.com/in/sophia-x-nguyen/)
+- [Tyler Petersen](https://www.linkedin.com/in/tyler-petersen02/)
 
