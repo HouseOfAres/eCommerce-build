@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import questions from '../../../mock-data/questions-data.js';
+// import questions from '../../../mock-data/questions-data.js';
 import { ProductContext } from '../../ProductContext.jsx';
 import QuestionsList from './QuestionsList.jsx';
 import SearchBar from './SearchBar.jsx';
@@ -19,7 +19,7 @@ const QuestionsAndAnswers = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (currentProductId) {
+    if(currentProductId) {
       axios.get(`/questions/${currentProductId}`)
       .then((response) => {
         setQuestionData(response.data.results);
@@ -30,7 +30,7 @@ const QuestionsAndAnswers = () => {
         console.log('Error: ', err);
       });
     }
-}, [currentProductId]);
+  }, [currentProductId]);
 
 
   return (

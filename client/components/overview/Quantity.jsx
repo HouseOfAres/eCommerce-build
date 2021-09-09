@@ -4,7 +4,7 @@ const Quantity = (props) => {
 
   return (
     <form action="/action_page.php" className="quantityOV">
-      <label for="item">Quantity: </label>
+      <label htmlFor="item">Quantity: </label>
       <select name="quant" id="quantOV" aria-label="quantity">
         <option value="default">--</option>
         <option value="1">1</option>

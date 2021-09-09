@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from 'react';
-import access from '../../../../config.js';
 import axios from 'axios';
 import './AddReview.css';
 
@@ -199,22 +198,9 @@ const AddReview = (props) => {
     props.handleClose();
     props.addReviewHandler();
 
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", `${access.TOKEN}`);
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify(final);
-
-    var requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
-
-    fetch("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
+    axios.post("/reviews", final)
+      // .then(response => response.text())
+      .then(response => console.log(response.data))
       .catch(error => console.log('error', error));
 
   }

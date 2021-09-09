@@ -59,7 +59,13 @@ const AddQ = (props) => {
         product_id: productId
       }
 
-      axios.post('/qa/questions', addQuestionFormData);
+      axios.post('/qa/questions', addQuestionFormData)
+      .then((response) => {
+        console.log('Question Added!');
+      })
+      .catch((err) => {
+        console.log('Error: ', err);
+      });
 
       props.handleClose();
 

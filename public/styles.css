@@ -118,7 +118,11 @@ i.fas.fa-bars {
 }
 
 .backToTop {
+<<<<<<< Updated upstream
   color: rgb(87, 87, 87);
+=======
+  color: rgb(87 87 87);
+>>>>>>> Stashed changes
   text-align: center;
 }
 

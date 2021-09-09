@@ -6,36 +6,37 @@ const Sort = (props) => {
   const [sortType, setSortType] = useState('relevance');
 
   useEffect(() => {
-    const sortArray = sortBy => {
-      const types = {
-        relevance: 'relevance',
-        helpfulness: 'helpfulness',
-        date: 'date'
-      };
-      const sortProperty = types[sortBy];
-      var sortedReviews;
+    if (props.incomingReviews) {
+      const sortArray = sortBy => {
+        const types = {
+          relevance: 'relevance',
+          helpfulness: 'helpfulness',
+          date: 'date'
+        };
+        const sortProperty = types[sortBy];
+        var sortedReviews;
 
-      if (sortProperty === 'date') {
-        sortedReviews = [...props.incomingReviews].sort((a, b) => -a.date.localeCompare(b.date))
-        props.sortReviewHandler(sortedReviews);
+        if (sortProperty === 'date') {
+          sortedReviews = [...props.incomingReviews].sort((a, b) => -a.date.localeCompare(b.date))
+          props.sortReviewHandler(sortedReviews);
 
-      } else if (sortProperty === 'relevance') {
-        sortedReviews = [...props.incomingReviews].sort((a, b) => {
-          if(a.helpfulness > b.helpfulness) return -1;
-          if (a.helpfulness < b.helpfulness) return 1;
-          if (-a.date.localeCompare(b.date)) return 1;
-          if (!-a.date.localeCompare(b.date)) return -1;
-        })
-        props.sortReviewHandler(sortedReviews);
+        } else if (sortProperty === 'relevance') {
+          sortedReviews = [...props.incomingReviews].sort((a, b) => {
+            if(a.helpfulness > b.helpfulness) return -1;
+            if (a.helpfulness < b.helpfulness) return 1;
+            if (-a.date.localeCompare(b.date)) return 1;
+            if (!-a.date.localeCompare(b.date)) return -1;
+          })
+          props.sortReviewHandler(sortedReviews);
 
-      } else if (sortProperty === 'helpfulness') {
-        sortedReviews = [...props.incomingReviews].sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
-        props.sortReviewHandler(sortedReviews);
+        } else if (sortProperty === 'helpfulness') {
+          sortedReviews = [...props.incomingReviews].sort((a, b) => (a.helpfulness < b.helpfulness ? 1 : -1));
+          props.sortReviewHandler(sortedReviews);
+        }
       }
+
+      sortArray(sortType);
     }
-
-    sortArray(sortType);
-
   }, [sortType]);
 
   return (

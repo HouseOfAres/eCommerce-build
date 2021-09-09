@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import './../Ratings.css';
 
-
-
 const Characteristic = (props) => {
   const showChars = Object.keys(props.productCharacteristics);
   const [ showSize, setShowSize ] = useState(false);
@@ -15,7 +13,6 @@ const Characteristic = (props) => {
   const [ comfortNum, setComfortNum ] = useState(0);
   const [ showQuality, setShowQuality ] = useState(false);
   const [ qualityNum, setQualityNum ] = useState(0);
-
 
   const convertPercentage = (num) => {
     const newNum = Number(num);
@@ -49,6 +46,11 @@ const Characteristic = (props) => {
       setQualityNum(calcQualityNum)
       setShowQuality(true)
     }
+    // if (showChars.indexOf('Width') !== -1) {
+    //   const calcQualityNum = convertPercentage(props.productCharacteristics['Width']['value']);
+    //   setQualityNum(calcQualityNum)
+    //   setShowQuality(true)
+    // }
   }, [showChars])
 
   return (

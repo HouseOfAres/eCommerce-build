@@ -2,7 +2,6 @@ import Stars from '../../shared-features/Stars.jsx';
 import ReviewPhoto from './ReviewPhoto.jsx';
 import React, { useState } from 'react';
 import './ReviewTile.css';
-import access from '../../../../config.js';
 import axios from 'axios';
 
 
@@ -31,9 +30,7 @@ const ReviewTile = (props) => {
         review_id: reviewHelpfulness,
       }
 
-      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews/${reviewId}/helpful`, newReviewObj, {
-        headers: { 'Authorization': `${access.TOKEN}` }
-      });
+      axios.put(`reviews/${reviewId}`, newReviewObj)
       setFirstVote(false);
     } else {
       console.log('You already voted!')
@@ -69,7 +66,7 @@ const ReviewTile = (props) => {
         }
       </div>
 
-      <div className='reviewHelpfulness'>Helpful? <u className='clickHelpful' onClick={addHelpfulness}>Yes</u> ({reviewHelpfulness})</div>
+      <div className='reviewHelpfulness'>Helpful? {firstVote && <u className='clickHelpful' onClick={addHelpfulness}>Yes</u>} ({reviewHelpfulness})</div>
     </div>
   )
 };

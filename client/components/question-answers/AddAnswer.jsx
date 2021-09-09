@@ -65,9 +65,16 @@ const AddAnswer = (props) => {
         photos: selectedFile
       }
 
-      axios.post(`/qa/questions/${questionId}/answers`, addQuestionFormData);
+      axios.post(`/qa/questions/${questionId}/answers`, addQuestionFormData)
+      .then((response) => {
+        console.log('Answer Added!');
+      })
+      .catch((err) => {
+        console.log('Error: ', err);
+      });
 
       props.handleClose();
+
     } else {
       setShowErrors(true);
     }

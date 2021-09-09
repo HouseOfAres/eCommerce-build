@@ -12,11 +12,7 @@ const Answers = (props) => {
   const [firstVote, setFirstVote] = useState(true);
   let answerId = props.answer.id;
   let questionId = props.questionId;
-  // console.log(questionId)
 
-  // just some text to save
-
-  // Update Answer Helpful Number
   let newAnswerObj = {
     id: answerHelpfulness,
   }
@@ -29,7 +25,6 @@ const Answers = (props) => {
     if (firstVote) {
       const addOne = props.answer.helpfulness + 1;
       setAnswerHelpfulness(addOne);
-      console.log(answerId)
 
       axios.put(`/qa/answers/${answerId}`, newAnswerObj)
       .then((response) => {
@@ -47,9 +42,14 @@ const Answers = (props) => {
 
   const reportQuestion = () => {
     if (firstReport) {
-      axios.put(`https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/qa/questions/${questionId}/report`, newAnswerObj, {
-        headers: { 'Authorization': `${access.TOKEN}` }
+      axios.put(`/qa/questions/${questionId}/report`, newQuestionObj)
+      .then((response) => {
+        console.log('Question Reported!');
+      })
+      .catch((err) => {
+        console.log('Error: ', err);
       });
+
       setReport('Question Reported!')
       setFirstReport(false);
     } else {
