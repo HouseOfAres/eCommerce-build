@@ -1,4 +1,10 @@
 <img src="/library/img/Ares_readme_banner.png">
+<img src="/library/img/Overview.gif">
+<img src="https://github.com/HouseOfAres/frontend-capstone/tree/main/public/images/Overview.gif">
+<img src="/library/img/Questions.gif">
+<img src="/library/img/Reviews.gif">
+
+![](https://github.com/HouseOfAres/frontend-capstone/tree/main/public/images/Overview.gif)
 
 * File Structure
 - componenets
